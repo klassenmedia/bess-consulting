@@ -449,6 +449,39 @@ h3 { font-size: 21px; font-weight: 660; letter-spacing: -0.02em; line-height: 1.
 .branchen strong { display: block; font-size: 16px; font-weight: 680; }
 .branchen span { display: block; margin-top: 4px; font-size: 14px; line-height: 1.55; color: var(--muted-2); }
 
+/* ---------- Multi-Site ---------- */
+
+.multisite { display: grid; grid-template-columns: .85fr 1.15fr; gap: var(--s7); align-items: center; }
+.multisite h2 em { color: var(--leaf); }
+.multisite-source {
+  margin: var(--s4) 0 0; padding-left: 14px;
+  border-left: 2px solid var(--line-strong);
+  font-size: 13.5px; line-height: 1.6; color: var(--muted-2);
+}
+
+.multisite-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s2); }
+.multisite-steps li {
+  display: grid; grid-template-columns: 52px 1fr; gap: var(--s3);
+  align-items: start;
+  padding: var(--s3);
+  background: linear-gradient(150deg, #ffffff, var(--paper-2));
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  box-shadow: 0 1px 2px rgba(14, 42, 51, .04);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.multisite-steps li:hover { transform: translateX(4px); box-shadow: 0 8px 24px rgba(14, 42, 51, .08); }
+.multisite-num {
+  display: grid; place-items: center;
+  width: 44px; height: 44px; border-radius: 12px;
+  background: linear-gradient(140deg, var(--paper-3), #cfe6ea);
+  border: 1px solid #c2dde2;
+  font-size: 14px; font-weight: 780; color: var(--teal-dark);
+  font-variant-numeric: tabular-nums;
+}
+.multisite-steps strong { display: block; font-size: 17px; font-weight: 680; letter-spacing: -0.015em; }
+.multisite-steps span { display: block; margin-top: 5px; font-size: 15px; line-height: 1.6; color: var(--muted); }
+
 /* ---------- Dunkler Anker ---------- */
 
 .anchor-band { position: relative; background: var(--deep); color: #fff; overflow: hidden; }
@@ -846,7 +879,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
    ============================================================ */
 
 @media (max-width: 1100px) {
-  .hero-layout, .section-head, .method-grid, .expert, .calc-wrap, .contact-grid { gap: var(--s5); }
+  .hero-layout, .section-head, .method-grid, .expert, .calc-wrap, .contact-grid, .multisite { gap: var(--s5); }
   .booking-head { gap: var(--s4); }
   .anchor-fields { grid-template-columns: repeat(2, 1fr); }
   .trustbar-grid { gap: var(--s4); }
@@ -870,7 +903,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 
   .hero-layout, .section-head, .results, .method-grid, .expert,
   .calc-wrap, .contact-grid, .teaser-card, .knowledge-list,
-  .knowledge-card.featured, .reading-layout, .booking-head {
+  .knowledge-card.featured, .reading-layout, .booking-head, .multisite {
     grid-template-columns: 1fr;
   }
   .booking-head { align-items: start; }

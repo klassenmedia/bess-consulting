@@ -140,7 +140,7 @@ ERRC-Vorgaben, die direkt auf die Startseite durchschlagen:
 
 ### Belegte Zahlen (nur diese verwenden)
 
-- 40+ Audits, European Energy Manager (aus der Wettbewerbstabelle)
+- 50+ Audits (von Waldemar Brauer bestätigt, 10.09.2026), European Energy Manager
 - über 60 % der Audit-Empfehlungen werden nicht umgesetzt (Branchenproblem)
 - Umsetzungsrate unter 40 %
 - 40 % der Nicht-Kunden nennen Bürokratie als Haupthindernis
@@ -158,7 +158,7 @@ die Strategie verlangt konkrete Zahlen, aber eine Garantie ist nicht belegt.
 
 ### Offen (mit Waldemar zu klären)
 
-- Sind „40+ Audits" und „European Energy Manager" für die Website freigegeben?
+- „50+ Audits" von Waldemar bestätigt; EUREM-Zertifikat noch vorzulegen
 - Preise 2.500 € / 7.000 € öffentlich nennen? (Strategie sagt ja — Raise: konkrete EUR-Zahlen)
 - BAFA-Förderquoten: aktueller Stand vor Veröffentlichung prüfen
 - Branchenmodule: welche starten zuerst?
@@ -303,7 +303,7 @@ Schwellenwerte auf der Seite sind aktuell.
    Nr. 5 und 6 DDG. Der Platzhalter-Block darf nicht live gehen.
 2. **Datenschutz**: Hoster mit Anschrift, Protokolldaten, Speicherfristen,
    E-Mail-Anbieter, Aufsichtsbehörde (LfDI Baden-Württemberg).
-3. **Belege von Waldemar Brauer**: „40+ Audits" schriftlich bestätigen,
+3. **Belege von Waldemar Brauer**: „50+ Audits" schriftlich bestätigen,
    EUREM-Zertifikat („European Energy Manager") vorlegen lassen.
 4. **BAFA-Förderquote** recherchieren, falls sie doch genannt werden soll.
 5. Erst danach `PUBLIC_INDEXABLE=true`, robots.txt und X-Robots-Tag umstellen,
@@ -367,3 +367,51 @@ Einwilligung selbst ein), kostet aber Höhe: iframe auf 760 px gesetzt, mobil 90
 - Grundlage für die Drittlandsübermittlung prüfen (Data Privacy Framework?)
 - Entscheiden, ob der Kalender erst nach ausdrücklicher Einwilligung laden soll
   (Zwei-Klick-Lösung) — derzeit lädt er beim Seitenaufruf mit
+
+## Multi-Site-Verfahren und Garantie-Vorlage — 10.09.2026
+
+### Neue Sektion „Mehrere Standorte" (#standorte)
+
+Waldemar Brauer wendet das Multi-Site-Verfahren an. Das war bisher nur als dünne
+FAQ-Zeile abgebildet, ist aber ein handfestes Kostenargument für Unternehmen mit
+mehreren Werken — und die Konkurrenz kommuniziert es nicht.
+
+Systematik nach dem BAFA-Anwendungsbeispiel (`ea_grafik_multi_site_verfahren.pdf`,
+Grafik gelesen und ausgewertet):
+
+1. Gesamtenergieverbrauch aller Standorte ermitteln (Bezugsgröße)
+2. Standorte, die zusammen unter 10 % liegen, ausgrenzen
+3. Vergleichbare Standorte clustern; untersucht wird die **Wurzel aus der Anzahl
+   je Cluster** (Beispiel: 4 Standorte → √4 = 2; 3 Standorte → √3 = 1,732 → 2)
+4. Nicht vergleichbare Standorte einzeln untersuchen
+
+Im BAFA-Beispiel reduziert das zwölf Standorte auf sechs zu untersuchende —
+daher die Überschrift „Zwölf Werke. Sechs Audits."
+
+Zusätzlich als FAQ aufgenommen („Müssen wir wirklich jeden Standort auditieren?").
+
+### Navigation gestrafft
+
+Durch die neue Sektion und den Termin-Link waren es neun Punkte, die Leiste brach
+um. Jetzt sechs: Angebote, Ablauf, Standorte, Waldemar Brauer, Wissen, Termin
+buchen (als Button). Entspricht der Regel „Anlegen nie auf Listen-Seiten,
+Navigation gruppieren, wenige Felder".
+
+### Audit-Zahl
+
+Von Waldemar Brauer am 10.09.2026 bestätigt: **50+ Audits** (vorher 40+ aus der
+Strategie-Wettbewerbstabelle).
+
+### Garantie — noch NICHT eingebaut
+
+Gewünscht war eine Einsparpotenzial-Garantie mit Amortisation unter einem Jahr
+für den Quickcheck. Nicht umgesetzt, weil die Seite an zwei Stellen ausdrücklich
+das Gegenteil sagt („Eine pauschale Einspargarantie wäre vor der Analyse nicht
+belastbar") und der Inhaltsprüfer genau diese Formulierungen als vorbildlich
+bewertet hat.
+
+Entscheidungsvorlage mit drei Varianten, Risikobewertung und den nötigen
+Website-Anpassungen liegt in `docs/GARANTIE-ENTSCHEIDUNG.md`. Nach Klärung mit
+Waldemar Brauer umsetzen — dabei die FAQ abgrenzen statt streichen: Garantie gilt
+für den Quickcheck-Fund, Vorbehalt weiterhin für die tatsächliche Einsparung nach
+Umsetzung.

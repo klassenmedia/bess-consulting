@@ -47,7 +47,7 @@ Der Entwurf steht bewusst auf `noindex` — `public/robots.txt` sperrt zusätzli
 alle Crawler. Vor dem Go-Live:
 
 - Rechtstexte durch BESS freigeben (Impressum und Datenschutz sind Arbeitsfassungen)
-- Zahlen bestätigen: „40+ Audits", „European Energy Manager", Preise 2.500 € / 7.000 €
+- Zahlen bestätigen: „50+ Audits", „European Energy Manager", Preise 2.500 € / 8.500 €
 - BAFA-Förderquoten und Eigenanteil-Spanne fachlich prüfen
 - `PUBLIC_INDEXABLE=true` setzen, `robots.txt` und `X-Robots-Tag` in `.htaccess` umstellen
 

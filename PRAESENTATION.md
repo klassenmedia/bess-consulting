@@ -34,13 +34,13 @@ Im Ordner ~/bess-consulting:
 ## Was Waldemar sehen wird
 
 Startseite mit der neuen Positionierung „Nicht noch ein Bericht. Sondern das
-Ergebnis.", zwei Angebote (Blitzaudit ab 2.500 €, Kernprodukt ca. 7.000 € mit
-36 Monaten Begleitung), Branchenmodule, Größenordnungs-Rechner, 15 FAQs,
+Ergebnis.", zwei Angebote (Quickcheck ab 2.500 €, Kernprodukt ca. 8.500 € mit
+48 Monaten Begleitung), Multi-Site-Verfahren, Rechner, 17 FAQs, Terminbuchung,
 Wissensbereich mit drei Artikeln.
 
 ## Vor dem Gespräch klären
 
-- Sind „40+ Audits" und „European Energy Manager" so freigegeben?
+- Sind „50+ Audits" und „European Energy Manager" so freigegeben?
 - Dürfen die Preise öffentlich stehen?
 - BAFA-Förderquoten und Eigenanteil-Spanne fachlich prüfen
 - Welches Branchenmodul startet zuerst?

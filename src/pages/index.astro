@@ -77,6 +77,29 @@ const angebote = [
   },
 ];
 
+const multiSite = [
+  {
+    schritt: '01',
+    titel: 'Alle Standorte erfassen',
+    copy: 'Der gesamte Energieverbrauch über sämtliche Standorte wird aufgenommen — das ist die Bezugsgröße für alles Weitere.',
+  },
+  {
+    schritt: '02',
+    titel: 'Kleine Standorte ausgrenzen',
+    copy: 'Standorte, die zusammen unter zehn Prozent des Gesamtverbrauchs liegen, bleiben unberücksichtigt.',
+  },
+  {
+    schritt: '03',
+    titel: 'Vergleichbares clustern',
+    copy: 'Ähnliche Standorte werden gruppiert. Untersucht wird die Wurzel aus der Anzahl je Cluster, nicht jeder einzelne.',
+  },
+  {
+    schritt: '04',
+    titel: 'Besondere einzeln prüfen',
+    copy: 'Standorte, die sich nicht einordnen lassen, werden separat betrachtet — dort steckt oft das größte Potenzial.',
+  },
+];
+
 const branchen = [
   { name: 'Lackierereien', copy: 'Trockenkabinen, Abluft, Druckluft.' },
   { name: 'KFZ-Werkstätten', copy: 'Hebebühnen, Druckluft, Hallenwärme.' },
@@ -156,6 +179,10 @@ const faqsRest = [
     a: 'Die Begehung ist Teil des beschriebenen Ablaufs. Sie hilft, Verbrauchsdaten mit den tatsächlichen Anlagen und Arbeitsabläufen abzugleichen. Welche Gespräche ergänzend online stattfinden können, stimmen wir gemeinsam ab.',
   },
   {
+    q: 'Müssen wir wirklich jeden Standort auditieren?',
+    a: 'In der Regel nicht. Das vom BAFA beschriebene Multi-Site-Verfahren erlaubt es, vergleichbare Standorte zu Clustern zusammenzufassen und daraus eine Stichprobe zu untersuchen — die Wurzel aus der Anzahl der Standorte je Cluster. Standorte, die zusammen unter zehn Prozent des Gesamtverbrauchs liegen, bleiben unberücksichtigt; nicht vergleichbare Standorte werden einzeln betrachtet. Im BAFA-Beispiel reduziert das zwölf Standorte auf sechs zu untersuchende.',
+  },
+  {
     q: 'Können wir mehrere Standorte einbeziehen?',
     a: 'Nennen Sie uns die Standorte und die dort eingesetzten Energieträger. Dann lässt sich klären, welcher Umfang für Ihr Unternehmen erforderlich ist und wie Datenerfassung und Termine organisiert werden können.',
   },
@@ -231,14 +258,12 @@ const faqSchema = {
         </a>
         <button class="menu-button" type="button" aria-expanded="false" aria-controls="navlinks">Menü</button>
         <nav class="navlinks" id="navlinks" aria-label="Hauptnavigation">
-          <a href="#ergebnis">Ihr Ergebnis</a>
-          <a href="#ablauf">Zusammenarbeit</a>
           <a href="#angebote">Angebote</a>
-          <a href="#rechner">Größenordnung</a>
+          <a href="#ablauf">Ablauf</a>
+          <a href="#standorte">Standorte</a>
           <a href="#waldemar">Waldemar Brauer</a>
-          <a href={url('/blog/')}>Wissen &amp; Blog</a>
-          <a href="#termin">Termin</a>
-          <a class="btn btn-primary" href="#kontakt">Audit besprechen</a>
+          <a href={url('/blog/')}>Wissen</a>
+          <a class="btn btn-primary" href="#termin">Termin buchen</a>
         </nav>
       </div>
     </header>
@@ -336,7 +361,7 @@ const faqSchema = {
             <span class="trust-label">Begleitung nach dem Audit, nicht nur ein Bericht</span>
           </div>
           <div class="trust-item">
-            <span class="trust-value">40+ Audits</span>
+            <span class="trust-value">50+ Audits</span>
             <span class="trust-label">Durchgeführt von Waldemar Brauer, European Energy Manager</span>
           </div>
           <div class="trust-item">
@@ -458,6 +483,40 @@ const faqSchema = {
               ))
             }
           </ul>
+        </div>
+      </section>
+
+      <!-- Multi-Site: Kostenargument für Unternehmen mit mehreren Standorten -->
+      <section class="section shell" id="standorte">
+        <div class="multisite">
+          <div class="multisite-copy reveal">
+            <p class="eyebrow">Mehrere Standorte</p>
+            <h2>Zwölf Werke. <em>Sechs Audits.</em></h2>
+            <p class="lead" style="margin-top:var(--s3);max-width:44ch">
+              Wer mehrere Standorte betreibt, muss nicht jeden einzeln auditieren lassen. Das
+              Multi-Site-Verfahren fasst Vergleichbares zusammen und untersucht eine
+              repräsentative Stichprobe.
+            </p>
+            <p class="multisite-source">
+              Systematik nach dem Anwendungsbeispiel des Bundesamts für Wirtschaft und
+              Ausfuhrkontrolle. Wie viele Standorte in Ihrem Fall zu untersuchen sind, ergibt
+              sich aus Verbrauch und Vergleichbarkeit.
+            </p>
+          </div>
+
+          <ol class="multisite-steps reveal">
+            {
+              multiSite.map((m) => (
+                <li>
+                  <span class="multisite-num" aria-hidden="true">{m.schritt}</span>
+                  <div>
+                    <strong>{m.titel}</strong>
+                    <span>{m.copy}</span>
+                  </div>
+                </li>
+              ))
+            }
+          </ol>
         </div>
       </section>
 
