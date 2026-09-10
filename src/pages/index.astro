@@ -290,7 +290,7 @@ const faqSchema = {
     <meta name="theme-color" content="#0e2a33" />
     <script type="application/ld+json" set:html={JSON.stringify(entity)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-    
+    <script src={url('/site.js')} defer></script>
   </head>
 
   <body>
@@ -308,7 +308,7 @@ const faqSchema = {
           <a href="#standorte">Standorte</a>
           <a href="#waldemar">Waldemar Brauer</a>
           <a href={url('/blog/')}>Wissen</a>
-          <a class="btn btn-primary" href="#termin" data-magnet><span class="magnet-inner">Termin buchen</span></a>
+          <a class="btn btn-primary" href="#termin">Termin buchen</a>
         </nav>
       </div>
     </header>
@@ -316,13 +316,10 @@ const faqSchema = {
     <main id="main">
       <!-- Hero: Botschaft links, realer Anlass rechts statt Deko-Mockup -->
       <section class="hero">
-        <div class="hero-layout" data-parallax-bereich>
-          <div class="hero-text">
+        <div class="shell hero-layout">
+          <div>
             <p class="eyebrow">Energieaudit und Umsetzungsbegleitung für Unternehmen</p>
-            <h1 data-reveal-text>
-              <span class="zeile"><span class="zeile-inner">Nicht noch ein Bericht.</span></span>
-              <span class="zeile"><span class="zeile-inner"><em>Sondern das Ergebnis.</em></span></span>
-            </h1>
+            <h1>Nicht noch ein Bericht.<br /><em>Sondern das Ergebnis.</em></h1>
             <p class="lead hero-copy">
               Die Mehrheit aller Audit-Empfehlungen wird nie umgesetzt. Der Bericht landet
               in der Schublade, die Kosten bleiben. Wir bleiben ansprechbar, bis die
@@ -333,13 +330,13 @@ const faqSchema = {
               Energieauditoren, 2016: Umsetzungsquote deutlich unter einem Drittel.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#kontakt" data-magnet><span class="magnet-inner">Erstgespräch vereinbaren</span></a>
+              <a class="btn btn-primary" href="#kontakt">Erstgespräch vereinbaren</a>
               <a class="textlink" href="#angebote">Die zwei Wege ansehen</a>
             </div>
             <p class="hero-note">BESS Consulting · Waldemar Brauer, M.Sc. · European EnergyManager · Energieeffizienz-Experte (BAFA)</p>
           </div>
 
-          <aside class="duty-card" aria-labelledby="duty-title" data-tilt="5" data-parallax="-0.06">
+          <aside class="duty-card" aria-labelledby="duty-title">
             <div class="duty-head">
               <span>Anlass klären</span>
               <span>EDL-G / EnEfG</span>
@@ -425,10 +422,10 @@ const faqSchema = {
 
       <!-- Ergebnisse -->
       <section class="section shell" id="ergebnis">
-        <div class="section-head" data-reveal data-reveal-stagger>
+        <div class="section-head reveal">
           <div>
             <p class="eyebrow">01 / Was Sie weiterbringt</p>
-            <h2 data-reveal-text><span class="zeile"><span class="zeile-inner">Was am Ende</span></span><span class="zeile"><span class="zeile-inner"><em>dabei herauskommt.</em></span></span></h2>
+            <h2>Was am Ende <em>dabei herauskommt.</em></h2>
           </div>
           <p class="lead">
             Ein gutes Audit beantwortet die Fragen, die für Ihren Betrieb zählen: Wo genauer
@@ -439,7 +436,7 @@ const faqSchema = {
         <div class="results">
           {
             results.map((r) => (
-              <article class="result" data-reveal>
+              <article class="result reveal">
                 <div class="result-top">
                   <span class="result-num">{r.num}</span>
                   <span class="result-symbol" aria-hidden="true">
@@ -455,11 +452,11 @@ const faqSchema = {
       </section>
 
       <!-- Dunkler Anker: bricht die helle Fläche, nutzt das Industriebild -->
-      <section class="anchor-band" aria-labelledby="anchor-title" data-parallax-bereich>
-        <img class="anchor-photo" src={url('/assets/industrial.webp')} alt="" aria-hidden="true" loading="lazy" decoding="async" data-parallax="0.14" />
+      <section class="anchor-band" aria-labelledby="anchor-title">
+        <img class="anchor-photo" src={url('/assets/industrial.webp')} alt="" aria-hidden="true" loading="lazy" decoding="async" />
         <div class="shell anchor-inner">
           <p class="eyebrow">Der Blick auf Ihren Betrieb</p>
-          <h2 id="anchor-title" data-reveal-text><span class="zeile"><span class="zeile-inner">Energie verschwindet dort,</span></span><span class="zeile"><span class="zeile-inner"><em>wo niemand hinsieht.</em></span></span></h2>
+          <h2 id="anchor-title">Energie verschwindet dort, <em>wo niemand hinsieht.</em></h2>
           <p class="anchor-lead">
             Die Verluste liegen selten an einer einzigen Stelle. Sie verteilen sich über
             Betriebszeiten, Regelung und Anlagen, die seit Jahren unverändert laufen. Genau
@@ -480,10 +477,10 @@ const faqSchema = {
 
       <!-- Angebote: der eigentliche Blue Ocean -->
       <section class="section shell" id="angebote">
-        <div class="section-head" data-reveal data-reveal-stagger>
+        <div class="section-head reveal">
           <div>
             <p class="eyebrow">02 / Zwei Wege</p>
-            <h2 data-reveal-text><span class="zeile"><span class="zeile-inner">Schnell anfangen oder</span></span><span class="zeile"><span class="zeile-inner"><em>bis zum Ergebnis gehen.</em></span></span></h2>
+            <h2>Schnell anfangen oder <em>bis zum Ergebnis gehen.</em></h2>
           </div>
           <p class="lead">
             Beide Wege beginnen im Betrieb, nicht am Schreibtisch. Der Unterschied liegt darin,
@@ -494,7 +491,7 @@ const faqSchema = {
         <div class="offers">
           {
             angebote.map((a) => (
-              <article class={a.featured ? 'offer is-featured' : 'offer'}>
+              <article class={a.featured ? 'offer is-featured reveal' : 'offer reveal'}>
                 <span class="offer-tag">{a.tag}</span>
                 <h3>{a.name}</h3>
                 <p class="offer-lead">{a.lead}</p>
@@ -515,7 +512,7 @@ const faqSchema = {
           }
         </div>
 
-        <div class="garantie" data-reveal>
+        <div class="garantie reveal">
           <div class="garantie-siegel" aria-hidden="true">
             <strong>&lt;1</strong>
             <span>Jahr</span>
@@ -535,7 +532,7 @@ const faqSchema = {
           </div>
         </div>
 
-        <div class="branchen" data-reveal>
+        <div class="branchen reveal">
           <p class="branchen-intro">
             <strong>Branchenmodule.</strong> Gleiche Norm, andere Sprache: Ein Lackierer hat andere
             Fragen als ein Bürogebäude. Für diese Bereiche liegen fertige Module vor — andere
@@ -557,9 +554,9 @@ const faqSchema = {
       <!-- Multi-Site: Kostenargument für Unternehmen mit mehreren Standorten -->
       <section class="section shell" id="standorte">
         <div class="multisite">
-          <div class="multisite-copy" data-reveal>
+          <div class="multisite-copy reveal">
             <p class="eyebrow">Mehrere Standorte</p>
-            <h2 data-reveal-text><span class="zeile"><span class="zeile-inner">Zwölf Werke.</span></span><span class="zeile"><span class="zeile-inner"><em>Sechs Audits.</em></span></span></h2>
+            <h2>Zwölf Werke. <em>Sechs Audits.</em></h2>
             <p class="lead" style="margin-top:var(--s3);max-width:44ch">
               Wer mehrere Standorte betreibt, muss nicht jeden einzeln auditieren lassen. Das
               Multi-Site-Verfahren fasst Vergleichbares zusammen und untersucht eine
@@ -574,7 +571,7 @@ const faqSchema = {
             </p>
           </div>
 
-          <ol class="multisite-steps" data-reveal>
+          <ol class="multisite-steps reveal">
             {
               multiSite.map((m) => (
                 <li>
@@ -595,7 +592,7 @@ const faqSchema = {
         <div class="shell method-grid">
           <div class="reveal">
             <p class="eyebrow">03 / Die Zusammenarbeit</p>
-            <h2 data-reveal-text><span class="zeile"><span class="zeile-inner">Wir beginnen dort, wo Sie</span></span><span class="zeile"><span class="zeile-inner"><em>Energie einsetzen.</em></span></span></h2>
+            <h2>Wir beginnen dort, wo Sie <em>Energie einsetzen.</em></h2>
             <p class="lead method-intro">
               Sie kennen Ihren Betrieb. BESS Consulting bringt den systematischen Blick auf Ihren
               Energieeinsatz ein. Ziele, Datenbedarf und Umfang stimmen wir zu Beginn ab.
@@ -607,7 +604,7 @@ const faqSchema = {
             </p>
           </div>
 
-          <ol class="steps" data-reveal style="list-style:none;margin:0;padding:0">
+          <ol class="steps reveal" style="list-style:none;margin:0;padding:0">
             {
               steps.map((s) => (
                 <li class="step">
@@ -624,7 +621,7 @@ const faqSchema = {
 
       <!-- Ansprechpartner -->
       <section class="section shell expert" id="waldemar">
-        <figure class="portrait-panel" data-reveal>
+        <figure class="portrait-panel reveal">
           <img
             class="expert-photo"
             src={url('/assets/waldemar-brauer.jpeg')}
@@ -639,9 +636,9 @@ const faqSchema = {
           </figcaption>
         </figure>
 
-        <div class="expert-copy" data-reveal>
+        <div class="expert-copy reveal">
           <p class="eyebrow">04 / Ihr Ansprechpartner</p>
-          <h2 data-reveal-text><span class="zeile"><span class="zeile-inner">Sie sprechen direkt</span></span><span class="zeile"><span class="zeile-inner"><em>mit Waldemar Brauer.</em></span></span></h2>
+          <h2>Sie sprechen direkt <em>mit Waldemar Brauer.</em></h2>
           <p class="lead">
             Welche Lösung passt zu Ihren Anlagen, Ihren Abläufen und Ihren wirtschaftlichen
             Zielen? Darauf richtet Waldemar Brauer die Beratung aus.
@@ -675,10 +672,10 @@ const faqSchema = {
       <!-- FAQ: sechs sichtbar, Rest auf Wunsch -->
       <section class="faq-section section" aria-labelledby="faq-title">
         <div class="shell">
-          <div class="section-head" data-reveal data-reveal-stagger>
+          <div class="section-head reveal">
             <div>
               <p class="eyebrow">05 / Vor dem ersten Gespräch</p>
-              <h2 id="faq-title" data-reveal-text><span class="zeile"><span class="zeile-inner">Was Sie vorab</span></span><span class="zeile"><span class="zeile-inner"><em>wissen möchten.</em></span></span></h2>
+              <h2 id="faq-title">Was Sie vorab <em>wissen möchten.</em></h2>
             </div>
             <p class="lead">
               Die Fragen, die im Erstgespräch am häufigsten kommen. Falls Ihre nicht dabei ist:
@@ -718,7 +715,7 @@ const faqSchema = {
 
       <!-- Wissen -->
       <section class="knowledge-teaser shell">
-        <div class="teaser-card" data-reveal>
+        <div class="teaser-card reveal">
           <div>
             <p class="eyebrow">Wissen für Ihre Entscheidung</p>
             <h2>Manche Fragen brauchen mehr Raum.</h2>
@@ -739,7 +736,7 @@ const faqSchema = {
           <div class="contact-grid">
             <div>
               <p class="eyebrow">Ihr nächster Schritt</p>
-              <h2 data-reveal-text><span class="zeile"><span class="zeile-inner">Wo möchten Sie</span></span><span class="zeile"><span class="zeile-inner"><em>genauer hinschauen?</em></span></span></h2>
+              <h2>Wo möchten Sie <em>genauer hinschauen?</em></h2>
               <p>
                 Nennen Sie uns Ihren Betrieb, Ihren Standort und Ihr Anliegen. Wir besprechen,
                 welche Unterstützung Sie brauchen und welche Unterlagen dafür hilfreich sind.
@@ -833,9 +830,5 @@ const faqSchema = {
       </div>
     </footer>
 
-    <script>
-      import '../scripts/ui';
-      import '../scripts/motion';
-    </script>
   </body>
 </html>
