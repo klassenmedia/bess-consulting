@@ -187,3 +187,52 @@ ohne Fund, npm audit 0 Schwachstellen, keine Third-Party-Requests.
 Offener Punkt aus dem Review: keine Testsuite. Für eine statische Seite ohne
 Endpoints vertretbar, aber der Grund, warum das CSP-Finding erst im Review auffiel.
 Vor dem Deploy ist die Seite mit gesetztem CSP-Header erneut zu verifizieren.
+
+---
+
+## Re-Review 10.09.2026 — FREIGABE
+
+Zweiter Durchlauf gegen db3da0c. Die beiden Sicherheitsfindings sind unabhängig
+verifiziert behoben: null CSP-Verstöße auf allen acht Seiten bei ausgeliefertem
+echtem Header, Navigation, FAQ, Rechner und Reveals funktionieren dabei
+nachweislich. Rechner-Härtung in der externen Datei gleichwertig (16 Grenzfälle,
+nur Text-Nodes). Urteil: **FREIGABE**.
+
+Neue Funde aus dem Re-Review, alle behoben:
+
+| Schwere | Finding | Status |
+|---|---|---|
+| MITTEL | Vertrauliches Strategiedokument im Repo, Sichtbarkeit ungeklärt | Repo ist privat, docs/strategie/VERTRAULICH.md hält die Regel und den Bereinigungsweg fest; docs/ landet nicht im Build (geprüft) |
+| MITTEL | Rechner las deutsche Tausenderpunkte falsch: 1.000.000 kWh → 0 € statt 180.000 € | behoben, Ursache war doppelt (clamp + type=number) |
+| NIEDRIG | Sektionsnummer 02 doppelt vergeben | behoben, jetzt 01–06 |
+| NIEDRIG | Preise ohne USt-Kennzeichnung, Förderzusage im Werbetext | behoben: „zzgl. USt.", BAFA-Anteil als unverbindliches Rechenbeispiel |
+| NIEDRIG | set:html ohne erzwungene Allowlist | behoben: tests/articles.test.mjs bricht den Build bei unerwarteten Tags ab |
+
+### Testsuite (neu)
+
+`npm test` läuft bei jedem Build mit (`build` ruft `test` vor `astro build`).
+
+- `tests/clamp.test.mjs` — Eingabe-Normalisierung des Rechners: deutsche
+  Schreibweise, Teilwerte, Markup-Injection, Clamping, Wertebereich.
+- `tests/articles.test.mjs` — erzwingt die Tag- und Attribut-Allowlist für
+  articles.json plus rel-Attribut auf externen Links.
+
+Damit ist die Annahme aus Threat Model (d)2 nicht mehr nur dokumentiert,
+sondern durchgesetzt.
+
+### Bewusst offen
+
+- Kein Test gegen echtes ALL-INKL-Apache. `Options -Indexes`, Dot-File-Sperre,
+  `RequestHeader unset Accept-Encoding` und `ErrorDocument` sind erst nach dem
+  ersten Upload real prüfbar. Vor dem Livegang gegen die Testsubdomain verifizieren.
+- Nur Chrome getestet, kein Cross-Browser-Durchlauf.
+- semgrep parst keine .astro-Dateien; index.astro wurde manuell geprüft.
+
+## Stand 10.09.2026 — Repo und Vorschau
+
+- GitHub: `klassenmedia/bess-consulting`, **privat**, Branch main.
+- GitHub Pages **nicht aktiv**: Free-Plan unterstützt Pages für private Repos nicht.
+  Der Workflow `.github/workflows/pages.yml` liegt einsatzbereit im Repo.
+- Vorschau läuft lokal über `npm run dev` (siehe PRAESENTATION.md).
+- Astro-Base über `PUBLIC_BASE` steuerbar: `/` für die eigene Domain,
+  `/bess-consulting/` für eine Pages-Vorschau. Pfade laufen über src/lib/url.ts.
