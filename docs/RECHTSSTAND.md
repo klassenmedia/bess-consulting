@@ -7,8 +7,22 @@ Vor jeder Veröffentlichung neu prüfen — die Lage ändert sich gerade.
 
 ### EDL-G — Energiedienstleistungsgesetz
 
-**§ 8 EDL-G** — Auditpflicht für Unternehmen nach § 1 Nr. 4 EDL-G
-(derzeit: Nicht-KMU nach EU-Definition), Turnus **höchstens vier Jahre**.
+**§ 1 Nr. 4 EDL-G** — Anwendungsbereich. Wörtlich erfasst das Gesetz
+„Unternehmen, die keine Kleinstunternehmen, kleinen und mittleren Unternehmen
+im Sinne der Empfehlung 2003/361/EG der Kommission vom 6. Mai 2003" sind.
+Die Kriterien selbst stehen nicht im Gesetz, sondern in der EU-Empfehlung:
+
+- KMU = **weniger als 250 Beschäftigte** UND
+  (**höchstens 50 Mio. € Jahresumsatz** ODER **höchstens 43 Mio. € Bilanzsumme**)
+- Wer diese Schwellen überschreitet, fällt in den Anwendungsbereich.
+- **Verbundene Unternehmen und Partnerunternehmen** werden anteilig bzw.
+  vollständig hinzugerechnet — eine für sich kleine GmbH kann über die
+  Konzernzugehörigkeit den KMU-Status verlieren.
+- Beschäftigtenzahl ist ein hartes Kriterium; bei den Finanzkennzahlen genügt
+  es, eine der beiden Grenzen einzuhalten.
+
+**§ 8 EDL-G** — Auditpflicht für Unternehmen nach § 1 Nr. 4 EDL-G,
+Turnus **höchstens vier Jahre**.
 Befreiung bei Energiemanagementsystem (§ 2 Nr. 17 EDL-G) oder EMAS
 (VO 1221/2009). Bei bis zu **500.000 kWh** Jahresverbrauch vereinfachte
 Erfüllung über § 8c EDL-G.

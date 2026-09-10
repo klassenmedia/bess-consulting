@@ -271,3 +271,68 @@ Bundesgesetzblatt erfolgt, müssen alle Schwellenwerte auf der Seite und in
 docs/RECHTSSTAND.md nachgezogen werden.** Erwartet für Ende 2026.
 
 Schreibweise beachten: **DIN EN 16247-1** (mit „EN"), Ausgabe November 2022.
+
+---
+
+## Inhaltscheck 10.09.2026 — Findings und Behebung
+
+Unabhängiger Agent, alle Paragraphen einzeln gegen gesetze-im-internet.de geprüft.
+
+**Bestätigt korrekt** (14 von 14 Rechtsaussagen): DIN EN 16247-1 Ausgabe November
+2022, 90-Prozent-Regel, Kapitalwertmethode, Vier-Jahres-Turnus, 500.000-kWh-Grenze,
+§ 1 Nr. 4 EDL-G, 7,5 GWh, Fristen 18.07.2025/20 Monate, DIN EN 17463, 2,5 GWh mit
+BAFA-Bestätigung, Industriestrompreis-Genehmigung 16.04.2026, 50 EUR/MWh,
+Investitionsauflage. Die Novelle ist weiterhin **nicht verkündet** — die
+Schwellenwerte auf der Seite sind aktuell.
+
+### Behoben
+
+| Schwere | Finding | Korrektur |
+|---|---|---|
+| MUSS | Förderquote 1.700–4.250 € entspricht 50–80 % — unbelegt und im Widerspruch zur eigenen FAQ und zum Blogartikel | Zahlen entfernt, durch individuelle Prüfzusage ersetzt; „Förderfähig" → „Förderung möglich"; Trust-Leiste „inklusive" → „mitgedacht" |
+| MUSS | „Über 60 Prozent" ohne Quelle im Hero und in og:description | „Die Mehrheit" plus Quellenangabe (EEP Uni Stuttgart / Fraunhofer IPA, 3.270 Auditoren, 2016) als eigener Absatz |
+| MUSS | KMU-Erläuterung zu knapp | Präzisiert: ab 250 immer, darunter nur bei Überschreitung beider Finanzwerte |
+| SOLLTE | Blog-Meta schränkte auf „produzierende Unternehmen" ein | geöffnet |
+| SOLLTE | Drei hartkodierte /blog/-Links brachen unter Pages-Base | auf url()-Helper umgestellt; .btn ohne Variante gefixt |
+| OPTIONAL | „Waldemar eine E-Mail" | „Waldemar Brauer eine E-Mail" |
+
+### Offen — vor Livegang zwingend (nicht von mir zu erledigen)
+
+1. **Impressum**: Berufsbezeichnung, Verleihungsstaat, ggf. Ingenieurkammer BW
+   (Rechtsgrundlage Ingenieurkammergesetz BW), ggf. USt-IdNr. nach § 5 Abs. 1
+   Nr. 5 und 6 DDG. Der Platzhalter-Block darf nicht live gehen.
+2. **Datenschutz**: Hoster mit Anschrift, Protokolldaten, Speicherfristen,
+   E-Mail-Anbieter, Aufsichtsbehörde (LfDI Baden-Württemberg).
+3. **Belege von Waldemar Brauer**: „40+ Audits" schriftlich bestätigen,
+   EUREM-Zertifikat („European Energy Manager") vorlegen lassen.
+4. **BAFA-Förderquote** recherchieren, falls sie doch genannt werden soll.
+5. Erst danach `PUBLIC_INDEXABLE=true`, robots.txt und X-Robots-Tag umstellen,
+   Entwurfs-Hinweise und Preview-Badge entfernen.
+
+### Als vorbildlich bewertet
+
+Die Haftungsformulierungen (keine Einspargarantie, Industriestrompreis begründet
+keinen Anspruch, Rechner-Disclaimer) schließen laut Prüfbericht genau die Lücken,
+die bei Energieberatern typischerweise abgemahnt werden.
+
+## Visuelle Überarbeitung 10.09.2026 — Tiefe statt Flachware
+
+Rückmeldung: Die Seite wirkte „defaultmäßig nach KI". Ursachen benannt: alles
+Karte mit Radius und Schatten, gleichförmiger Rhythmus, keine Bewegung außer
+Fade-in, Standard-Farbverlauf.
+
+Umgesetzt ohne zusätzliche Bibliothek (die CSP verbietet fremde Skripte):
+
+- **Hero mit drei Tiefenebenen**: Farbwolken (wandern mit 0,16), perspektivisches
+  Raster in 66-Grad-Neigung (gegenläufig, −0,1), Inhalt statisch. Das Raster
+  zitiert Anlagenbau statt Deko.
+- **Pflicht-Karte richtet sich beim Scrollen auf**: von −7 Grad Y-Neigung in die
+  Frontalansicht, gesteuert über CSS-Variablen. Mehrstufiger Schatten und
+  Lichtkante lassen die Fläche gewölbt wirken.
+- **Industriebild im Anker mit Gegenlauf** (±46 px, an der Sektionsmitte
+  ausgerichtet), Betrachtungsfelder mit Glasflächen und Hover-Lift.
+- **Angebots- und Kontaktflächen** mit mehrschichtigen Verläufen statt Flächenfarbe.
+
+Parallax läuft über requestAnimationFrame, schreibt ausschließlich CSS-Variablen
+für transform — kein Layout, kein Repaint. Vollständig deaktiviert bei
+prefers-reduced-motion.

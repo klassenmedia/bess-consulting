@@ -181,11 +181,37 @@ h3 { font-size: 21px; font-weight: 660; letter-spacing: -0.02em; line-height: 1.
 
 .hero {
   position: relative; overflow: hidden;
-  background:
-    radial-gradient(ellipse 60% 70% at 88% 12%, rgba(75, 179, 201, .18), transparent 60%),
-    radial-gradient(ellipse 55% 60% at 8% 92%, rgba(124, 194, 66, .14), transparent 62%),
-    linear-gradient(160deg, #ffffff 40%, var(--paper-2));
+  isolation: isolate;
+  background: linear-gradient(168deg, #ffffff 30%, var(--paper-2) 72%, #e4eff1);
   border-bottom: 1px solid var(--line);
+}
+
+/* Tiefenebene 1: weiche Farbwolken, bewegen sich langsamer als der Inhalt */
+.hero::before {
+  content: ''; position: absolute; inset: -20% -10% -30%;
+  z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(ellipse 46% 52% at 82% 18%, rgba(75, 179, 201, .34), transparent 64%),
+    radial-gradient(ellipse 40% 46% at 12% 88%, rgba(124, 194, 66, .26), transparent 66%),
+    radial-gradient(ellipse 34% 40% at 58% 4%, rgba(29, 127, 149, .16), transparent 70%);
+  filter: blur(28px);
+  transform: translate3d(0, var(--parallax-slow, 0px), 0);
+  will-change: transform;
+}
+
+/* Tiefenebene 2: technisches Raster in Perspektive — Anlagenbau statt Deko */
+.hero::after {
+  content: ''; position: absolute; inset: 38% -30% -34%;
+  z-index: -1; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(29, 127, 149, .13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29, 127, 149, .13) 1px, transparent 1px);
+  background-size: 62px 62px;
+  transform: perspective(760px) rotateX(66deg) translate3d(0, var(--parallax-grid, 0px), 0);
+  transform-origin: 50% 0;
+  mask-image: radial-gradient(ellipse 62% 78% at 50% 12%, #000 12%, transparent 76%);
+  -webkit-mask-image: radial-gradient(ellipse 62% 78% at 50% 12%, #000 12%, transparent 76%);
+  will-change: transform;
 }
 .hero-layout {
   display: grid; grid-template-columns: 1.08fr .92fr;
@@ -195,16 +221,42 @@ h3 { font-size: 21px; font-weight: 660; letter-spacing: -0.02em; line-height: 1.
 .hero-copy { max-width: 560px; margin: var(--s3) 0 0; }
 .hero-actions { margin-top: var(--s5); display: flex; align-items: center; gap: var(--s3); flex-wrap: wrap; }
 .hero-note { margin-top: var(--s3); font-size: 14px; color: var(--muted-2); }
+.hero-source {
+  margin: var(--s2) 0 0; max-width: 52ch;
+  padding-left: 12px; border-left: 2px solid var(--line-strong);
+  font-size: 12.5px; line-height: 1.55; color: var(--muted-2);
+}
 
 /* Pflicht-Karte statt Fake-Dashboard: greift den realen Anlass auf */
 .duty-card {
   position: relative;
-  background: var(--deep);
+  background:
+    radial-gradient(ellipse 90% 60% at 88% -8%, rgba(75, 179, 201, .3), transparent 62%),
+    linear-gradient(158deg, #14404e 0%, var(--deep) 46%, #0a2029 100%);
   color: #fff;
+  border: 1px solid rgba(255, 255, 255, .08);
   border-radius: var(--r-lg);
   padding: clamp(28px, 3vw, 40px);
-  box-shadow: var(--shadow-lg);
+  box-shadow:
+    0 2px 6px rgba(10, 32, 41, .2),
+    0 18px 44px rgba(10, 32, 41, .28),
+    0 44px 90px rgba(10, 32, 41, .22),
+    inset 0 1px 0 rgba(255, 255, 255, .1);
   overflow: hidden;
+  transform:
+    perspective(1400px)
+    rotateY(var(--tilt-y, -7deg))
+    rotateX(var(--tilt-x, 2.5deg))
+    translate3d(0, var(--parallax-card, 0px), 0);
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+/* Lichtkante oben — lässt die Fläche gewölbt wirken */
+.duty-card::before {
+  content: ''; position: absolute; inset: 0 0 auto; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .38) 42%, transparent);
+  z-index: 2;
 }
 .duty-card::after {
   content: ''; position: absolute; inset: auto -30% -55% auto;
@@ -222,25 +274,61 @@ h3 { font-size: 21px; font-weight: 660; letter-spacing: -0.02em; line-height: 1.
 }
 .duty-title { margin: var(--s4) 0 var(--s2); font-size: clamp(24px, 2.4vw, 31px); font-weight: 680; letter-spacing: -0.03em; line-height: 1.2; }
 .duty-lead { margin: 0; font-size: 15px; line-height: 1.7; color: rgba(255, 255, 255, .78); }
-.duty-list { list-style: none; margin: var(--s4) 0 0; padding: 0; display: grid; gap: 2px; }
-.duty-list li {
-  display: grid; grid-template-columns: 26px 1fr; gap: var(--s2);
-  align-items: start; padding: 14px 0;
-  border-top: 1px solid rgba(255, 255, 255, .12);
-  font-size: 14px; line-height: 1.55; color: rgba(255, 255, 255, .84);
-}
-.duty-list strong { display: block; font-size: 15px; font-weight: 680; color: #fff; }
-.duty-marker {
-  width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center;
+/* Prüfstrecke: Schwellenwerte als lesbare Zahlen statt Fließtext */
+.duty-check { list-style: none; margin: var(--s4) 0 0; padding: 0; display: grid; gap: 2px; }
+.duty-check > li { padding: var(--s3) 0; border-top: 1px solid rgba(255, 255, 255, .14); }
+.duty-check > li:first-child { padding-top: var(--s2); }
+
+.duty-check-head { display: flex; align-items: center; gap: 12px; }
+.duty-check-head strong { font-size: 15px; font-weight: 680; color: #fff; letter-spacing: -0.01em; }
+.duty-step {
+  flex-shrink: 0;
+  width: 24px; height: 24px; border-radius: 7px;
+  display: grid; place-items: center;
   background: rgba(124, 194, 66, .18); color: var(--leaf-light);
   font-size: 11px; font-weight: 800;
 }
+
+.duty-values {
+  display: flex; align-items: stretch; flex-wrap: wrap; gap: 8px;
+  margin: 14px 0 0; padding-left: 36px;
+}
+.duty-value {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 9px 13px;
+  background: rgba(255, 255, 255, .07);
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 10px;
+  font-size: 11px; line-height: 1.3; color: rgba(255, 255, 255, .64);
+}
+.duty-value b {
+  font-size: 17px; font-weight: 750; color: #fff;
+  letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
+}
+.duty-value.is-plain { justify-content: center; font-size: 14px; font-weight: 680; color: #fff; }
+.duty-op {
+  align-self: center;
+  font-size: 11px; font-weight: 700;
+  color: rgba(255, 255, 255, .45);
+  text-transform: uppercase; letter-spacing: .08em;
+}
+.duty-note {
+  margin: 11px 0 0; padding-left: 36px;
+  font-size: 13px; line-height: 1.55; color: rgba(255, 255, 255, .62);
+}
+
 .duty-foot {
   margin-top: var(--s4); padding-top: var(--s3);
   border-top: 1px solid rgba(255, 255, 255, .16);
-  font-size: 13px; color: rgba(255, 255, 255, .6);
+  font-size: 13px; line-height: 1.6; color: rgba(255, 255, 255, .62);
 }
-.duty-foot a { color: var(--leaf-light); border-bottom: 1px solid rgba(163, 217, 119, .4); }
+.duty-flag {
+  display: inline-block; margin-right: 8px;
+  padding: 3px 9px; border-radius: var(--r-pill);
+  background: rgba(124, 194, 66, .16); color: var(--leaf-light);
+  font-size: 11px; font-weight: 700; letter-spacing: .04em;
+}
+.duty-foot a { display: inline-block; margin-top: 6px; color: var(--leaf-light); border-bottom: 1px solid rgba(163, 217, 119, .4); }
 
 /* ---------- Trust-Leiste ---------- */
 
@@ -283,18 +371,31 @@ h3 { font-size: 21px; font-weight: 660; letter-spacing: -0.02em; line-height: 1.
 
 /* ---------- Angebote ---------- */
 
-.offers { display: grid; grid-template-columns: 1fr 1.08fr; gap: var(--s3); align-items: start; }
+.offers { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); }
+/* Karten teilen sich dieselben Zeilen, damit Preis und Button auf einer Linie sitzen:
+   Tag, Titel, Lead, Punkte, Preis, Button. */
 .offer {
-  display: flex; flex-direction: column;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto auto;
   padding: clamp(26px, 3vw, 38px);
-  background: var(--paper);
+  background: linear-gradient(165deg, #ffffff, var(--paper-2));
   border: 1px solid var(--line);
   border-radius: var(--r-lg);
+  box-shadow: 0 1px 2px rgba(14, 42, 51, .04), 0 12px 32px rgba(14, 42, 51, .06);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
 }
+.offer:hover { transform: translateY(-4px); box-shadow: 0 2px 4px rgba(14, 42, 51, .05), 0 22px 48px rgba(14, 42, 51, .1); }
+.offer.is-featured:hover { box-shadow: 0 2px 6px rgba(10, 32, 41, .2), 0 28px 62px rgba(10, 32, 41, .3), inset 0 1px 0 rgba(255, 255, 255, .1); }
 .offer.is-featured {
-  background: var(--deep); color: #fff;
-  border-color: var(--deep);
-  box-shadow: var(--shadow-lg);
+  background:
+    radial-gradient(ellipse 100% 55% at 82% -6%, rgba(75, 179, 201, .26), transparent 62%),
+    linear-gradient(158deg, #143f4d, var(--deep) 52%, #0a2029);
+  color: #fff;
+  border-color: rgba(255, 255, 255, .1);
+  box-shadow:
+    0 2px 6px rgba(10, 32, 41, .18),
+    0 20px 50px rgba(10, 32, 41, .26),
+    inset 0 1px 0 rgba(255, 255, 255, .1);
 }
 .offer-tag {
   align-self: flex-start;
@@ -307,7 +408,7 @@ h3 { font-size: 21px; font-weight: 660; letter-spacing: -0.02em; line-height: 1.
 .offer.is-featured h3 { color: #fff; }
 .offer-lead { margin: 0; font-size: 16px; line-height: 1.7; color: var(--muted); }
 .offer.is-featured .offer-lead { color: rgba(255, 255, 255, .8); }
-.offer-points { list-style: none; margin: var(--s4) 0; padding: 0; }
+.offer-points { list-style: none; margin: var(--s4) 0 0; padding: 0; align-self: start; }
 .offer-points li {
   display: grid; grid-template-columns: 22px 1fr; gap: 12px;
   align-items: start; padding: 12px 0;
@@ -323,13 +424,17 @@ h3 { font-size: 21px; font-weight: 660; letter-spacing: -0.02em; line-height: 1.
   background-color: rgba(124, 194, 66, .22);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3d977' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
 }
-.offer-price { margin-top: auto; padding-block: var(--s3); }
+.offer-price { padding-block: var(--s4) var(--s3); }
 .offer-price strong {
   display: block; font-size: clamp(26px, 2.8vw, 34px); font-weight: 750;
   letter-spacing: -0.03em; color: var(--deep); font-variant-numeric: tabular-nums;
 }
 .offer.is-featured .offer-price strong { color: var(--leaf-light); }
-.offer-price span { display: block; margin-top: 6px; font-size: 14px; line-height: 1.55; color: var(--muted-2); }
+.offer-price span {
+  display: block; margin-top: 6px;
+  min-height: calc(2 * 1.55em);
+  font-size: 14px; line-height: 1.55; color: var(--muted-2);
+}
 .offer.is-featured .offer-price span { color: rgba(255, 255, 255, .68); }
 
 .branchen {
@@ -348,12 +453,17 @@ h3 { font-size: 21px; font-weight: 660; letter-spacing: -0.02em; line-height: 1.
 
 .anchor-band { position: relative; background: var(--deep); color: #fff; overflow: hidden; }
 .anchor-photo {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; opacity: .26; filter: grayscale(.65) contrast(1.05);
+  position: absolute; inset: -12% 0 -12%; width: 100%; height: 124%;
+  object-fit: cover; opacity: .3;
+  filter: grayscale(.55) contrast(1.08) saturate(1.1);
+  transform: translate3d(0, var(--parallax-photo, 0px), 0) scale(1.04);
+  will-change: transform;
 }
 .anchor-band::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(105deg, var(--deep) 12%, rgba(14, 42, 51, .9) 48%, rgba(14, 42, 51, .55));
+  background:
+    radial-gradient(ellipse 60% 90% at 8% 50%, rgba(20, 96, 111, .5), transparent 68%),
+    linear-gradient(105deg, var(--deep) 10%, rgba(14, 42, 51, .92) 46%, rgba(14, 42, 51, .58));
 }
 .anchor-inner { position: relative; z-index: 2; padding-block: clamp(64px, 7vw, 104px); }
 .anchor-inner .eyebrow { color: var(--leaf-light); }
@@ -366,10 +476,16 @@ h3 { font-size: 21px; font-weight: 660; letter-spacing: -0.02em; line-height: 1.
 }
 .anchor-fields li {
   padding: var(--s3);
-  border: 1px solid rgba(255, 255, 255, .18);
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-top-color: rgba(255, 255, 255, .3);
   border-radius: var(--r-md);
-  background: rgba(255, 255, 255, .04);
+  background: linear-gradient(160deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .03));
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 26px rgba(5, 22, 28, .26);
+  transform: translate3d(0, var(--lift, 0px), 0);
+  transition: transform .3s var(--ease), background .3s var(--ease);
 }
+.anchor-fields li:hover { --lift: -5px; background: linear-gradient(160deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, .05)); }
 .anchor-fields strong { display: block; font-size: 16px; font-weight: 680; color: #fff; }
 .anchor-fields span { display: block; margin-top: 6px; font-size: 13px; line-height: 1.55; color: rgba(255, 255, 255, .66); }
 
@@ -541,7 +657,14 @@ details p a { color: var(--teal); border-bottom: 1px solid rgba(29, 127, 149, .3
 
 /* ---------- Kontakt ---------- */
 
-.contact { background: var(--deep); color: #fff; }
+.contact {
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(ellipse 52% 70% at 84% 8%, rgba(75, 179, 201, .24), transparent 64%),
+    radial-gradient(ellipse 46% 60% at 4% 92%, rgba(124, 194, 66, .16), transparent 66%),
+    linear-gradient(152deg, #123845, var(--deep) 54%, #0a2029);
+  color: #fff;
+}
 .contact-grid {
   display: grid; grid-template-columns: 1.05fr .95fr;
   gap: var(--s7); align-items: start;
@@ -729,6 +852,10 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 
 @media (max-width: 560px) {
   body { font-size: 16px; }
+  .duty-values { padding-left: 0; gap: 6px; }
+  .duty-note { padding-left: 0; }
+  .duty-value { flex: 1 1 42%; }
+  .duty-value.is-plain { flex: 1 1 auto; }
   .trustbar-grid, .anchor-fields, .branchen ul { grid-template-columns: 1fr; }
   .calc-row.is-major dd { font-size: 27px; }
   .portrait-panel { min-height: 380px; padding: var(--s3); }

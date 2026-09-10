@@ -22,7 +22,7 @@ const entity = {
     addressCountry: 'DE',
   },
   founder: { '@type': 'Person', name: 'Waldemar Brauer' },
-  description: 'Energieaudit mit 36 Monaten Umsetzungsbegleitung für Handwerk und produzierende KMU.',
+  description: 'Energieaudit nach DIN EN 16247-1 mit 48 Monaten Umsetzungsbegleitung. Ingenieurbüro in Bruchsal.',
 };
 
 const results = [
@@ -49,24 +49,24 @@ const results = [
 const angebote = [
   {
     tag: 'Der schnelle Einstieg',
-    name: 'Energie-Blitzaudit',
+    name: 'Energie-Quickcheck',
     price: 'ab 2.500 €',
-    priceNote: 'zzgl. USt. · Förderfähig, den Antrag stellen wir',
+    priceNote: 'zzgl. USt. · Förderung möglich, die Antragstellung übernehmen wir',
     lead: 'Sechzehn Stunden im Betrieb, zehn Seiten Aktionsplan, in drei Wochen bei Ihnen. Kein Bericht, den niemand liest.',
     points: [
       'Die drei Maßnahmen mit der kürzesten Amortisation',
       'Konkrete Euro-Beträge statt Prozentspannen',
       'Jederzeit auf das Vollaudit erweiterbar',
     ],
-    cta: 'Blitzaudit besprechen',
+    cta: 'Quickcheck besprechen',
     featured: false,
   },
   {
     tag: 'Das Kernprodukt',
-    name: 'Audit + 36 Monate Begleitung',
-    price: 'ca. 7.000 €',
-    priceNote: 'zzgl. USt. · Rechenbeispiel nach BAFA-Förderung: ca. 1.400–3.500 € Eigenanteil, abhängig von Programmbedingungen und Vorhabenbeginn',
-    lead: 'Das vollständige Energieaudit — und danach drei Jahre an Ihrer Seite, bis die Maßnahmen laufen und die Einsparung messbar ist.',
+    name: 'Audit + 48 Monate Begleitung',
+    price: 'ca. 8.500 €',
+    priceNote: 'zzgl. USt. · Eine Förderung kann den Eigenanteil deutlich senken. Quote und Bedingungen prüfen wir vor der Beauftragung für Ihren Fall.',
+    lead: 'Das vollständige Energieaudit — und danach vier Jahre an Ihrer Seite, bis die Maßnahmen laufen und die Einsparung messbar ist.',
     points: [
       'Quartalsberichte statt einmaliger Übergabe',
       'Fördermittel koordiniert, Anträge übernehmen wir',
@@ -119,6 +119,10 @@ const faqsPrimary = [
   {
     q: 'Sind wir zu einem Energieaudit verpflichtet?',
     a: `Das muss anhand Ihres Unternehmensstatus, Energieverbrauchs und vorhandener Managementsysteme geprüft werden. EDL-G und EnEfG haben unterschiedliche Anforderungen. Hinzu kommt: Eine Novelle beider Gesetze ist beschlossen, aber noch nicht in Kraft — sie verschiebt die Schwellen und stellt die Auditpflicht vom Unternehmensstatus auf den Energieverbrauch um. <a href="${url('/blog/energieauditpflicht-enefg/')}">Zur Einordnung der Pflichten</a>.`,
+  },
+  {
+    q: 'Ab welcher Unternehmensgröße gilt die Auditpflicht?',
+    a: 'Das EDL-G erfasst nach § 1 Nummer 4 Unternehmen, die keine KMU im Sinne der EU-Empfehlung 2003/361/EG sind. KMU ist, wer weniger als 250 Personen beschäftigt und dabei entweder höchstens 50 Millionen Euro Umsatz oder höchstens 43 Millionen Euro Bilanzsumme erreicht. Wichtig: Bei verbundenen und Partnerunternehmen werden die Werte zusammengerechnet — eine kleine GmbH im Konzern kann den KMU-Status verlieren.',
   },
   {
     q: 'Wie viel Zeit müssen wir intern einplanen?',
@@ -202,12 +206,12 @@ const faqSchema = {
     <title>Energieaudit mit Umsetzungsbegleitung | BESS Consulting Bruchsal</title>
     <meta
       name="description"
-      content="Energieaudit für Handwerk und produzierende KMU — mit 36 Monaten Begleitung, bis die Einsparung ankommt. Waldemar Brauer, Bruchsal. Blitzaudit ab 2.500 €."
+      content="Energieaudit mit 48 Monaten Begleitung, bis die Einsparung ankommt. Für Betriebe mit Auditpflicht und für alle, die ihre Energiekosten senken wollen. Waldemar Brauer, Bruchsal."
     />
     <meta property="og:title" content="Nicht noch ein Bericht. Sondern das Ergebnis. | BESS Consulting" />
     <meta
       property="og:description"
-      content="Über 60 Prozent aller Audit-Empfehlungen werden nie umgesetzt. Waldemar Brauer bleibt an Bord, bis die Einsparung in Ihrer Bilanz steht."
+      content="Die Mehrheit aller Audit-Empfehlungen wird nie umgesetzt. Waldemar Brauer bleibt an Bord, bis die Einsparung in Ihrer Bilanz steht."
     />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
@@ -243,12 +247,16 @@ const faqSchema = {
       <section class="hero">
         <div class="shell hero-layout">
           <div>
-            <p class="eyebrow">Energieberatung für Handwerk und produzierende KMU</p>
+            <p class="eyebrow">Energieaudit und Umsetzungsbegleitung für Unternehmen</p>
             <h1>Nicht noch ein Bericht.<br /><em>Sondern das Ergebnis.</em></h1>
             <p class="lead hero-copy">
-              Über 60 Prozent aller Audit-Empfehlungen werden nie umgesetzt. Der Bericht landet
+              Die Mehrheit aller Audit-Empfehlungen wird nie umgesetzt. Der Bericht landet
               in der Schublade, die Kosten bleiben. Waldemar Brauer bleibt an Bord, bis die
               Einsparung in Ihrer Bilanz steht.
+            </p>
+            <p class="hero-source">
+              Erhebung des EEP der Universität Stuttgart mit Fraunhofer IPA unter 3.270
+              Energieauditoren, 2016: Umsetzungsquote deutlich unter einem Drittel.
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#kontakt">Erstgespräch vereinbaren</a>
@@ -264,26 +272,55 @@ const faqSchema = {
             </div>
             <h2 class="duty-title" id="duty-title">Betrifft die Pflicht Ihren Betrieb?</h2>
             <p class="duty-lead">
-              Zwei Gesetze, unterschiedliche Schwellen — und eine beschlossene Novelle, die
-              beide verschiebt. Was für Sie gilt, entscheidet sich an Unternehmensgröße,
-              Energieverbrauch und vorhandenen Managementsystemen.
+              Drei Angaben genügen für eine erste Einordnung.
             </p>
-            <ul class="duty-list">
+
+            <ol class="duty-check">
               <li>
-                <span class="duty-marker" aria-hidden="true">1</span>
-                <span><strong>Unternehmensstatus</strong>Heute entscheidet die KMU-Definition über die Auditpflicht nach EDL-G.</span>
+                <div class="duty-check-head">
+                  <span class="duty-step" aria-hidden="true">1</span>
+                  <strong>Wie groß ist Ihr Unternehmen?</strong>
+                </div>
+                <div class="duty-values">
+                  <span class="duty-value"><b>250</b>Beschäftigte</span>
+                  <span class="duty-op" aria-hidden="true">oder</span>
+                  <span class="duty-value"><b>50 Mio. €</b>Umsatz</span>
+                  <span class="duty-op" aria-hidden="true">+</span>
+                  <span class="duty-value"><b>43 Mio. €</b>Bilanzsumme</span>
+                </div>
+                <p class="duty-note">Ab 250 Beschäftigten greift das EDL-G. Darunter nur, wenn beide Finanzwerte überschritten sind. Verbundene Unternehmen zählen mit.</p>
               </li>
+
               <li>
-                <span class="duty-marker" aria-hidden="true">2</span>
-                <span><strong>Gesamtenergieverbrauch</strong>Alle Energieträger zählen, nicht nur Strom. Künftig wird der Verbrauch zum entscheidenden Maßstab.</span>
+                <div class="duty-check-head">
+                  <span class="duty-step" aria-hidden="true">2</span>
+                  <strong>Wie viel Energie setzen Sie ein?</strong>
+                </div>
+                <div class="duty-values">
+                  <span class="duty-value"><b>2,5 GWh</b>Umsetzungsplan</span>
+                  <span class="duty-op" aria-hidden="true">→</span>
+                  <span class="duty-value"><b>7,5 GWh</b>Managementsystem</span>
+                </div>
+                <p class="duty-note">Alle Energieträger zusammen, nicht nur Strom. Schwellen nach EnEfG.</p>
               </li>
+
               <li>
-                <span class="duty-marker" aria-hidden="true">3</span>
-                <span><strong>Vorhandene Systeme</strong>Ein Energie- oder Umweltmanagement kann die Pflicht ersetzen.</span>
+                <div class="duty-check-head">
+                  <span class="duty-step" aria-hidden="true">3</span>
+                  <strong>Haben Sie ein Managementsystem?</strong>
+                </div>
+                <div class="duty-values">
+                  <span class="duty-value is-plain">ISO 50001</span>
+                  <span class="duty-op" aria-hidden="true">oder</span>
+                  <span class="duty-value is-plain">EMAS</span>
+                </div>
+                <p class="duty-note">Ein anerkanntes System kann die Auditpflicht ersetzen.</p>
               </li>
-            </ul>
+            </ol>
+
             <p class="duty-foot">
-              Unklar, was für Sie gilt?
+              <span class="duty-flag">Novelle beschlossen</span>
+              Die Schwellen verschieben sich, sobald die Gesetzesänderung in Kraft tritt.
               <a href={url('/blog/energieauditpflicht-enefg/')}>Einordnung der Pflichten lesen</a>
             </p>
           </aside>
@@ -294,7 +331,7 @@ const faqSchema = {
       <section class="trustbar" aria-label="Einordnung">
         <div class="shell trustbar-grid">
           <div class="trust-item">
-            <span class="trust-value">36 Monate</span>
+            <span class="trust-value">48 Monate</span>
             <span class="trust-label">Begleitung nach dem Audit, nicht nur ein Bericht</span>
           </div>
           <div class="trust-item">
@@ -302,12 +339,12 @@ const faqSchema = {
             <span class="trust-label">Durchgeführt von Waldemar Brauer, European Energy Manager</span>
           </div>
           <div class="trust-item">
-            <span class="trust-value">Förderung inklusive</span>
-            <span class="trust-label">BAFA-Antrag übernehmen wir, kein Aufwand für Sie</span>
+            <span class="trust-value">Förderung mitgedacht</span>
+            <span class="trust-label">Wir prüfen die Möglichkeiten und übernehmen die Antragstellung</span>
           </div>
           <div class="trust-item">
-            <span class="trust-value">Handwerk &amp; produzierende KMU</span>
-            <span class="trust-label">Lackierei, KFZ, Metallbau, Lebensmittel</span>
+            <span class="trust-value">Branchenkenntnis</span>
+            <span class="trust-label">Produktion, Handwerk, Gebäude und Anlagentechnik</span>
           </div>
         </div>
       </section>
@@ -407,7 +444,8 @@ const faqSchema = {
         <div class="branchen reveal">
           <p class="branchen-intro">
             <strong>Branchenmodule.</strong> Gleiche Norm, andere Sprache: Ein Lackierer hat andere
-            Fragen als ein Bürogebäude.
+            Fragen als ein Bürogebäude. Für diese Bereiche liegen fertige Module vor — andere
+            Branchen richten wir im Erstgespräch ein.
           </p>
           <ul>
             {
@@ -566,7 +604,7 @@ const faqSchema = {
             <li>Technische Analyse mit wirtschaftlicher Einordnung</li>
             <li>Ergebnisse verständlich gemeinsam besprechen</li>
           </ul>
-          <a class="btn btn-ghost" href="mailto:kontakt@bess-consulting.de">Waldemar eine E-Mail schreiben</a>
+          <a class="btn btn-ghost" href="mailto:kontakt@bess-consulting.de">Waldemar Brauer eine E-Mail schreiben</a>
         </div>
       </section>
 

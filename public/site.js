@@ -88,8 +88,56 @@
   });
   recalc();
 
-  // Scroll-Reveal, nur wenn der Nutzer Bewegung zulässt
+  // Scroll-Reveal und Parallax, nur wenn der Nutzer Bewegung zulässt
   var wantsMotion = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Tiefenebenen: mehrere Schichten wandern unterschiedlich schnell.
+  // Schreibt nur CSS-Variablen für transform — kein Layout, kein Repaint.
+  if (wantsMotion) {
+    var hero = document.querySelector('.hero');
+    var dutyCard = document.querySelector('.duty-card');
+    var anchorBand = document.querySelector('.anchor-band');
+    var anchorPhoto = document.querySelector('.anchor-photo');
+    var laeuft = false;
+
+    var parallax = function () {
+      laeuft = false;
+      var y = window.scrollY;
+
+      if (hero && y < window.innerHeight * 1.5) {
+        hero.style.setProperty('--parallax-slow', (y * 0.16).toFixed(1) + 'px');
+        hero.style.setProperty('--parallax-grid', (y * -0.1).toFixed(1) + 'px');
+      }
+
+      if (dutyCard) {
+        // Karte richtet sich beim Scrollen auf: aus der Neigung in die Frontalansicht
+        var fortschritt = Math.min(1, Math.max(0, y / (window.innerHeight * 0.75)));
+        dutyCard.style.setProperty('--tilt-y', (-7 + fortschritt * 7).toFixed(2) + 'deg');
+        dutyCard.style.setProperty('--tilt-x', (2.5 - fortschritt * 2.5).toFixed(2) + 'deg');
+        dutyCard.style.setProperty('--parallax-card', (y * -0.05).toFixed(1) + 'px');
+      }
+
+      if (anchorPhoto && anchorBand) {
+        var box = anchorBand.getBoundingClientRect();
+        if (box.bottom > 0 && box.top < window.innerHeight) {
+          var mitte = (box.top + box.height / 2 - window.innerHeight / 2) / window.innerHeight;
+          anchorPhoto.style.setProperty('--parallax-photo', (mitte * -46).toFixed(1) + 'px');
+        }
+      }
+    };
+
+    window.addEventListener(
+      'scroll',
+      function () {
+        if (laeuft) return;
+        laeuft = true;
+        window.requestAnimationFrame(parallax);
+      },
+      { passive: true },
+    );
+    parallax();
+  }
+
   var revealables = document.querySelectorAll('.reveal');
   if (wantsMotion && 'IntersectionObserver' in window) {
     var observer = new IntersectionObserver(
