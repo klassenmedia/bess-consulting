@@ -35,59 +35,6 @@
     });
   }
 
-  // Größenordnungs-Rechner.
-  // Eingaben werden geklemmt und ausschliesslich über textContent ausgegeben.
-  var MAX_KWH = 500000000;
-  var MAX_CT = 200;
-  var MAX_PCT = 100;
-
-  var euro = new Intl.NumberFormat('de-DE', {
-    style: 'currency',
-    currency: 'EUR',
-    maximumFractionDigits: 0,
-  });
-
-  // Deutsche Schreibweise: Punkt trennt Tausender, Komma trennt Dezimalen.
-  // Alles, was danach kein reiner Zahlwert ist, gilt als 0 statt teilweise geparst.
-  function clamp(raw, max) {
-    var text = String(raw).trim().replace(/\s/g, '');
-    if (text === '') return 0;
-
-    var hatKomma = text.indexOf(',') !== -1;
-    // Punkte sind Tausendertrenner, sobald ein Komma die Dezimalen markiert,
-    // oder wenn hinter dem letzten Punkt genau drei Ziffern stehen.
-    if (hatKomma) text = text.replace(/\./g, '').replace(',', '.');
-    else if (/^\d{1,3}(\.\d{3})+$/.test(text)) text = text.replace(/\./g, '');
-
-    if (!/^\d*\.?\d*$/.test(text) || text === '.') return 0;
-
-    var value = Number.parseFloat(text);
-    if (!Number.isFinite(value) || value < 0) return 0;
-    return Math.min(value, max);
-  }
-
-  var kwhInput = document.getElementById('calc-kwh');
-  var priceInput = document.getElementById('calc-price');
-  var shareInput = document.getElementById('calc-share');
-  var outTotal = document.getElementById('out-total');
-  var outSaving = document.getElementById('out-saving');
-
-  function recalc() {
-    if (!kwhInput || !priceInput || !shareInput || !outTotal || !outSaving) return;
-    var kwh = clamp(kwhInput.value, MAX_KWH);
-    var centPerKwh = clamp(priceInput.value, MAX_CT);
-    var sharePercent = clamp(shareInput.value, MAX_PCT);
-
-    var total = (kwh * centPerKwh) / 100;
-    outTotal.textContent = euro.format(total);
-    outSaving.textContent = euro.format((total * sharePercent) / 100);
-  }
-
-  [kwhInput, priceInput, shareInput].forEach(function (el) {
-    if (el) el.addEventListener('input', recalc);
-  });
-  recalc();
-
   // Scroll-Reveal und Parallax, nur wenn der Nutzer Bewegung zulässt
   var wantsMotion = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

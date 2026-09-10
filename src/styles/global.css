@@ -604,55 +604,6 @@ h3 { font-size: 21px; font-weight: 660; letter-spacing: -0.02em; line-height: 1.
 }
 .prep strong { display: block; color: var(--ink); font-weight: 680; margin-bottom: 4px; }
 
-/* ---------- Rechner ---------- */
-
-.calc-wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: var(--s7); align-items: start; }
-.calc {
-  padding: clamp(24px, 3vw, 36px);
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow-md);
-}
-.calc-field { display: grid; gap: 8px; margin-bottom: var(--s3); }
-.calc-field label { font-size: 14px; font-weight: 680; color: var(--ink); }
-.calc-field .hint { font-size: 13px; color: var(--muted-2); line-height: 1.5; }
-.calc-input {
-  display: flex; align-items: center; gap: 10px;
-  border: 1px solid var(--line-strong); border-radius: var(--r-sm);
-  background: var(--paper-2);
-  padding: 0 14px;
-  transition: border-color .18s var(--ease), background .18s var(--ease);
-}
-.calc-input:focus-within { border-color: var(--teal); background: var(--paper); }
-.calc-input input {
-  flex: 1; min-width: 0; min-height: 50px;
-  border: 0; background: transparent; outline: none;
-  font: inherit; font-size: 17px; font-weight: 650;
-  font-variant-numeric: tabular-nums;
-  color: var(--ink);
-}
-.calc-input .unit { font-size: 14px; font-weight: 650; color: var(--muted-2); white-space: nowrap; }
-
-.calc-out {
-  margin-top: var(--s4); padding-top: var(--s4);
-  border-top: 1px solid var(--line);
-  display: grid; gap: var(--s3);
-}
-.calc-row { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s2); }
-.calc-row dt { font-size: 14px; color: var(--muted); }
-.calc-row dd {
-  margin: 0; font-size: 24px; font-weight: 750;
-  letter-spacing: -0.03em; font-variant-numeric: tabular-nums;
-  color: var(--teal-dark);
-}
-.calc-row.is-major dd { font-size: 32px; color: var(--deep); }
-.calc-disclaimer {
-  margin: var(--s3) 0 0; padding: var(--s3);
-  background: var(--paper-2); border-radius: var(--r-sm);
-  font-size: 13px; line-height: 1.6; color: var(--muted);
-}
-
 /* ---------- Ansprechpartner ---------- */
 
 .expert { display: grid; grid-template-columns: .95fr 1.05fr; gap: var(--s7); align-items: center; }
@@ -838,10 +789,9 @@ details p a { color: var(--teal); border-bottom: 1px solid rgba(29, 127, 149, .3
 }
 
 /* Heller Rahmen: Calendly rendert auf Weiß, deshalb eine eigene Fläche */
-/* Ohne Rahmen: Calendly rendert selbst auf Weiß, die Fläche steht frei im Abschnitt */
+/* Calendly rendert selbst auf Weiß — keine zusätzliche Fläche darum */
 .booking-frame {
   position: relative;
-  background: #fff;
   overflow: hidden;
 }
 .booking-frame iframe {
@@ -948,7 +898,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
    ============================================================ */
 
 @media (max-width: 1100px) {
-  .hero-layout, .section-head, .method-grid, .expert, .calc-wrap, .contact-grid, .multisite { gap: var(--s5); }
+  .hero-layout, .section-head, .method-grid, .expert, .contact-grid, .multisite { gap: var(--s5); }
   .booking-head { gap: var(--s4); }
   .anchor-fields { grid-template-columns: repeat(2, 1fr); }
   .trustbar-grid { gap: var(--s4); }
@@ -973,7 +923,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .navlinks > a:not(.btn) { padding-block: 12px; }
 
   .hero-layout, .section-head, .results, .method-grid, .expert,
-  .calc-wrap, .contact-grid, .teaser-card, .knowledge-list,
+  .contact-grid, .teaser-card, .knowledge-list,
   .knowledge-card.featured, .reading-layout, .booking-head, .multisite {
     grid-template-columns: 1fr;
   }
@@ -1017,7 +967,6 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .duty-value.is-plain { flex: 1 1 auto; }
   .trustbar-grid, .anchor-fields, .branchen ul { grid-template-columns: 1fr; }
   .garantie { grid-template-columns: 1fr; gap: var(--s3); }
-  .calc-row.is-major dd { font-size: 27px; }
   .portrait-panel { min-height: 380px; padding: var(--s3); }
   .qualifikation { grid-template-columns: 1fr; gap: var(--s2); text-align: left; }
   .portrait-panel .name { font-size: 25px; }

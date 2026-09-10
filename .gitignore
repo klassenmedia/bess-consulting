@@ -5,3 +5,6 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Vertrauliche Geschäftsunterlagen — nie ins Repo
+docs/strategie/
