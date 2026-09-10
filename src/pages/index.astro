@@ -1,4 +1,5 @@
 ---
+import { url } from '../lib/url';
 import '@fontsource-variable/manrope';
 import '../styles/global.css';
 
@@ -117,7 +118,7 @@ const faqsPrimary = [
   },
   {
     q: 'Sind wir zu einem Energieaudit verpflichtet?',
-    a: 'Das muss anhand Ihres Unternehmensstatus, Energieverbrauchs und vorhandener Managementsysteme geprüft werden. EDL-G und EnEfG haben unterschiedliche Anforderungen. <a href="/blog/energieauditpflicht-enefg/">Zur Einordnung der Pflichten</a>.',
+    a: `Das muss anhand Ihres Unternehmensstatus, Energieverbrauchs und vorhandener Managementsysteme geprüft werden. EDL-G und EnEfG haben unterschiedliche Anforderungen. <a href="${url('/blog/energieauditpflicht-enefg/')}">Zur Einordnung der Pflichten</a>.`,
   },
   {
     q: 'Wie viel Zeit müssen wir intern einplanen?',
@@ -168,11 +169,11 @@ const faqsRest = [
   },
   {
     q: 'Profitieren wir automatisch vom Industriestrompreis?',
-    a: 'Nein. Die Regelung richtet sich an bestimmte energieintensive Branchen. Ein Energieaudit allein begründet keinen Anspruch. <a href="/blog/industriestrompreis-2026/">Was die 5-Cent-Marke bedeutet</a>.',
+    a: `Nein. Die Regelung richtet sich an bestimmte energieintensive Branchen. Ein Energieaudit allein begründet keinen Anspruch. <a href="${url('/blog/industriestrompreis-2026/')}">Was die 5-Cent-Marke bedeutet</a>.`,
   },
   {
     q: 'Wie bereiten wir die Beauftragung vor?',
-    a: 'Klären Sie Anlass, Standorte, verfügbare Daten und gewünschten Umfang. Wenn eine Förderung infrage kommt, prüfen Sie deren Bedingungen vor einer Beauftragung. <a href="/blog/energieaudit-kosten-foerderung-vorbereitung/">Checkliste zu Kosten, Förderung und Vorbereitung</a>.',
+    a: `Klären Sie Anlass, Standorte, verfügbare Daten und gewünschten Umfang. Wenn eine Förderung infrage kommt, prüfen Sie deren Bedingungen vor einer Beauftragung. <a href="${url('/blog/energieaudit-kosten-foerderung-vorbereitung/')}">Checkliste zu Kosten, Förderung und Vorbereitung</a>.`,
   },
 ];
 
@@ -209,7 +210,7 @@ const faqSchema = {
     <meta name="theme-color" content="#0e2a33" />
     <script type="application/ld+json" set:html={JSON.stringify(entity)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-    <script src="/site.js" defer></script>
+    <script src={url('/site.js')} defer></script>
   </head>
 
   <body>
@@ -217,8 +218,8 @@ const faqSchema = {
 
     <header class="site-nav">
       <div class="shell nav">
-        <a href="/" aria-label="BESS Consulting, zur Startseite">
-          <img class="original-logo" src="/assets/bess-logo.webp" alt="BESS Consulting" width="138" height="54" />
+        <a href={url('/')} aria-label="BESS Consulting, zur Startseite">
+          <img class="original-logo" src={url('/assets/bess-logo.webp')} alt="BESS Consulting" width="138" height="54" />
         </a>
         <button class="menu-button" type="button" aria-expanded="false" aria-controls="navlinks">Menü</button>
         <nav class="navlinks" id="navlinks" aria-label="Hauptnavigation">
@@ -227,7 +228,7 @@ const faqSchema = {
           <a href="#angebote">Angebote</a>
           <a href="#rechner">Größenordnung</a>
           <a href="#waldemar">Waldemar Brauer</a>
-          <a href="/blog/">Wissen &amp; Blog</a>
+          <a href={url('/blog/')}>Wissen &amp; Blog</a>
           <a class="btn btn-primary" href="#kontakt">Audit besprechen</a>
         </nav>
       </div>
@@ -278,7 +279,7 @@ const faqSchema = {
             </ul>
             <p class="duty-foot">
               Unklar, was für Sie gilt?
-              <a href="/blog/energieauditpflicht-enefg/">Einordnung der Pflichten lesen</a>
+              <a href={url('/blog/energieauditpflicht-enefg/')}>Einordnung der Pflichten lesen</a>
             </p>
           </aside>
         </div>
@@ -339,7 +340,7 @@ const faqSchema = {
 
       <!-- Dunkler Anker: bricht die helle Fläche, nutzt das Industriebild -->
       <section class="anchor-band" aria-labelledby="anchor-title">
-        <img class="anchor-photo" src="/assets/industrial.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <img class="anchor-photo" src={url('/assets/industrial.webp')} alt="" aria-hidden="true" loading="lazy" decoding="async" />
         <div class="shell anchor-inner">
           <p class="eyebrow">Der Blick auf Ihren Betrieb</p>
           <h2 id="anchor-title">Energie verschwindet dort, <em>wo niemand hinsieht.</em></h2>
@@ -542,7 +543,7 @@ const faqSchema = {
         <figure class="portrait-panel reveal">
           <img
             class="expert-photo"
-            src="/assets/waldemar-brauer.jpeg"
+            src={url('/assets/waldemar-brauer.jpeg')}
             alt="Waldemar Brauer im Gespräch am Telefon vor einem Industriegebäude"
             loading="lazy"
             decoding="async"
@@ -626,7 +627,7 @@ const faqSchema = {
             </p>
           </div>
           <div>
-            <a class="btn btn-primary" href="/blog/">Zum Wissen &amp; Blog</a>
+            <a class="btn btn-primary" href={url('/blog/')}>Zum Wissen &amp; Blog</a>
           </div>
         </div>
       </section>
@@ -678,7 +679,7 @@ const faqSchema = {
     <footer class="footer">
       <div class="shell">
         <div class="footer-top">
-          <img class="original-logo" src="/assets/bess-logo.webp" alt="BESS Consulting" width="138" height="54" loading="lazy" />
+          <img class="original-logo" src={url('/assets/bess-logo.webp')} alt="BESS Consulting" width="138" height="54" loading="lazy" />
           <address>
             Waldemar Brauer · Bruchsaler Str. 65<br />
             76646 Bruchsal
@@ -687,8 +688,8 @@ const faqSchema = {
         <div class="footer-bottom">
           <span>© 2026 BESS Consulting</span>
           <div>
-            <a href="/impressum/">Impressum</a>
-            <a href="/datenschutzerklaerung/">Datenschutz</a>
+            <a href={url('/impressum/')}>Impressum</a>
+            <a href={url('/datenschutzerklaerung/')}>Datenschutz</a>
           </div>
         </div>
         <p class="preview-badge">

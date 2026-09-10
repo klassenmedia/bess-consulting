@@ -1,4 +1,5 @@
 ---
+import { url } from '../lib/url';
 import '@fontsource-variable/manrope';
 import '../styles/global.css';
 ---
@@ -15,10 +16,10 @@ import '../styles/global.css';
   <body>
     <header class="site-nav">
       <div class="shell nav">
-        <a href="/" aria-label="BESS Consulting, zur Startseite">
-          <img class="original-logo" src="/assets/bess-logo.webp" alt="BESS Consulting" width="138" height="54" />
+        <a href={url('/')} aria-label="BESS Consulting, zur Startseite">
+          <img class="original-logo" src={url('/assets/bess-logo.webp')} alt="BESS Consulting" width="138" height="54" />
         </a>
-        <a class="btn btn-primary" href="/#kontakt">Audit besprechen</a>
+        <a class="btn btn-primary" href={url('/#kontakt')}>Audit besprechen</a>
       </div>
     </header>
 
@@ -30,16 +31,16 @@ import '../styles/global.css';
         Betrieb:
       </p>
       <ul>
-        <li><a href="/">Startseite mit Leistungsumfang und Ablauf</a></li>
-        <li><a href="/blog/">Wissen &amp; Blog zu Pflichten, Kosten und Strompreis</a></li>
-        <li><a href="/#kontakt">Direkter Kontakt zu Waldemar Brauer</a></li>
+        <li><a href={url('/')}>Startseite mit Leistungsumfang und Ablauf</a></li>
+        <li><a href={url('/blog/')}>Wissen &amp; Blog zu Pflichten, Kosten und Strompreis</a></li>
+        <li><a href={url('/#kontakt')}>Direkter Kontakt zu Waldemar Brauer</a></li>
       </ul>
     </main>
 
     <footer class="shell legal-footer">
-      <a href="/">Startseite</a>
-      <a href="/impressum/">Impressum</a>
-      <a href="/datenschutzerklaerung/">Datenschutz</a>
+      <a href={url('/')}>Startseite</a>
+      <a href={url('/impressum/')}>Impressum</a>
+      <a href={url('/datenschutzerklaerung/')}>Datenschutz</a>
     </footer>
   </body>
 </html>
