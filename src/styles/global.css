@@ -281,6 +281,69 @@ h3 { font-size: 21px; font-weight: 660; letter-spacing: -0.02em; line-height: 1.
 .result h3 { margin: var(--s3) 0 var(--s1); }
 .result p { margin: 0; font-size: 15px; color: var(--muted); line-height: 1.65; }
 
+/* ---------- Angebote ---------- */
+
+.offers { display: grid; grid-template-columns: 1fr 1.08fr; gap: var(--s3); align-items: start; }
+.offer {
+  display: flex; flex-direction: column;
+  padding: clamp(26px, 3vw, 38px);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+}
+.offer.is-featured {
+  background: var(--deep); color: #fff;
+  border-color: var(--deep);
+  box-shadow: var(--shadow-lg);
+}
+.offer-tag {
+  align-self: flex-start;
+  padding: 6px 14px; border-radius: var(--r-pill);
+  background: var(--paper-3); color: var(--teal-dark);
+  font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+}
+.offer.is-featured .offer-tag { background: rgba(124, 194, 66, .2); color: var(--leaf-light); }
+.offer h3 { margin: var(--s3) 0 var(--s2); font-size: clamp(23px, 2.4vw, 30px); font-weight: 680; }
+.offer.is-featured h3 { color: #fff; }
+.offer-lead { margin: 0; font-size: 16px; line-height: 1.7; color: var(--muted); }
+.offer.is-featured .offer-lead { color: rgba(255, 255, 255, .8); }
+.offer-points { list-style: none; margin: var(--s4) 0; padding: 0; }
+.offer-points li {
+  display: grid; grid-template-columns: 22px 1fr; gap: 12px;
+  align-items: start; padding: 12px 0;
+  border-top: 1px solid var(--line);
+  font-size: 15px; line-height: 1.6; color: var(--muted);
+}
+.offer.is-featured .offer-points li { border-color: rgba(255, 255, 255, .16); color: rgba(255, 255, 255, .84); }
+.offer-points li::before {
+  content: ''; width: 18px; height: 18px; margin-top: 3px; border-radius: 50%;
+  background: var(--paper-3) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314606f' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center / 11px no-repeat;
+}
+.offer.is-featured .offer-points li::before {
+  background-color: rgba(124, 194, 66, .22);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3d977' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+}
+.offer-price { margin-top: auto; padding-block: var(--s3); }
+.offer-price strong {
+  display: block; font-size: clamp(26px, 2.8vw, 34px); font-weight: 750;
+  letter-spacing: -0.03em; color: var(--deep); font-variant-numeric: tabular-nums;
+}
+.offer.is-featured .offer-price strong { color: var(--leaf-light); }
+.offer-price span { display: block; margin-top: 6px; font-size: 14px; line-height: 1.55; color: var(--muted-2); }
+.offer.is-featured .offer-price span { color: rgba(255, 255, 255, .68); }
+
+.branchen {
+  margin-top: var(--s5); padding: var(--s4);
+  background: var(--paper-2); border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+}
+.branchen-intro { margin: 0 0 var(--s3); font-size: 16px; color: var(--muted); max-width: 62ch; }
+.branchen-intro strong { color: var(--ink); font-weight: 680; }
+.branchen ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s3); }
+.branchen li { padding-top: var(--s2); border-top: 2px solid var(--line-strong); }
+.branchen strong { display: block; font-size: 16px; font-weight: 680; }
+.branchen span { display: block; margin-top: 4px; font-size: 14px; line-height: 1.55; color: var(--muted-2); }
+
 /* ---------- Dunkler Anker ---------- */
 
 .anchor-band { position: relative; background: var(--deep); color: #fff; overflow: hidden; }
@@ -611,6 +674,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .hero-layout, .section-head, .method-grid, .expert, .calc-wrap, .contact-grid { gap: var(--s5); }
   .anchor-fields { grid-template-columns: repeat(2, 1fr); }
   .trustbar-grid { gap: var(--s4); }
+  .branchen ul { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 900px) {
@@ -637,6 +701,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .section-head { margin-bottom: var(--s5); }
   .trustbar-grid { grid-template-columns: 1fr 1fr; gap: var(--s3); }
   .anchor-fields { grid-template-columns: 1fr 1fr; }
+  .offers { grid-template-columns: 1fr; }
   .faq-columns { columns: 1; }
   .portrait-panel { min-height: 440px; }
   .reading-layout aside nav {
@@ -664,7 +729,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 
 @media (max-width: 560px) {
   body { font-size: 16px; }
-  .trustbar-grid, .anchor-fields { grid-template-columns: 1fr; }
+  .trustbar-grid, .anchor-fields, .branchen ul { grid-template-columns: 1fr; }
   .calc-row.is-major dd { font-size: 27px; }
   .portrait-panel { min-height: 380px; padding: var(--s3); }
   .portrait-panel .name { font-size: 25px; }

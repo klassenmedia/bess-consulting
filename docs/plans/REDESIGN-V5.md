@@ -60,14 +60,22 @@ Statische Seite ohne Backend, ohne Formular, ohne Datenbank. Trotzdem:
 (d) Gegenmaßnahme pro Input
   1. Rechner: Number-Parsing mit Clamping auf plausible Bereiche, Ausgabe
      ausschliesslich über textContent — nie innerHTML. Keine eval, kein Function().
-  2. articles.json: Astro escapt per Default; set:html nur dort, wo bewusst
-     Markup nötig ist, und dann gegen eine feste Allowlist geprüft.
+  2. articles.json: Astro escapt per Default. Alle set:html-Quellen (JSON-LD,
+     SVG-Pfade, FAQ-Antworten, Artikeltext) sind ausschliesslich
+     autorenkontrollierte Build-Zeit-Konstanten — keine Laufzeit-Eingabe fliesst
+     ein. ES GIBT KEINE SANITIZER-ALLOWLIST. Sobald articles.json von Dritten
+     oder aus einem CMS befüllt wird, muss vor dem Rendern in [slug].astro ein
+     sanitize-html-Durchlauf ergänzt werden (allowedTags p/ul/li/a/strong/em,
+     allowedAttributes a: href/rel). Bis dahin gilt: Redaktion nur durch
+     KlassenMedia.
   3. PUBLIC_INDEXABLE: strikter Vergleich === 'true', Default noindex.
   4. [slug]: getStaticPaths erzeugt nur bekannte Slugs; kein dynamisches Routing
      zur Laufzeit, da output static.
   5. Dependencies: package-lock.json committen, npm audit vor Deploy.
   6. Header via .htaccess: CSP, X-Frame-Options DENY, X-Content-Type-Options,
-     Referrer-Policy, Permissions-Policy.
+     Referrer-Policy, Permissions-Policy, X-Robots-Tag, Options -Indexes,
+     Dot-File-Sperre. Ergänzend public/robots.txt mit Disallow.
+  7. Externe Links in articles.json tragen rel="noopener noreferrer".
 
 ## Definition of Done
 
@@ -84,3 +92,98 @@ Statische Seite ohne Backend, ohne Formular, ohne Datenbank. Trotzdem:
 - Trust-Leiste: BAFA-Listung? Berufserfahrung in Jahren? Anzahl Audits?
 - Rechner: realistische Bandbreite Einsparpotenzial für Auslieferungsstand
 - Endgültige Domain + freigegebene Rechtstexte vor Indexierung
+
+---
+
+## Kurskorrektur 10.09.2026 — Blue Ocean 2026
+
+Beim Durchsuchen des Rechners gefunden: ein Design-Brief (April 2024) und eine
+Blue-Ocean-Strategie (April 2026) in ~/Downloads. Kein GitHub-Repo, nur eine
+Netlify-Site. Der Kunde hat entschieden: **Blue Ocean 2026 gilt**, der 2024er
+Stand wird ignoriert.
+
+Beide Dokumente liegen jetzt unter docs/strategie/.
+
+### Was das für die Seite ändert
+
+Positionierungs-Statement (verbindlich):
+
+> „BESS Consulting ist der einzige Energieauditor, der produzierende KMU und
+> Handwerksbetriebe nicht nur berät — sondern so lange begleitet, bis die
+> Einsparungen in der Kasse ankommen."
+
+Kern: **Nicht Bericht. Ergebnis.**
+
+ERRC-Vorgaben, die direkt auf die Startseite durchschlagen:
+
+| | Konsequenz für V5 |
+|---|---|
+| Eliminate: Zertifikats-Logos, bundesweite Präsenz, ISO-vs-DIN-Debatte | DIN EN 16247-1 raus aus der Trust-Leiste (Hygienefaktor, kein Argument) |
+| Reduce: Norm-Sprache, Fokus auf reine Pflichtaudits | Pflicht-Karte bleibt, aber nicht mehr als Hauptbotschaft |
+| Raise: W. Brauer als Person, **konkrete EUR-Zahlen**, BAFA-Begleitung | Zahlen in den Hero, Förderung als Standard-Bestandteil |
+| Create: 36-Monate-Modell, Blitzaudit, Branchenmodule | Neue Sektionen — das ist der eigentliche Blue Ocean |
+
+### Angebotsstruktur (aus der Strategie)
+
+1. **Energie-Blitzaudit** — 16 h, 10-Seiten-Aktionsplan, 3 Wochen, ab 2.500 €.
+   Top-3-Maßnahmen mit Payback unter 12 Monaten. Einstiegsprodukt.
+2. **Audit + 36 Monate Begleitung** — ca. 7.000 € brutto, nach BAFA ab ca.
+   1.400–3.500 € Eigenanteil. Quartalsberichte, Fördermittelkoordination.
+   Kernprodukt.
+3. **Branchenmodule** — Lackierei, KFZ, Metallbau/CNC, Lebensmittel.
+
+### Zielgruppen und Ansprache (wörtlich aus der Strategie)
+
+- GF produzierender KMU, 50–250 MA (Primär)
+- Handwerksmeister/Inhaber, 10–50 MA (Wachstum) — „Ihr Kompressor läuft 24/7…"
+- Unternehmen mit Investitionsplanung (Trigger) — Förderantrag VOR Beauftragung
+
+### Belegte Zahlen (nur diese verwenden)
+
+- 40+ Audits, European Energy Manager (aus der Wettbewerbstabelle)
+- über 60 % der Audit-Empfehlungen werden nicht umgesetzt (Branchenproblem)
+- Umsetzungsrate unter 40 %
+- 40 % der Nicht-Kunden nennen Bürokratie als Haupthindernis
+- bis zu 55 % Investitionsförderung
+- BAFA-Förderung: 80 % beim Blitzaudit-Argument für Handwerk
+
+NICHT verwenden (stammen aus dem verworfenen 2024-Brief): 90+ Projekte,
+20–35 % Einsparung, 50.000-€-Garantie, DACH+Mazedonien, Preise 4.900/17.900 €.
+
+### Rechner-Anpassung
+
+Statt „angenommene Veränderung %" jetzt am Handwerks-Argument ausgerichtet:
+Druckluft/Kompressor als konkreter Einstieg. Weiterhin ohne Einsparversprechen —
+die Strategie verlangt konkrete Zahlen, aber eine Garantie ist nicht belegt.
+
+### Offen (mit Waldemar zu klären)
+
+- Sind „40+ Audits" und „European Energy Manager" für die Website freigegeben?
+- Preise 2.500 € / 7.000 € öffentlich nennen? (Strategie sagt ja — Raise: konkrete EUR-Zahlen)
+- BAFA-Förderquoten: aktueller Stand vor Veröffentlichung prüfen
+- Branchenmodule: welche starten zuerst?
+
+---
+
+## Security-Review 10.09.2026 — Findings und Behebung
+
+Subagent `security-reviewer` gegen Commit 9f25f57. Urteil: **BLOCKIERT**.
+
+| Schwere | Finding | Status |
+|---|---|---|
+| HOCH | `script-src 'self'` blockiert Astros Inline-Script — Navigation, FAQ, Rechner und Reveals wären nach dem Deploy tot. Im Browser mit echtem Header reproduziert. | behoben: Script nach `public/site.js` ausgelagert, kein Inline-JS mehr |
+| MITTEL | `font-src 'self'` blockiert das als data-URI eingebettete Manrope-Subset auf allen Seiten | behoben: `font-src 'self' data:` |
+| NIEDRIG | Plan behauptete eine set:html-Allowlist, die es nicht gibt | behoben: Ist-Zustand im Threat Model korrigiert |
+| NIEDRIG | Externe Links ohne `rel="noopener noreferrer"` | behoben: 7 Links in articles.json ergänzt |
+| NIEDRIG | Keine robots.txt, noindex hing allein am Meta-Tag | behoben: robots.txt + X-Robots-Tag |
+| NIEDRIG | Ungenutzte Dependency `motion`, tote `global.v4-backup.css` | behoben: deinstalliert und gelöscht |
+| NIEDRIG | Kein `Options -Indexes`, keine Dot-File-Sperre | behoben |
+
+Als sauber bestätigt: Rechner-Härtung (17 Grenzfälle, kein NaN/Infinity/Absturz,
+Ausgabe nur über textContent), Heading-Hierarchie ohne Sprünge auf allen Seiten,
+aria-Attribute, noindex-Logik fail-safe über alle 8 Seiten, gitleaks und semgrep
+ohne Fund, npm audit 0 Schwachstellen, keine Third-Party-Requests.
+
+Offener Punkt aus dem Review: keine Testsuite. Für eine statische Seite ohne
+Endpoints vertretbar, aber der Grund, warum das CSP-Finding erst im Review auffiel.
+Vor dem Deploy ist die Seite mit gesetztem CSP-Header erneut zu verifizieren.

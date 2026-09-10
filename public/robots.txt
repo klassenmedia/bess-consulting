@@ -1,0 +1,5 @@
+# Konzeptentwurf mit unfertigen Rechtstexten: bis zur Freigabe keine Indexierung.
+# Vor dem Go-Live zusammen mit PUBLIC_INDEXABLE=true und dem X-Robots-Tag
+# in .htaccess auf Allow umstellen.
+User-agent: *
+Disallow: /

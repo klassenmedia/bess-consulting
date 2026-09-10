@@ -21,7 +21,7 @@ const entity = {
     addressCountry: 'DE',
   },
   founder: { '@type': 'Person', name: 'Waldemar Brauer' },
-  description: 'Energieaudits nach DIN EN 16247-1 für produzierende Unternehmen.',
+  description: 'Energieaudit mit 36 Monaten Umsetzungsbegleitung für Handwerk und produzierende KMU.',
 };
 
 const results = [
@@ -38,11 +38,49 @@ const results = [
     icon: '<path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-2 6a3.2 3.2 0 0 0 4 0Z"/><path d="m19 7 2 6a3.2 3.2 0 0 1-4 0Z"/>',
   },
   {
-    num: '03 / Entscheiden',
-    title: 'Einen Bericht, den wir mit Ihnen durchgehen',
-    copy: 'Die Ergebnisse im Auditbericht zusammenführen und gemeinsam besprechen. Als Grundlage für die Prioritäten Ihrer Geschäftsführung und Technik.',
+    num: '03 / Umsetzen',
+    title: 'Jemanden, der dranbleibt',
+    copy: 'Der Bericht ist der Anfang, nicht das Ende. Wir begleiten die Umsetzung, koordinieren Fördermittel und prüfen im Quartalsrhythmus, was tatsächlich ankommt.',
     icon: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/><path d="M9 14h6"/><path d="M9 17h4"/>',
   },
+];
+
+const angebote = [
+  {
+    tag: 'Der schnelle Einstieg',
+    name: 'Energie-Blitzaudit',
+    price: 'ab 2.500 €',
+    priceNote: 'Förderfähig, wir stellen den Antrag',
+    lead: 'Sechzehn Stunden im Betrieb, zehn Seiten Aktionsplan, in drei Wochen bei Ihnen. Kein Bericht, den niemand liest.',
+    points: [
+      'Die drei Maßnahmen mit der kürzesten Amortisation',
+      'Konkrete Euro-Beträge statt Prozentspannen',
+      'Jederzeit auf das Vollaudit erweiterbar',
+    ],
+    cta: 'Blitzaudit besprechen',
+    featured: false,
+  },
+  {
+    tag: 'Das Kernprodukt',
+    name: 'Audit + 36 Monate Begleitung',
+    price: 'ca. 7.000 €',
+    priceNote: 'Nach BAFA-Förderung ab ca. 1.400–3.500 € Eigenanteil',
+    lead: 'Das vollständige Energieaudit — und danach drei Jahre an Ihrer Seite, bis die Maßnahmen laufen und die Einsparung messbar ist.',
+    points: [
+      'Quartalsberichte statt einmaliger Übergabe',
+      'Fördermittel koordiniert, Anträge übernehmen wir',
+      'Waldemar Brauer persönlich, kein wechselndes Personal',
+    ],
+    cta: 'Kernprodukt besprechen',
+    featured: true,
+  },
+];
+
+const branchen = [
+  { name: 'Lackierereien', copy: 'Trockenkabinen, Abluft, Druckluft.' },
+  { name: 'KFZ-Werkstätten', copy: 'Hebebühnen, Druckluft, Hallenwärme.' },
+  { name: 'Metallbau & CNC', copy: 'Kühlwasser, Werkzeugmaschinen, Absaugung.' },
+  { name: 'Lebensmittelverarbeitung', copy: 'Kälte, Hygienewärme, Betriebszeiten.' },
 ];
 
 const fields = [
@@ -66,8 +104,8 @@ const steps = [
     copy: 'Wir analysieren mögliche Maßnahmen und betrachten Investition, Nutzen und zugrunde liegende Annahmen.',
   },
   {
-    title: 'Mit klaren Ergebnissen abschließen',
-    copy: 'Sie erhalten den Auditbericht. Wir besprechen die Erkenntnisse und die daraus ableitbaren nächsten Schritte.',
+    title: 'Dranbleiben, bis es wirkt',
+    copy: 'Sie erhalten den Auditbericht, und danach beginnt die Begleitung: Umsetzung priorisieren, Förderanträge stellen, im Quartalsrhythmus nachhalten.',
   },
 ];
 
@@ -156,24 +194,22 @@ const faqSchema = {
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="robots" content={indexable ? 'index,follow' : 'noindex,follow'} />
     {indexable && <link rel="canonical" href={siteUrl} />}
-    <title>Energieaudit für Unternehmen | BESS Consulting Bruchsal</title>
+    <title>Energieaudit mit Umsetzungsbegleitung | BESS Consulting Bruchsal</title>
     <meta
       name="description"
-      content="Energieaudits nach DIN EN 16247-1 für produzierende Unternehmen. Waldemar Brauer: Energieeinsatz analysieren und Maßnahmen wirtschaftlich bewerten."
+      content="Energieaudit für Handwerk und produzierende KMU — mit 36 Monaten Begleitung, bis die Einsparung ankommt. Waldemar Brauer, Bruchsal. Blitzaudit ab 2.500 €."
     />
-    <meta property="og:title" content="Energieaudit für Unternehmen | BESS Consulting" />
+    <meta property="og:title" content="Nicht noch ein Bericht. Sondern das Ergebnis. | BESS Consulting" />
     <meta
       property="og:description"
-      content="Waldemar Brauer untersucht Ihren Energieeinsatz und bewertet mögliche Effizienzmaßnahmen."
+      content="Über 60 Prozent aller Audit-Empfehlungen werden nie umgesetzt. Waldemar Brauer bleibt an Bord, bis die Einsparung in Ihrer Bilanz steht."
     />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
     <meta name="theme-color" content="#0e2a33" />
     <script type="application/ld+json" set:html={JSON.stringify(entity)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-    <script is:inline>
-      document.documentElement.classList.add('js');
-    </script>
+    <script src="/site.js" defer></script>
   </head>
 
   <body>
@@ -188,6 +224,7 @@ const faqSchema = {
         <nav class="navlinks" id="navlinks" aria-label="Hauptnavigation">
           <a href="#ergebnis">Ihr Ergebnis</a>
           <a href="#ablauf">Zusammenarbeit</a>
+          <a href="#angebote">Angebote</a>
           <a href="#rechner">Größenordnung</a>
           <a href="#waldemar">Waldemar Brauer</a>
           <a href="/blog/">Wissen &amp; Blog</a>
@@ -201,18 +238,18 @@ const faqSchema = {
       <section class="hero">
         <div class="shell hero-layout">
           <div>
-            <p class="eyebrow">Energieaudits für produzierende Unternehmen</p>
-            <h1>Ihre Energie kostet.<br />Wir schauen <em>genauer hin.</em></h1>
+            <p class="eyebrow">Energieberatung für Handwerk und produzierende KMU</p>
+            <h1>Nicht noch ein Bericht.<br /><em>Sondern das Ergebnis.</em></h1>
             <p class="lead hero-copy">
-              Druckluft, Wärme, Kälte, Antriebe: Wo lohnt sich eine Veränderung? Waldemar Brauer
-              untersucht Ihren Energieeinsatz und bewertet, welche Maßnahmen für Ihren Betrieb
-              infrage kommen.
+              Über 60 Prozent aller Audit-Empfehlungen werden nie umgesetzt. Der Bericht landet
+              in der Schublade, die Kosten bleiben. Waldemar Brauer bleibt an Bord, bis die
+              Einsparung in Ihrer Bilanz steht.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#kontakt">Über Ihr Energieaudit sprechen</a>
-              <a class="textlink" href="#ablauf">Wie wir vorgehen</a>
+              <a class="btn btn-primary" href="#kontakt">Erstgespräch vereinbaren</a>
+              <a class="textlink" href="#angebote">Die zwei Wege ansehen</a>
             </div>
-            <p class="hero-note">BESS Consulting · Bruchsal · Audits nach DIN EN 16247-1</p>
+            <p class="hero-note">BESS Consulting · Bruchsal · Waldemar Brauer, European Energy Manager</p>
           </div>
 
           <aside class="duty-card" aria-labelledby="duty-title">
@@ -251,20 +288,20 @@ const faqSchema = {
       <section class="trustbar" aria-label="Einordnung">
         <div class="shell trustbar-grid">
           <div class="trust-item">
-            <span class="trust-value">DIN EN 16247-1</span>
-            <span class="trust-label">Grundlage der Auditdurchführung</span>
+            <span class="trust-value">36 Monate</span>
+            <span class="trust-label">Begleitung nach dem Audit, nicht nur ein Bericht</span>
           </div>
           <div class="trust-item">
-            <span class="trust-value">Ein Ansprechpartner</span>
-            <span class="trust-label">Waldemar Brauer, vom Erstgespräch bis zum Bericht</span>
+            <span class="trust-value">40+ Audits</span>
+            <span class="trust-label">Durchgeführt von Waldemar Brauer, European Energy Manager</span>
           </div>
           <div class="trust-item">
-            <span class="trust-value">Produzierendes Gewerbe</span>
-            <span class="trust-label">Mit Blick auf Anlagen und betriebliche Abläufe</span>
+            <span class="trust-value">Förderung inklusive</span>
+            <span class="trust-label">BAFA-Antrag übernehmen wir, kein Aufwand für Sie</span>
           </div>
           <div class="trust-item">
-            <span class="trust-value">Bruchsal, Baden-Württemberg</span>
-            <span class="trust-label">Standort des Ingenieurbüros</span>
+            <span class="trust-value">Handwerk &amp; produzierende KMU</span>
+            <span class="trust-label">Lackierei, KFZ, Metallbau, Lebensmittel</span>
           </div>
         </div>
       </section>
@@ -274,7 +311,7 @@ const faqSchema = {
         <div class="section-head reveal">
           <div>
             <p class="eyebrow">01 / Was Sie weiterbringt</p>
-            <h2>Was Sie nach dem Audit <em>in der Hand haben.</em></h2>
+            <h2>Was am Ende <em>dabei herauskommt.</em></h2>
           </div>
           <p class="lead">
             Ein gutes Audit beantwortet die Fragen, die für Ihren Betrieb zählen: Wo genauer
@@ -317,6 +354,61 @@ const faqSchema = {
                 <li>
                   <strong>{f.name}</strong>
                   <span>{f.copy}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </section>
+
+      <!-- Angebote: der eigentliche Blue Ocean -->
+      <section class="section shell" id="angebote">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">02 / Zwei Wege</p>
+            <h2>Schnell anfangen oder <em>bis zum Ergebnis gehen.</em></h2>
+          </div>
+          <p class="lead">
+            Beide Wege beginnen im Betrieb, nicht am Schreibtisch. Der Unterschied liegt darin,
+            wie weit wir mitgehen.
+          </p>
+        </div>
+
+        <div class="offers">
+          {
+            angebote.map((a) => (
+              <article class={a.featured ? 'offer is-featured reveal' : 'offer reveal'}>
+                <span class="offer-tag">{a.tag}</span>
+                <h3>{a.name}</h3>
+                <p class="offer-lead">{a.lead}</p>
+                <ul class="offer-points">
+                  {a.points.map((point) => (
+                    <li>{point}</li>
+                  ))}
+                </ul>
+                <div class="offer-price">
+                  <strong>{a.price}</strong>
+                  <span>{a.priceNote}</span>
+                </div>
+                <a class={a.featured ? 'btn btn-leaf' : 'btn btn-ghost'} href="#kontakt">
+                  {a.cta}
+                </a>
+              </article>
+            ))
+          }
+        </div>
+
+        <div class="branchen reveal">
+          <p class="branchen-intro">
+            <strong>Branchenmodule.</strong> Gleiche Norm, andere Sprache: Ein Lackierer hat andere
+            Fragen als ein Bürogebäude.
+          </p>
+          <ul>
+            {
+              branchen.map((b) => (
+                <li>
+                  <strong>{b.name}</strong>
+                  <span>{b.copy}</span>
                 </li>
               ))
             }
@@ -605,88 +697,5 @@ const faqSchema = {
       </div>
     </footer>
 
-    <script>
-      // Mobile Navigation
-      const menuButton = document.querySelector<HTMLButtonElement>('.menu-button');
-      const navlinks = document.getElementById('navlinks');
-      menuButton?.addEventListener('click', () => {
-        const open = navlinks?.classList.toggle('open') ?? false;
-        menuButton.setAttribute('aria-expanded', String(open));
-      });
-      navlinks?.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-          navlinks.classList.remove('open');
-          menuButton?.setAttribute('aria-expanded', 'false');
-        });
-      });
-
-      // FAQ: restliche Fragen einblenden
-      const faqToggle = document.getElementById('faq-toggle');
-      const faqRest = document.getElementById('faq-rest');
-      faqToggle?.addEventListener('click', () => {
-        const willShow = faqRest?.hasAttribute('hidden') ?? false;
-        if (willShow) faqRest?.removeAttribute('hidden');
-        else faqRest?.setAttribute('hidden', '');
-        faqToggle.setAttribute('aria-expanded', String(willShow));
-        faqToggle.textContent = willShow ? 'Weitere Fragen ausblenden' : 'Weitere neun Fragen anzeigen';
-      });
-
-      // Größenordnungs-Rechner.
-      // Eingaben werden geklemmt und ausschliesslich über textContent ausgegeben.
-      const MAX_KWH = 500_000_000;
-      const MAX_CT = 200;
-      const MAX_PCT = 100;
-
-      const euro = new Intl.NumberFormat('de-DE', {
-        style: 'currency',
-        currency: 'EUR',
-        maximumFractionDigits: 0,
-      });
-
-      const clamp = (raw: string, max: number) => {
-        const value = Number.parseFloat(raw.replace(',', '.'));
-        if (!Number.isFinite(value) || value < 0) return 0;
-        return Math.min(value, max);
-      };
-
-      const kwhInput = document.getElementById('calc-kwh') as HTMLInputElement | null;
-      const priceInput = document.getElementById('calc-price') as HTMLInputElement | null;
-      const shareInput = document.getElementById('calc-share') as HTMLInputElement | null;
-      const outTotal = document.getElementById('out-total');
-      const outSaving = document.getElementById('out-saving');
-
-      const recalc = () => {
-        if (!kwhInput || !priceInput || !shareInput || !outTotal || !outSaving) return;
-        const kwh = clamp(kwhInput.value, MAX_KWH);
-        const centPerKwh = clamp(priceInput.value, MAX_CT);
-        const sharePercent = clamp(shareInput.value, MAX_PCT);
-
-        const total = (kwh * centPerKwh) / 100;
-        outTotal.textContent = euro.format(total);
-        outSaving.textContent = euro.format((total * sharePercent) / 100);
-      };
-
-      [kwhInput, priceInput, shareInput].forEach((el) => el?.addEventListener('input', recalc));
-      recalc();
-
-      // Scroll-Reveal, nur wenn der Nutzer Bewegung zulässt
-      const wantsMotion = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const revealables = document.querySelectorAll('.reveal');
-      if (wantsMotion && 'IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (!entry.isIntersecting) return;
-              entry.target.classList.add('is-in');
-              observer.unobserve(entry.target);
-            });
-          },
-          { rootMargin: '0px 0px -12% 0px', threshold: 0.08 },
-        );
-        revealables.forEach((el) => observer.observe(el));
-      } else {
-        revealables.forEach((el) => el.classList.add('is-in'));
-      }
-    </script>
   </body>
 </html>
