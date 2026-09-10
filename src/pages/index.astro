@@ -41,7 +41,7 @@ const results = [
   {
     num: '03 / Umsetzen',
     title: 'Jemanden, der dranbleibt',
-    copy: 'Der Bericht ist der Anfang, nicht das Ende. Wir begleiten die Umsetzung, koordinieren Fördermittel und prüfen im Quartalsrhythmus, was tatsächlich ankommt.',
+    copy: 'Der Bericht ist der Anfang, nicht das Ende. Bei Rückfragen zur Umsetzung, zu Förderungen oder zur nächsten Prüfung sind wir weiter erreichbar.',
     icon: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/><path d="M9 14h6"/><path d="M9 17h4"/>',
   },
 ];
@@ -50,9 +50,9 @@ const angebote = [
   {
     tag: 'Der schnelle Einstieg',
     name: 'Energie-Quickcheck',
-    price: 'ab 2.500 €',
-    priceNote: 'zzgl. USt. · In Baden-Württemberg über EnergizeBW förderfähig, die Antragstellung unterstützen wir kostenlos',
-    lead: 'Online-Abstimmung, ein Tag Begehung, danach ein Maßnahmen- und Investitionsplan mit Rangfolge. Kein Bericht, den niemand liest.',
+    price: 'auf Anfrage',
+    priceNote: 'zzgl. USt. und Reisekosten · In Baden-Württemberg über EnergizeBW förderfähig, bei der Antragstellung unterstützen wir kostenlos',
+    lead: 'Online-Abstimmung, ein Tag Begehung, danach ein Maßnahmen- und Investitionsplan mit Rangfolge. Für Betriebe, die Kosten senken wollen — nicht für die Pflicht.',
     points: [
       'Mindestens 20.000 € Einsparpotenzial pro Jahr als Zielgröße',
       'Quick-Wins zuerst: nicht- und geringinvestive Maßnahmen',
@@ -62,21 +62,34 @@ const angebote = [
     featured: false,
   },
   {
-    tag: 'Das Kernprodukt',
+    tag: 'Die Pflicht erfüllen',
+    name: 'Energieaudit nach DIN EN 16247-1',
+    price: 'ab 4.800 €',
+    priceNote: 'zzgl. USt. und Reisekosten · Bis 5 GWh Jahresverbrauch 4.800 €, darüber 5.800 € · Mehrere Standorte auf Anfrage',
+    lead: 'Das vollständige Audit nach Norm: Begehung, Analyse, Bericht und Abschlussbesprechung. Erfüllt die Pflicht nach EDL-G.',
+    points: [
+      'Mindestens 90 Prozent des Gesamtverbrauchs untersucht',
+      'Bewertung nach Kapitalwert, nicht nach einfacher Amortisation',
+      'Angaben für die BAFA-Meldung aufbereitet',
+    ],
+    cta: 'Audit besprechen',
+    featured: false,
+  },
+  {
+    tag: 'Das Rundum-Paket',
     name: 'Audit + 48 Monate Begleitung',
     price: 'ca. 8.500 €',
-    priceNote: 'zzgl. USt. · Eine Förderung kann den Eigenanteil deutlich senken. Quote und Bedingungen prüfen wir vor der Beauftragung für Ihren Fall.',
-    lead: 'Das vollständige Energieaudit — und danach vier Jahre an Ihrer Seite, bis die Maßnahmen laufen und die Einsparung messbar ist.',
+    priceNote: 'zzgl. USt. und Reisekosten · Eine Förderung kann den Eigenanteil senken. Was für Sie infrage kommt, prüfen wir vor der Beauftragung.',
+    lead: 'Das vollständige Energieaudit — und danach vier Jahre erreichbar bleiben: für Rückfragen zur Umsetzung, zu Förderungen und zur nächsten Prüfung.',
     points: [
-      'Quartalsberichte statt einmaliger Übergabe',
-      'Fördermittel koordiniert, Anträge übernehmen wir',
+      'Ansprechpartner für Rückfragen über den gesamten Prüfzyklus',
+      'Unterstützung bei Förderanträgen und Nachweisen',
       'Waldemar Brauer persönlich, kein wechselndes Personal',
     ],
     cta: 'Kernprodukt besprechen',
     featured: true,
   },
 ];
-
 const multiSite = [
   {
     schritt: '01',
@@ -129,7 +142,7 @@ const steps = [
   },
   {
     title: 'Dranbleiben, bis es wirkt',
-    copy: 'Sie erhalten den Auditbericht, und danach beginnt die Begleitung: Umsetzung priorisieren, Förderanträge stellen, im Quartalsrhythmus nachhalten.',
+    copy: 'Sie erhalten den Auditbericht und die Datengrundlage. Danach bleiben wir für Rückfragen erreichbar — zur Umsetzung, zu Förderungen und zur nächsten Prüfung.',
   },
 ];
 
@@ -309,8 +322,8 @@ const faqSchema = {
             <h1>Nicht noch ein Bericht.<br /><em>Sondern das Ergebnis.</em></h1>
             <p class="lead hero-copy">
               Die Mehrheit aller Audit-Empfehlungen wird nie umgesetzt. Der Bericht landet
-              in der Schublade, die Kosten bleiben. Waldemar Brauer bleibt an Bord, bis die
-              Einsparung in Ihrer Bilanz steht.
+              in der Schublade, die Kosten bleiben. Wir bleiben ansprechbar, bis die
+              Maßnahmen laufen.
             </p>
             <p class="hero-source">
               Erhebung des EEP der Universität Stuttgart mit Fraunhofer IPA unter 3.270
@@ -390,7 +403,7 @@ const faqSchema = {
         <div class="shell trustbar-grid">
           <div class="trust-item">
             <span class="trust-value">48 Monate</span>
-            <span class="trust-label">Begleitung nach dem Audit, nicht nur ein Bericht</span>
+            <span class="trust-label">Erreichbar bis zur nächsten Prüfung, nicht nur bis zum Bericht</span>
           </div>
           <div class="trust-item">
             <span class="trust-value">50+ Energieaudits</span>

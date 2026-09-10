@@ -371,7 +371,7 @@ h3 { font-size: 21px; font-weight: 660; letter-spacing: -0.02em; line-height: 1.
 
 /* ---------- Angebote ---------- */
 
-.offers { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); }
+.offers { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s3); }
 /* Karten teilen sich dieselben Zeilen, damit Preis und Button auf einer Linie sitzen:
    Tag, Titel, Lead, Punkte, Preis, Button. */
 .offer {
@@ -953,6 +953,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .anchor-fields { grid-template-columns: repeat(2, 1fr); }
   .trustbar-grid { gap: var(--s4); }
   .branchen ul { grid-template-columns: repeat(2, 1fr); }
+  .offers { grid-template-columns: 1fr 1fr; }
+  .offer.is-featured { grid-column: 1 / -1; }
 }
 
 @media (max-width: 900px) {
