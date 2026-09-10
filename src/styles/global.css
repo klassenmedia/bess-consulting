@@ -449,6 +449,32 @@ h3 { font-size: 21px; font-weight: 660; letter-spacing: -0.02em; line-height: 1.
 .branchen strong { display: block; font-size: 16px; font-weight: 680; }
 .branchen span { display: block; margin-top: 4px; font-size: 14px; line-height: 1.55; color: var(--muted-2); }
 
+/* Einsparpotenzialgarantie — Kundenversprechen von W. Brauer */
+.garantie {
+  display: grid; grid-template-columns: auto 1fr; gap: var(--s4);
+  align-items: center;
+  margin-top: var(--s4);
+  padding: clamp(24px, 3vw, 34px);
+  background: linear-gradient(140deg, #f2fae9, #e6f5ec 60%, #e3f2f5);
+  border: 1px solid #cfe6bd;
+  border-radius: var(--r-lg);
+}
+.garantie-siegel {
+  display: grid; place-items: center; align-content: center;
+  width: 96px; height: 96px; border-radius: 50%;
+  background: linear-gradient(145deg, var(--leaf), #63b03a);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(99, 176, 58, .3), inset 0 2px 0 rgba(255, 255, 255, .35);
+}
+.garantie-siegel strong { font-size: 32px; font-weight: 800; line-height: 1; letter-spacing: -0.04em; }
+.garantie-siegel span { margin-top: 2px; font-size: 12px; font-weight: 700; letter-spacing: .08em; }
+.garantie h3 { margin: 0 0 var(--s2); font-size: clamp(20px, 2.2vw, 26px); font-weight: 680; }
+.garantie > div > p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--muted); }
+.garantie-bedingung {
+  margin-top: var(--s2) !important;
+  font-size: 13.5px !important; line-height: 1.6; color: var(--muted-2) !important;
+}
+
 /* ---------- Multi-Site ---------- */
 
 .multisite { display: grid; grid-template-columns: .85fr 1.15fr; gap: var(--s7); align-items: center; }
@@ -988,6 +1014,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .duty-value { flex: 1 1 42%; }
   .duty-value.is-plain { flex: 1 1 auto; }
   .trustbar-grid, .anchor-fields, .branchen ul { grid-template-columns: 1fr; }
+  .garantie { grid-template-columns: 1fr; gap: var(--s3); }
   .calc-row.is-major dd { font-size: 27px; }
   .portrait-panel { min-height: 380px; padding: var(--s3); }
   .qualifikation { grid-template-columns: 1fr; gap: var(--s2); text-align: left; }

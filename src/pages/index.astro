@@ -12,17 +12,17 @@ const entity = {
   name: 'BESS Consulting',
   url: siteUrl,
   logo: siteUrl + 'assets/bess-logo.webp',
-  telephone: '+4917623724145',
+  telephone: '+4972579251838',
   email: 'kontakt@bess-consulting.de',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Bruchsaler Str. 65',
-    postalCode: '76646',
-    addressLocality: 'Bruchsal',
+    streetAddress: 'Rudolf-Diesel-Straße 14/1',
+    postalCode: '76356',
+    addressLocality: 'Weingarten (Baden)',
     addressCountry: 'DE',
   },
   founder: { '@type': 'Person', name: 'Waldemar Brauer' },
-  description: 'Energieaudit nach DIN EN 16247-1 mit 48 Monaten Umsetzungsbegleitung. Ingenieurbüro in Bruchsal.',
+  description: 'Energieaudit nach DIN EN 16247-1 mit Umsetzungsbegleitung, Abwärmeberatung und Energie-Quickchecks. Ingenieurbüro für nachhaltige Unternehmenslösungen.',
 };
 
 const results = [
@@ -51,12 +51,12 @@ const angebote = [
     tag: 'Der schnelle Einstieg',
     name: 'Energie-Quickcheck',
     price: 'ab 2.500 €',
-    priceNote: 'zzgl. USt. · Förderung möglich, die Antragstellung übernehmen wir',
-    lead: 'Sechzehn Stunden im Betrieb, zehn Seiten Aktionsplan, in drei Wochen bei Ihnen. Kein Bericht, den niemand liest.',
+    priceNote: 'zzgl. USt. · In Baden-Württemberg über EnergizeBW förderfähig, die Antragstellung unterstützen wir kostenlos',
+    lead: 'Online-Abstimmung, ein Tag Begehung, danach ein Maßnahmen- und Investitionsplan mit Rangfolge. Kein Bericht, den niemand liest.',
     points: [
-      'Die drei Maßnahmen mit dem höchsten Kapitalwert',
-      'Konkrete Euro-Beträge statt Prozentspannen',
-      'Jederzeit auf das Vollaudit erweiterbar',
+      'Mindestens 20.000 € Einsparpotenzial pro Jahr als Zielgröße',
+      'Quick-Wins zuerst: nicht- und geringinvestive Maßnahmen',
+      'Investitionsbedarf, Amortisation und Renditekennzahlen je Maßnahme',
     ],
     cta: 'Quickcheck besprechen',
     featured: false,
@@ -204,7 +204,7 @@ const faqsRest = [
   },
   {
     q: 'Betreut BESS Consulting unseren Standort?',
-    a: 'Das Ingenieurbüro sitzt in Bruchsal. Nennen Sie uns Ihren Standort und Ihr Anliegen, damit wir die mögliche Zusammenarbeit konkret besprechen können.',
+    a: 'Das Ingenieurbüro sitzt in Weingarten (Baden) bei Karlsruhe, arbeitet aber überregional. Über 90 Projekte wurden in Deutschland, Österreich, der Schweiz und Mazedonien begleitet. Nennen Sie uns Ihren Standort und Ihr Anliegen, dann klären wir die Zusammenarbeit konkret.',
   },
   {
     q: 'Findet das Audit bei uns vor Ort statt?',
@@ -232,7 +232,7 @@ const faqsRest = [
   },
   {
     q: 'Ist eine bestimmte Einsparung garantiert?',
-    a: 'Eine pauschale Einspargarantie wäre vor der Analyse nicht belastbar. Erwartete Wirkungen hängen unter anderem von Betriebszeiten, Energiepreisen, technischer Umsetzung und tatsächlicher Nutzung ab.',
+    a: 'Für den Energie-Quickcheck gibt es eine Einsparpotenzialgarantie: Finden wir nicht genügend nicht- oder geringinvestive Maßnahmen mit einer Amortisation unter einem Jahr, verzichten wir auf die Rechnungsstellung. Sie gilt ab 200.000 Euro Energiekosten pro Jahr und bezieht sich auf die ermittelten Maßnahmen. Eine Garantie auf die tatsächlich erzielte Einsparung wäre dagegen nicht belastbar — die hängt von Umsetzung, Betriebszeiten, Energiepreisen und Nutzung ab.',
   },
   {
     q: 'Profitieren wir automatisch vom Industriestrompreis?',
@@ -262,10 +262,10 @@ const faqSchema = {
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="robots" content={indexable ? 'index,follow' : 'noindex,follow'} />
     {indexable && <link rel="canonical" href={siteUrl} />}
-    <title>Energieaudit mit Umsetzungsbegleitung | BESS Consulting Bruchsal</title>
+    <title>Energieaudit und Abwärmeberatung | BESS Consulting</title>
     <meta
       name="description"
-      content="Energieaudit mit 48 Monaten Begleitung, bis die Einsparung ankommt. Für Betriebe mit Auditpflicht und für alle, die ihre Energiekosten senken wollen. Waldemar Brauer, Bruchsal."
+      content="Energieaudit, Abwärmeberatung und Energie-Quickchecks mit Umsetzungsbegleitung. Über 50 Audits nach DIN EN 16247-1, über 90 Projekte in DACH. Waldemar Brauer, BESS Consulting."
     />
     <meta property="og:title" content="Nicht noch ein Bericht. Sondern das Ergebnis. | BESS Consulting" />
     <meta
@@ -320,7 +320,7 @@ const faqSchema = {
               <a class="btn btn-primary" href="#kontakt">Erstgespräch vereinbaren</a>
               <a class="textlink" href="#angebote">Die zwei Wege ansehen</a>
             </div>
-            <p class="hero-note">BESS Consulting · Bruchsal · Waldemar Brauer, European Energy Manager</p>
+            <p class="hero-note">BESS Consulting · Waldemar Brauer, M.Sc. · European EnergyManager · Energieeffizienz-Experte (BAFA)</p>
           </div>
 
           <aside class="duty-card" aria-labelledby="duty-title">
@@ -393,8 +393,8 @@ const faqSchema = {
             <span class="trust-label">Begleitung nach dem Audit, nicht nur ein Bericht</span>
           </div>
           <div class="trust-item">
-            <span class="trust-value">50+ Audits</span>
-            <span class="trust-label">Durchgeführt von Waldemar Brauer, European Energy Manager</span>
+            <span class="trust-value">50+ Energieaudits</span>
+            <span class="trust-label">Nach DIN EN 16247-1, dazu über 90 Projekte in DACH und Mazedonien</span>
           </div>
           <div class="trust-item">
             <span class="trust-value">Förderung mitgedacht</span>
@@ -497,6 +497,26 @@ const faqSchema = {
               </article>
             ))
           }
+        </div>
+
+        <div class="garantie reveal">
+          <div class="garantie-siegel" aria-hidden="true">
+            <strong>&lt;1</strong>
+            <span>Jahr</span>
+          </div>
+          <div>
+            <p class="eyebrow">Kundenversprechen</p>
+            <h3>Einsparpotenzialgarantie für den Quickcheck</h3>
+            <p>
+              Finden wir nicht genügend nicht- oder geringinvestive Maßnahmen mit einer
+              Amortisation unter einem Jahr, verzichten wir auf die Rechnungsstellung.
+            </p>
+            <p class="garantie-bedingung">
+              Gültig ab 200.000 € Energiekosten pro Jahr. Die Zusage bezieht sich auf die im
+              Quickcheck ermittelten Maßnahmen. Was davon tatsächlich eingespart wird, hängt
+              von Umsetzung, Betriebszeiten und Energiepreisen ab.
+            </p>
+          </div>
         </div>
 
         <div class="branchen reveal">
@@ -683,7 +703,7 @@ const faqSchema = {
           <figcaption>
             <div class="role">Ihr Ansprechpartner</div>
             <div class="name">Waldemar Brauer</div>
-            <div class="location">BESS Consulting · Bruchsal</div>
+            <div class="location">BESS Consulting · Weingarten (Baden)</div>
           </figcaption>
         </figure>
 
@@ -816,8 +836,8 @@ const faqSchema = {
               </span>
               <address>
                 Waldemar Brauer<br />
-                Bruchsaler Str. 65<br />
-                76646 Bruchsal
+                Rudolf-Diesel-Straße 14/1<br />
+                76356 Weingarten (Baden)
               </address>
             </div>
           </div>
@@ -864,8 +884,8 @@ const faqSchema = {
         <div class="footer-top">
           <img class="original-logo" src={url('/assets/bess-logo.webp')} alt="BESS Consulting" width="138" height="54" loading="lazy" />
           <address>
-            Waldemar Brauer · Bruchsaler Str. 65<br />
-            76646 Bruchsal
+            Waldemar Brauer · Rudolf-Diesel-Straße 14/1<br />
+            76356 Weingarten (Baden)
           </address>
         </div>
         <div class="footer-bottom">
