@@ -415,3 +415,36 @@ Website-Anpassungen liegt in `docs/GARANTIE-ENTSCHEIDUNG.md`. Nach Klärung mit
 Waldemar Brauer umsetzen — dabei die FAQ abgrenzen statt streichen: Garantie gilt
 für den Quickcheck-Fund, Vorbehalt weiterhin für die tatsächliche Einsparung nach
 Umsetzung.
+
+## EUREM-Logo und Multi-Site-Feinschliff — 10.09.2026
+
+### EUREM-Logo eingebunden
+
+Beim Ansprechpartner ergänzt, als Qualifikationsnachweis neben dem Porträt.
+Quelle: energymanager.eu, weißer Hintergrund entfernt, als WebP und PNG unter
+`public/assets/eurem-logo.*`.
+
+**Rechtlicher Vermerk:** Zeicheninhaber ist die EUREM International GmbH
+(Hauptmarkt 25/27, 90403 Nürnberg), die Rechte an den Website-Inhalten liegen
+laut Impressum bei der IHK Nürnberg für Mittelfranken. Deren Urheberrechtsklausel
+verlangt für kommerzielle Nutzung eine vorherige schriftliche Zustimmung.
+
+Waldemar Brauer ist zertifiziert und damit zur Führung der Bezeichnung
+berechtigt; die Einbindung erfolgt auf Entscheidung des Auftraggebers.
+**Offener Punkt:** Waldemar sollte sein Absolventen-Logopaket bei der
+ausbildenden IHK anfordern, damit die Nutzung dokumentiert ist. Bis dahin ist
+die Verwendung der von der fremden Website bezogenen Bilddatei nicht schriftlich
+abgesichert.
+
+### Multi-Site: Aufrunden ergänzt
+
+Fachlicher Hinweis vom Auftraggeber: Die Wurzel wird **aufgerundet**. Das deckt
+sich mit dem BAFA-Beispiel (√3 = 1,732 ⇒ 2). In Sektion und FAQ ergänzt, mit
+Beispielen: bei drei Standorten zwei, bei neun drei.
+
+### Multi-Site: Darstellung überarbeitet
+
+Erste Fassung waren vier Karten mit Zahlenkästchen — wirkte klobig. Jetzt eine
+durchlaufende Verlaufsstrecke: Ziffern als Kreise auf einer Linie mit
+Türkis-Grün-Verlauf, Trennlinien statt Kartenrahmen, Hover färbt die Ziffer.
+Zahlen vertikal zentriert (align-items: center statt baseline).

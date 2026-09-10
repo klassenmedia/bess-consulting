@@ -91,7 +91,7 @@ const multiSite = [
   {
     schritt: '03',
     titel: 'Vergleichbares clustern',
-    copy: 'Ähnliche Standorte werden gruppiert. Untersucht wird die Wurzel aus der Anzahl je Cluster, nicht jeder einzelne.',
+    copy: 'Ähnliche Standorte werden gruppiert. Untersucht wird die Wurzel aus der Anzahl je Cluster, aufgerundet auf die nächste ganze Zahl. Bei drei Standorten sind das zwei, bei neun drei.',
   },
   {
     schritt: '04',
@@ -180,7 +180,7 @@ const faqsRest = [
   },
   {
     q: 'Müssen wir wirklich jeden Standort auditieren?',
-    a: 'In der Regel nicht. Das vom BAFA beschriebene Multi-Site-Verfahren erlaubt es, vergleichbare Standorte zu Clustern zusammenzufassen und daraus eine Stichprobe zu untersuchen — die Wurzel aus der Anzahl der Standorte je Cluster. Standorte, die zusammen unter zehn Prozent des Gesamtverbrauchs liegen, bleiben unberücksichtigt; nicht vergleichbare Standorte werden einzeln betrachtet. Im BAFA-Beispiel reduziert das zwölf Standorte auf sechs zu untersuchende.',
+    a: 'In der Regel nicht. Das vom BAFA beschriebene Multi-Site-Verfahren erlaubt es, vergleichbare Standorte zu Clustern zusammenzufassen und daraus eine Stichprobe zu untersuchen — die Wurzel aus der Anzahl der Standorte je Cluster, aufgerundet auf die nächste ganze Zahl. Standorte, die zusammen unter zehn Prozent des Gesamtverbrauchs liegen, bleiben unberücksichtigt; nicht vergleichbare Standorte werden einzeln betrachtet. Im BAFA-Beispiel reduziert das zwölf Standorte auf sechs zu untersuchende.',
   },
   {
     q: 'Können wir mehrere Standorte einbeziehen?',
@@ -664,6 +664,23 @@ const faqSchema = {
             <li>Technische Analyse mit wirtschaftlicher Einordnung</li>
             <li>Ergebnisse verständlich gemeinsam besprechen</li>
           </ul>
+          <div class="qualifikation">
+            <img
+              class="qualifikation-logo"
+              src={url('/assets/eurem-logo.webp')}
+              alt="European EnergyManager (EUREM)"
+              width="250"
+              height="88"
+              loading="lazy"
+              decoding="async"
+            />
+            <p>
+              <strong>European EnergyManager</strong>
+              Standardisierte Weiterbildung für Fachleute der Energieeffizienz, entwickelt unter
+              Federführung der IHK Nürnberg für Mittelfranken.
+            </p>
+          </div>
+
           <a class="btn btn-ghost" href="mailto:kontakt@bess-consulting.de">Waldemar Brauer eine E-Mail schreiben</a>
         </div>
       </section>
