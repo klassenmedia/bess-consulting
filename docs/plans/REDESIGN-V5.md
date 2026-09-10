@@ -336,3 +336,34 @@ Umgesetzt ohne zusätzliche Bibliothek (die CSP verbietet fremde Skripte):
 Parallax läuft über requestAnimationFrame, schreibt ausschließlich CSS-Variablen
 für transform — kein Layout, kein Repaint. Vollständig deaktiviert bei
 prefers-reduced-motion.
+
+## Terminbuchung Calendly — 10.09.2026
+
+Kalender von Waldemar Brauer als iframe im Kontaktbereich eingebunden
+(`#termin`), Terminart „Effizienz und Nachhaltigkeit für Unternehmen", 30 Minuten,
+Online-Abstimmungsgespräch per Webkonferenz.
+
+### CSP
+
+`frame-src https://calendly.com` ergänzt — bewusst eng gefasst. Das
+Calendly-Widget-**Skript** wird NICHT geladen; `script-src 'self'` bleibt
+unverändert. Mit echtem Header verifiziert: keine Verstöße, Kalender lädt.
+
+### Datenschutz
+
+Neuer Abschnitt 5 in der Datenschutzerklärung (Folgeabschnitte umnummeriert):
+Anbieter mit Anschrift, übertragene Daten, Zeitpunkt der Übertragung (bereits
+beim Seitenaufruf, nicht erst bei Buchung), Rechtsgrundlagen Art. 6 Abs. 1 lit. f
+und lit. b DSGVO, Drittlandsbezug USA. Die pauschale Aussage „keine Cookies"
+wurde entsprechend eingeschränkt.
+
+`hide_gdpr_banner=1` greift bei diesem Konto nicht — Calendly blendet ein eigenes
+Cookie-Banner im iframe ein. Das ist rechtlich eher günstig (der Anbieter holt die
+Einwilligung selbst ein), kostet aber Höhe: iframe auf 760 px gesetzt, mobil 900 px.
+
+### Vor Livegang zu klären
+
+- Auftragsverarbeitungsvertrag mit Calendly abschließen
+- Grundlage für die Drittlandsübermittlung prüfen (Data Privacy Framework?)
+- Entscheiden, ob der Kalender erst nach ausdrücklicher Einwilligung laden soll
+  (Zwei-Klick-Lösung) — derzeit lädt er beim Seitenaufruf mit

@@ -237,6 +237,7 @@ const faqSchema = {
           <a href="#rechner">Größenordnung</a>
           <a href="#waldemar">Waldemar Brauer</a>
           <a href={url('/blog/')}>Wissen &amp; Blog</a>
+          <a href="#termin">Termin</a>
           <a class="btn btn-primary" href="#kontakt">Audit besprechen</a>
         </nav>
       </div>
@@ -708,6 +709,40 @@ const faqSchema = {
                 76646 Bruchsal
               </address>
             </div>
+          </div>
+
+          <div class="booking" id="termin">
+            <div class="booking-head">
+              <div>
+                <p class="eyebrow">Termin direkt wählen</p>
+                <h3>Dreißig Minuten, unverbindlich.</h3>
+                <p class="booking-lead">
+                  Suchen Sie sich einen freien Termin aus. Wir klären Ihren Anlass, den
+                  passenden Umfang und welche Unterlagen wir brauchen.
+                </p>
+              </div>
+              <p class="booking-note">
+                Die Buchung läuft über Calendly. Der Anbieter fragt eigene Cookie-Einstellungen
+                ab und erhält dabei Daten Ihres Browsers.
+                <a href={url('/datenschutzerklaerung/')}>Hinweise zum Datenschutz</a>
+              </p>
+            </div>
+
+            <div class="booking-frame">
+              <iframe
+                src="https://calendly.com/w-brauer-bess-consulting/30min?primary_color=1d7f95&text_color=12262c&hide_landing_page_details=1"
+                title="Terminkalender von Waldemar Brauer, BESS Consulting"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+
+            <p class="booking-fallback">
+              Kalender lädt nicht?
+              <a href="https://calendly.com/w-brauer-bess-consulting/30min" target="_blank" rel="noopener noreferrer">
+                Termin in neuem Tab wählen
+              </a>
+            </p>
           </div>
         </div>
       </section>
