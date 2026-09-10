@@ -497,7 +497,69 @@ FAQ auf der Seite formuliert derzeit nur die 90 Prozent — prüfen und schärfe
 
 ### Für Waldemar zu klären
 
-- **BAFA-Energieauditor-Nummer**: Das Bestätigungsformular für Umsetzungspläne
-  verlangt sie. § 7 Abs. 3 EDL-G kennt eine öffentlich geführte Auditorenliste
-  beim BAFA. Eintrag vorhanden? Dann als Vertrauensmerkmal auf die Seite.
+- **BAFA-Energieauditor-Nummer**: Auf Entscheidung des Auftraggebers (10.09.2026)
+  NICHT auf die Website. Sie wird nur in behördlichen Formularen benötigt
+  (Online-Energieauditerklärung, Bestätigung von Umsetzungsplänen,
+  Stichproben-Rückmeldung). Auch nicht als Vertrauensmerkmal aufnehmen.
 - Nach welcher Methode rechnet er im Quickcheck?
+
+## Auswertung BAFA-Merkblätter — 10.09.2026
+
+Quellen: Merkblatt Energieaudit, Merkblatt EnEfG, FAQ — alle Stand 01.09.2026.
+
+### Korrigierter Fehler
+
+**Die 500.000-kWh-Bagatellschwelle steht in § 8 Abs. 4 EDL-G, nicht in § 8c.**
+§ 8c regelt Meldung und Nachweis. Im Blogartikel korrigiert.
+
+### Neu ergänzt
+
+- **Bußgelder**: EDL-G bis 50.000 €, EnEfG § 8 bis 100.000 €, EnEfG § 9 bis
+  50.000 €. Dauerordnungswidrigkeit, mehrere Bescheide möglich, keine
+  Fristverlängerung vorgesehen.
+- **Auslandsstandorte**: zählen für den *Status* mit (auch Drittländer), für die
+  *Durchführung* nicht — nur deutsche Standorte werden auditiert. Laut BAFA ein
+  häufiges Missverständnis.
+- **100 % vs. 90 %**: Der Gesamtverbrauch ist immer vollständig zu erfassen; die
+  90-Prozent-Regel betrifft nur die Tiefe der Detailanalyse. In der Norm-FAQ
+  klargestellt.
+- **Multi-Site eingegrenzt**: passt zu Filial- und Niederlassungsstrukturen, ist
+  bei Produktionsstätten und Krankenhäusern meist nicht anwendbar. Reduziert nur
+  die Begehungen, nicht die Erfassungspflicht. Sonst hätte die Sektion falsche
+  Erwartungen geweckt.
+- **Umsetzungsplan-Bestätigung präzisiert**: Muss von einem unabhängigen Dritten
+  kommen — wer bewertet hat, darf nicht bestätigen. Für ein Einzelbüro heißt das:
+  nur fremde Audits.
+
+### Förderung korrigiert
+
+Laut BAFA-FAQ gilt: **Pflichtaudits nach EDL-G werden nicht gefördert**, weil sie
+gesetzlich vorgeschrieben sind. Einzige Ausnahme: Nicht-KMU mit höchstens
+500.000 kWh/a über die EBN-Richtlinie. Die FAQ auf der Seite behauptete vorher
+allgemein Fördermöglichkeiten — jetzt korrekt eingeordnet.
+
+Konkrete Fördersätze stehen in keinem der Dokumente. Sie bleiben unbelegt und
+gehören nicht auf die Seite, solange die EBN-Richtlinie nicht geprüft ist.
+
+### Bewusst nicht aufgenommen
+
+- **BAFA-Energieauditor-Nummer**: auf Entscheidung des Auftraggebers nicht auf die
+  Website. Wird nur in behördlichen Formularen gebraucht.
+- **Fortbildungspflicht**: nach § 8b Abs. 3 EDL-G derzeit **ausgesetzt**, weil die
+  Verordnung nach § 8d Nr. 1 fehlt. Nicht als geltende Pflicht darstellen.
+- **Öffentliche Auditorenliste**: existiert (§ 7 Abs. 3 EDL-G), die Listung ist
+  aber **freiwillig** — nicht behaupten, jeder zugelassene Auditor stehe dort.
+
+### FAQ neu sortiert
+
+Durch die Ergänzungen waren 16 Fragen sichtbar — genau die Strichliste, die am
+Ausgangsentwurf kritisiert wurde. Jetzt sechs Einstiegsfragen sichtbar
+(Kosten, Pflicht, Größe, Frist/Bußgeld, Zeitaufwand, Ergebnis), 20 ausklappbar.
+
+### Hinweis zur Aktualität
+
+Die Merkblätter gelten laut BAFA **nur in der jeweils aktuellen Fassung**; ältere
+Versionen verlieren mit Erscheinen einer neuen ihre Gültigkeit. Vor jeder
+inhaltlichen Änderung die dortige Fassung ziehen. In den Merkblättern (Stand
+01.09.2026) findet sich **kein Hinweis auf die Novelle 2026** — die Aussage dazu
+stützt sich weiterhin auf Kabinettsbeschluss und Fachquellen, nicht auf das BAFA.

@@ -148,16 +148,31 @@ const faqsPrimary = [
     a: 'Das EDL-G erfasst nach § 1 Nummer 4 Unternehmen, die keine KMU im Sinne der EU-Empfehlung 2003/361/EG sind. KMU ist, wer weniger als 250 Personen beschäftigt und dabei entweder höchstens 50 Millionen Euro Umsatz oder höchstens 43 Millionen Euro Bilanzsumme erreicht. Wichtig: Bei verbundenen und Partnerunternehmen werden die Werte zusammengerechnet — eine kleine GmbH im Konzern kann den KMU-Status verlieren.',
   },
   {
+    q: 'Was passiert, wenn wir die Frist verstreichen lassen?',
+    a: 'Das EDL-G sieht Bußgelder bis 50.000 Euro vor, das EnEfG bis 100.000 Euro für ein fehlendes Energiemanagementsystem und bis 50.000 Euro für fehlende Umsetzungspläne. Eine unterlassene Durchführung ist eine Dauerordnungswidrigkeit — die Pflicht bleibt bestehen, und es sind mehrere Bescheide möglich. Fristverlängerungen sieht das Gesetz nicht vor. Wer bereits überfällig ist, sollte den Ablauf dokumentieren: Das BAFA prüft Verschulden und Zumutbarkeit, der Spielraum wird mit der Zeit aber kleiner.',
+  },
+  {
     q: 'Wie viel Zeit müssen wir intern einplanen?',
     a: 'Ein Ansprechpartner im Unternehmen, verfügbare Verbrauchsdaten und Zugang zu den relevanten Anlagen erleichtern die Zusammenarbeit. Den konkreten Zeitbedarf stimmen wir anhand Ihres Betriebs und des vereinbarten Umfangs ab.',
   },
+  {
+    q: 'Was erhalten wir am Ende des Audits?',
+    a: 'Die Ergebnisse werden in einem Auditbericht zusammengeführt. Dazu gehören die Untersuchung des Energieeinsatzes und die Bewertung möglicher Maßnahmen. In der Abschlussbesprechung gehen wir die Erkenntnisse gemeinsam durch. Den genauen Leistungsumfang legen wir im Angebot fest.',
+  },
+];
+
+const faqsRest = [
   {
     q: 'Welche Unterlagen werden benötigt?',
     a: 'Hilfreich sind Energieabrechnungen, Verbrauchsübersichten sowie Informationen zu Standorten und wesentlichen Anlagen. Welche Daten für das Audit benötigt werden, klären wir zu Beginn.',
   },
   {
     q: 'Nach welchen Regeln wird das Audit durchgeführt?',
-    a: 'Maßgeblich ist § 8a EDL-G. Er verlangt ein Audit nach DIN EN 16247-1 in der Ausgabe November 2022, gestützt auf belegbare Betriebsdaten. Mindestens 90 Prozent des Gesamtenergieverbrauchs sind zu untersuchen, und die Wirtschaftlichkeit wird mindestens nach der Kapitalwertmethode bewertet.',
+    a: 'Maßgeblich ist § 8a EDL-G. Er verlangt ein Audit nach DIN EN 16247-1 in der Ausgabe November 2022, gestützt auf belegbare Betriebsdaten, und eine Bewertung mindestens nach der Kapitalwertmethode. Häufig missverstanden wird die 90-Prozent-Regel: Der Gesamtenergieverbrauch ist immer vollständig zu erfassen — die 90 Prozent betreffen nur die Tiefe der Detailanalyse. Welche zehn Prozent Sie herausnehmen, entscheiden Sie.',
+  },
+  {
+    q: 'Zählen unsere Auslandsstandorte mit?',
+    a: 'Für die Frage, ob Sie verpflichtet sind, ja: Beteiligungen und verbundene Unternehmen zählen mit, unabhängig davon, ob sie in Deutschland, der EU oder einem Drittland sitzen. Für die Durchführung des Audits selbst nein — dort werden nur die Standorte in Deutschland untersucht. Diese Unterscheidung wird oft übersehen.',
   },
   {
     q: 'Werden alte, nie umgesetzte Maßnahmen wieder aufgegriffen?',
@@ -173,7 +188,7 @@ const faqsPrimary = [
   },
   {
     q: 'Wer bestätigt unseren Umsetzungsplan?',
-    a: 'Unternehmen oberhalb von 2,5 Gigawattstunden müssen Umsetzungspläne erstellen, veröffentlichen und sich Vollständigkeit und Richtigkeit vor der Veröffentlichung bestätigen lassen — durch Zertifizierer, Umweltgutachter oder Energieauditoren. Als Energieauditor kann Waldemar Brauer diese Bestätigung ausstellen, auch wenn das zugrunde liegende Audit von jemand anderem stammt.',
+    a: 'Unternehmen oberhalb von 2,5 Gigawattstunden müssen Umsetzungspläne erstellen, veröffentlichen und sich Vollständigkeit und Richtigkeit vor der Veröffentlichung bestätigen lassen — durch Zertifizierer, Umweltgutachter oder zugelassene Energieauditoren. Die Bestätigung muss von einem unabhängigen Dritten kommen: Wer die Maßnahmen bewertet hat, darf sie nicht selbst bestätigen. Für Ihr eigenes Audit brauchen Sie also jemand anderen — umgekehrt übernimmt Waldemar Brauer diese Prüfung für Audits, die nicht von ihm stammen.',
   },
   {
     q: 'Müssen wir das Audit beim BAFA melden?',
@@ -184,16 +199,9 @@ const faqsPrimary = [
     a: 'Beides. § 8a Absatz 2 EDL-G verlangt, dass die verwendeten Daten so übergeben werden, dass Sie sie für historische Analysen und die Rückverfolgung der Entwicklung aufbewahren können. Sie erhalten die Auswertungsgrundlage, nicht nur ein abgeschlossenes PDF.',
   },
   {
-    q: 'Was erhalten wir am Ende des Audits?',
-    a: 'Die Ergebnisse werden in einem Auditbericht zusammengeführt. Dazu gehören die Untersuchung des Energieeinsatzes und die Bewertung möglicher Maßnahmen. In der Abschlussbesprechung gehen wir die Erkenntnisse gemeinsam durch. Den genauen Leistungsumfang legen wir im Angebot fest.',
-  },
-  {
     q: 'Gibt es Fördermöglichkeiten?',
-    a: 'Das hängt vom aktuellen Programm, Ihrem Unternehmen und dem Vorhaben ab. Förderfähigkeit und zulässigen Vorhabenbeginn sollten Sie vor einer Beauftragung klären. Eine pauschale Förderzusage lässt sich daraus nicht ableiten.',
+    a: 'Für Pflichtaudits nach EDL-G gibt es laut BAFA keine Förderung — die Durchführung ist gesetzlich vorgeschrieben. Eine Ausnahme nennt das BAFA für Unternehmen mit höchstens 500.000 Kilowattstunden Jahresverbrauch: Dort kommt eine Förderung über die Richtlinie Energieberatung für Nichtwohngebäude, Anlagen und Systeme in Betracht. Für freiwillige Beratungsleistungen gelten eigene Programme. Was für Sie infrage kommt, klären wir vor der Beauftragung — eine pauschale Zusage lässt sich daraus nicht ableiten.',
   },
-];
-
-const faqsRest = [
   {
     q: 'Betreut BESS Consulting unseren Standort?',
     a: 'Das Ingenieurbüro sitzt in Bruchsal. Nennen Sie uns Ihren Standort und Ihr Anliegen, damit wir die mögliche Zusammenarbeit konkret besprechen können.',
@@ -204,7 +212,7 @@ const faqsRest = [
   },
   {
     q: 'Müssen wir wirklich jeden Standort auditieren?',
-    a: 'In der Regel nicht. Das vom BAFA beschriebene Multi-Site-Verfahren erlaubt es, vergleichbare Standorte zu Clustern zusammenzufassen und daraus eine Stichprobe zu untersuchen — die Wurzel aus der Anzahl der Standorte je Cluster, aufgerundet auf die nächste ganze Zahl. Standorte, die zusammen unter zehn Prozent des Gesamtverbrauchs liegen, bleiben unberücksichtigt; nicht vergleichbare Standorte werden einzeln betrachtet. Im BAFA-Beispiel reduziert das zwölf Standorte auf sechs zu untersuchende.',
+    a: 'In der Regel nicht. Das vom BAFA beschriebene Multi-Site-Verfahren erlaubt es, vergleichbare Standorte zu Clustern zusammenzufassen und daraus eine Stichprobe zu untersuchen — die Wurzel aus der Anzahl der Standorte je Cluster, aufgerundet auf die nächste ganze Zahl. Standorte, die zusammen unter zehn Prozent des Gesamtverbrauchs liegen, bleiben unberücksichtigt; nicht vergleichbare Standorte werden einzeln betrachtet. Im BAFA-Beispiel reduziert das zwölf Standorte auf sechs zu untersuchende. Wichtig: Das Verfahren setzt vergleichbare Standorte voraus und ist bei Produktionsstätten und Krankenhäusern meist nicht anwendbar. Der Gesamtenergieverbrauch bleibt in jedem Fall vollständig zu erfassen.',
   },
   {
     q: 'Können wir mehrere Standorte einbeziehen?',
@@ -523,8 +531,10 @@ const faqSchema = {
             </p>
             <p class="multisite-source">
               Systematik nach dem Anwendungsbeispiel des Bundesamts für Wirtschaft und
-              Ausfuhrkontrolle. Wie viele Standorte in Ihrem Fall zu untersuchen sind, ergibt
-              sich aus Verbrauch und Vergleichbarkeit.
+              Ausfuhrkontrolle. Das Verfahren passt zu Filial- und Niederlassungsstrukturen.
+              Bei Produktionsstätten und Krankenhäusern ist es meist nicht anwendbar, weil die
+              Vergleichbarkeit fehlt — das prüfen wir vorab. Und: Der Gesamtenergieverbrauch
+              ist immer vollständig zu erfassen, das Verfahren reduziert nur die Begehungen.
             </p>
           </div>
 
