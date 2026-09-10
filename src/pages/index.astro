@@ -1,43 +1,692 @@
 ---
 import '@fontsource-variable/manrope';
 import '../styles/global.css';
+
 const indexable = import.meta.env.PUBLIC_INDEXABLE === 'true';
 const siteUrl = 'https://bess-consulting.de/';
-const entity = {'@context':'https://schema.org','@type':'ProfessionalService',name:'BESS Consulting',url:siteUrl,logo:siteUrl+'assets/bess-logo.webp',telephone:'+4917623724145',email:'kontakt@bess-consulting.de',address:{'@type':'PostalAddress',streetAddress:'Bruchsaler Str. 65',postalCode:'76646',addressLocality:'Bruchsal',addressCountry:'DE'},founder:{'@type':'Person',name:'Waldemar Brauer'},description:'Energieaudits nach DIN EN 16247-1 für produzierende Unternehmen.'};
+
+const entity = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'BESS Consulting',
+  url: siteUrl,
+  logo: siteUrl + 'assets/bess-logo.webp',
+  telephone: '+4917623724145',
+  email: 'kontakt@bess-consulting.de',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Bruchsaler Str. 65',
+    postalCode: '76646',
+    addressLocality: 'Bruchsal',
+    addressCountry: 'DE',
+  },
+  founder: { '@type': 'Person', name: 'Waldemar Brauer' },
+  description: 'Energieaudits nach DIN EN 16247-1 für produzierende Unternehmen.',
+};
+
+const results = [
+  {
+    num: '01 / Verstehen',
+    title: 'Eine Übersicht Ihres Energieeinsatzes',
+    copy: 'Verbräuche, Energieträger und wesentliche Anlagen im Zusammenhang betrachten. Damit sichtbar wird, wo eine vertiefte Analyse ansetzt.',
+    icon: '<path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/>',
+  },
+  {
+    num: '02 / Bewerten',
+    title: 'Eine Bewertung möglicher Maßnahmen',
+    copy: 'Effizienzmaßnahmen nach technischem Potenzial, Investitionsbedarf und erwartetem Nutzen einordnen. Mit offengelegten Annahmen.',
+    icon: '<path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-2 6a3.2 3.2 0 0 0 4 0Z"/><path d="m19 7 2 6a3.2 3.2 0 0 1-4 0Z"/>',
+  },
+  {
+    num: '03 / Entscheiden',
+    title: 'Einen Bericht, den wir mit Ihnen durchgehen',
+    copy: 'Die Ergebnisse im Auditbericht zusammenführen und gemeinsam besprechen. Als Grundlage für die Prioritäten Ihrer Geschäftsführung und Technik.',
+    icon: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/><path d="M9 14h6"/><path d="M9 17h4"/>',
+  },
+];
+
+const fields = [
+  { name: 'Produktion & Anlagen', copy: 'Betriebszeiten, Lastgänge und die Technik dahinter.' },
+  { name: 'Wärme & Abwärme', copy: 'Erzeugung, Verteilung und ungenutzte Wärmeströme.' },
+  { name: 'Druckluft & Kälte', copy: 'Erzeugung, Leckagen und Druckniveaus im Betrieb.' },
+  { name: 'Antriebe & Beleuchtung', copy: 'Motoren, Regelung und Beleuchtung in den Hallen.' },
+];
+
+const steps = [
+  {
+    title: 'Den richtigen Rahmen setzen',
+    copy: 'Wir besprechen Ihren Anlass, die relevanten Standorte und Ihre Datenlage. Daraus entsteht ein passender Leistungsumfang.',
+  },
+  {
+    title: 'Daten mit der Praxis verbinden',
+    copy: 'Verbrauchsübersichten und die Begehung vor Ort helfen, Anlagen und Abläufe im Zusammenhang zu verstehen.',
+  },
+  {
+    title: 'Potenziale wirtschaftlich einordnen',
+    copy: 'Wir analysieren mögliche Maßnahmen und betrachten Investition, Nutzen und zugrunde liegende Annahmen.',
+  },
+  {
+    title: 'Mit klaren Ergebnissen abschließen',
+    copy: 'Sie erhalten den Auditbericht. Wir besprechen die Erkenntnisse und die daraus ableitbaren nächsten Schritte.',
+  },
+];
+
+// Die ersten sechs stehen offen sichtbar, der Rest liegt hinter dem Umschalter.
+const faqsPrimary = [
+  {
+    q: 'Was kostet ein Energieaudit?',
+    a: 'Der Aufwand hängt unter anderem von Standorten, Anlagen, Datenlage und Leistungsumfang ab. Nach einer ersten Abstimmung lässt sich ein individuelles Angebot erstellen.',
+  },
+  {
+    q: 'Sind wir zu einem Energieaudit verpflichtet?',
+    a: 'Das muss anhand Ihres Unternehmensstatus, Energieverbrauchs und vorhandener Managementsysteme geprüft werden. EDL-G und EnEfG haben unterschiedliche Anforderungen. <a href="/blog/energieauditpflicht-enefg/">Zur Einordnung der Pflichten</a>.',
+  },
+  {
+    q: 'Wie viel Zeit müssen wir intern einplanen?',
+    a: 'Ein Ansprechpartner im Unternehmen, verfügbare Verbrauchsdaten und Zugang zu den relevanten Anlagen erleichtern die Zusammenarbeit. Den konkreten Zeitbedarf stimmen wir anhand Ihres Betriebs und des vereinbarten Umfangs ab.',
+  },
+  {
+    q: 'Welche Unterlagen werden benötigt?',
+    a: 'Hilfreich sind Energieabrechnungen, Verbrauchsübersichten sowie Informationen zu Standorten und wesentlichen Anlagen. Welche Daten für das Audit benötigt werden, klären wir zu Beginn.',
+  },
+  {
+    q: 'Was erhalten wir am Ende des Audits?',
+    a: 'Die Ergebnisse werden in einem Auditbericht zusammengeführt. Dazu gehören die Untersuchung des Energieeinsatzes und die Bewertung möglicher Maßnahmen. In der Abschlussbesprechung gehen wir die Erkenntnisse gemeinsam durch. Den genauen Leistungsumfang legen wir im Angebot fest.',
+  },
+  {
+    q: 'Gibt es Fördermöglichkeiten?',
+    a: 'Das hängt vom aktuellen Programm, Ihrem Unternehmen und dem Vorhaben ab. Förderfähigkeit und zulässigen Vorhabenbeginn sollten Sie vor einer Beauftragung klären. Eine pauschale Förderzusage lässt sich daraus nicht ableiten.',
+  },
+];
+
+const faqsRest = [
+  {
+    q: 'Betreut BESS Consulting unseren Standort?',
+    a: 'Das Ingenieurbüro sitzt in Bruchsal. Nennen Sie uns Ihren Standort und Ihr Anliegen, damit wir die mögliche Zusammenarbeit konkret besprechen können.',
+  },
+  {
+    q: 'Findet das Audit bei uns vor Ort statt?',
+    a: 'Die Begehung ist Teil des beschriebenen Ablaufs. Sie hilft, Verbrauchsdaten mit den tatsächlichen Anlagen und Arbeitsabläufen abzugleichen. Welche Gespräche ergänzend online stattfinden können, stimmen wir gemeinsam ab.',
+  },
+  {
+    q: 'Können wir mehrere Standorte einbeziehen?',
+    a: 'Nennen Sie uns die Standorte und die dort eingesetzten Energieträger. Dann lässt sich klären, welcher Umfang für Ihr Unternehmen erforderlich ist und wie Datenerfassung und Termine organisiert werden können.',
+  },
+  {
+    q: 'Zählt nur unser Stromverbrauch?',
+    a: 'Für die Einordnung reicht der Blick auf Strom allein nicht aus. Erfassen Sie auch die weiteren eingesetzten Energieträger und klären Sie, welche Standorte und Einheiten zu betrachten sind.',
+  },
+  {
+    q: 'Was tun, wenn Verbrauchsdaten fehlen?',
+    a: 'Bringen Sie zunächst eine Übersicht der vorhandenen Daten und der Lücken mit. Wir klären, welche Informationen sich ergänzen lassen und wo weitere Erhebungen erforderlich sein könnten.',
+  },
+  {
+    q: 'Muss die Produktion für das Audit stillstehen?',
+    a: 'Begehung und Datenerfassung werden mit Ihren betrieblichen Abläufen abgestimmt. Ob einzelne Untersuchungen besondere Betriebszustände benötigen, lässt sich erst nach Kenntnis Ihrer Anlagen klären.',
+  },
+  {
+    q: 'Ist eine bestimmte Einsparung garantiert?',
+    a: 'Eine pauschale Einspargarantie wäre vor der Analyse nicht belastbar. Erwartete Wirkungen hängen unter anderem von Betriebszeiten, Energiepreisen, technischer Umsetzung und tatsächlicher Nutzung ab.',
+  },
+  {
+    q: 'Profitieren wir automatisch vom Industriestrompreis?',
+    a: 'Nein. Die Regelung richtet sich an bestimmte energieintensive Branchen. Ein Energieaudit allein begründet keinen Anspruch. <a href="/blog/industriestrompreis-2026/">Was die 5-Cent-Marke bedeutet</a>.',
+  },
+  {
+    q: 'Wie bereiten wir die Beauftragung vor?',
+    a: 'Klären Sie Anlass, Standorte, verfügbare Daten und gewünschten Umfang. Wenn eine Förderung infrage kommt, prüfen Sie deren Bedingungen vor einer Beauftragung. <a href="/blog/energieaudit-kosten-foerderung-vorbereitung/">Checkliste zu Kosten, Förderung und Vorbereitung</a>.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [...faqsPrimary, ...faqsRest].map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') },
+  })),
+};
 ---
-<!doctype html><html lang="de"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="robots" content={indexable ? "index,follow" : "noindex,follow"}/>{indexable && <link rel="canonical" href={siteUrl}/>}<script type="application/ld+json" set:html={JSON.stringify(entity)}/><meta property="og:title" content="Energieaudit für Unternehmen | BESS Consulting"/><meta property="og:description" content="Waldemar Brauer untersucht Ihren Energieeinsatz und bewertet mögliche Effizienzmaßnahmen."/><meta property="og:type" content="website"/><meta property="og:locale" content="de_DE"/><title>Energieaudit für Unternehmen | BESS Consulting Bruchsal</title><meta name="description" content="Energieaudits nach DIN EN 16247-1 für produzierende Unternehmen. Waldemar Brauer: Energieeinsatz analysieren und Maßnahmen wirtschaftlich bewerten."/><meta name="theme-color" content="#36afcd"/></head><body>
-<a class="skip" href="#main">Zum Inhalt</a><header class="shell"><nav class="nav" aria-label="Hauptnavigation"><a class="wordmark" href="#" aria-label="BESS Consulting Startseite"><img class="original-logo" src="/assets/bess-logo.webp" width="150" height="59" alt="BESS Consulting"/></a><button class="menu-button" aria-expanded="false" aria-controls="navigation">Menü</button><div class="navlinks" id="navigation"><a href="#ergebnis">Ihr Ergebnis</a><a href="#ablauf">Zusammenarbeit</a><a href="#waldemar">Waldemar Brauer</a><a href="/blog/">Wissen &amp; Blog</a><a class="btn" href="#kontakt">Audit besprechen</a></div></nav></header>
-<main id="main"><section class="hero" aria-labelledby="hero-title"><div class="shell hero-layout"><div class="hero-inner"><p class="eyebrow">Energieaudits für produzierende Unternehmen</p><h1 id="hero-title">Ihre Energie kostet.<br/><em>Wir schauen<br/>genauer hin.</em></h1><p class="hero-copy">Druckluft, Wärme, Kälte, Antriebe: Wo lohnt sich eine Veränderung? Waldemar Brauer untersucht Ihren Energieeinsatz und bewertet, welche Maßnahmen für Ihren Betrieb infrage kommen.</p><div class="hero-actions"><a class="btn acid" href="#kontakt">Über Ihr Energieaudit sprechen</a><a class="subtle-link" href="#ablauf">Wie wir vorgehen</a></div><p class="hero-note">BESS Consulting · Bruchsal · DIN EN 16247-1</p></div><div class="audit-stage" aria-label="Die Bestandteile Ihres Energieaudits"><div class="stage-grid" aria-hidden="true"></div><div class="audit-stack"><div class="sheet sheet-back" aria-hidden="true"></div><div class="sheet sheet-middle" aria-hidden="true"></div><article class="audit-sheet"><div class="sheet-header"><img src="/assets/bess-logo.webp" width="150" height="59" alt=""/><span>DIN EN 16247-1</span></div><p class="sheet-overline">VON DER AUFNAHME ZUR ENTSCHEIDUNG</p><h2>Ihr Betrieb.<br/>Genauer betrachtet.</h2><div class="report-lines"><div><span>01</span><p><strong>Energieeinsatz</strong>Verbräuche und Anlagen erfassen</p></div><div><span>02</span><p><strong>Maßnahmen</strong>Technik und Wirtschaftlichkeit prüfen</p></div><div><span>03</span><p><strong>Auditbericht</strong>Erkenntnisse gemeinsam besprechen</p></div></div><div class="report-bottom"><span>BESS CONSULTING</span><span>ENERGIEAUDIT / ÜBERBLICK</span></div></article><div class="floating-note"><span class="note-icon" aria-hidden="true">€</span><div><strong>Was rechnet sich?</strong><span>Eine Frage für die Analyse.</span></div></div></div></div></div><div class="hero-baseline shell"><span>Technische Beratung. Mit Blick auf Ihre Betriebskosten.</span><a href="#ergebnis">Den Leistungsumfang ansehen</a></div></section><div class="shell intro-strip"><div><strong>Waldemar Brauer / BESS Consulting</strong><p>Ein direkter Ansprechpartner für Ihr Energieaudit.</p></div><div class="item"><strong>Für produzierende Unternehmen</strong><p>Mit Blick auf Anlagen und betriebliche Abläufe.</p></div><div class="item"><strong>Von der Analyse zur Bewertung</strong><p>Nachvollziehbare Grundlagen für Ihre Entscheidungen.</p></div></div>
-<section id="ergebnis" class="shell section"><p class="eyebrow">01 / Was Sie weiterbringt</p><div class="section-head"><h2>Was Sie nach dem<br/>Audit <em>in der Hand haben.</em></h2><p>Ein gutes Audit beantwortet die Fragen, die für Ihren Betrieb zählen: Wo genauer hinsehen? Welche Maßnahmen prüfen? Und welche Investition zuerst angehen?</p></div><div class="results"><article class="result"><div class="result-top"><span class="result-num">01 / VERSTEHEN</span><span class="result-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V11m8 8V4m8 15V8"/><path d="M2 21h20"/></svg></span></div><h3>Eine Übersicht Ihres Energieeinsatzes</h3><p>Verbräuche, Energieträger und wesentliche Anlagen im Zusammenhang betrachten. Damit sichtbar wird, wo eine vertiefte Analyse ansetzt.</p></article><article class="result"><div class="result-top"><span class="result-num">02 / BEWERTEN</span><span class="result-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2" fill="#f5f6f2"/><circle cx="16" cy="12" r="2" fill="#f5f6f2"/><circle cx="7" cy="18" r="2" fill="#f5f6f2"/></svg></span></div><h3>Eine Bewertung möglicher Maßnahmen</h3><p>Effizienzmaßnahmen nach technischem Potenzial, Investitionsbedarf und erwartetem Nutzen einordnen. Mit offengelegten Annahmen.</p></article><article class="result"><div class="result-top"><span class="result-num">03 / ENTSCHEIDEN</span><span class="result-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18H6zM9 7h6M9 11h6m-6 4 2 2 4-4"/></svg></span></div><h3>Einen Bericht, den wir mit Ihnen durchgehen</h3><p>Die Ergebnisse im Auditbericht zusammenführen und gemeinsam besprechen. Als Grundlage für die Prioritäten Ihrer Geschäftsführung und Technik.</p></article></div><div class="scope-band"><strong>Der Blick auf Ihren Betrieb</strong><span>Produktion &amp; Anlagen</span><span>Wärme &amp; Abwärme</span><span>Druckluft &amp; Kälte</span><span>Antriebe &amp; Beleuchtung</span></div></section>
-<section class="method section" id="ablauf"><div class="shell method-grid"><div><p class="eyebrow">02 / Die Zusammenarbeit</p><h2>Wir beginnen dort,<br/>wo Sie <em>Energie einsetzen.</em></h2><p class="method-intro">Sie kennen Ihren Betrieb. BESS Consulting bringt den systematischen Blick auf Ihren Energieeinsatz ein. Ziele, Datenbedarf und Umfang stimmen wir zu Beginn ab.</p><div class="prep"><strong>Gut für das erste Gespräch:</strong><br/>Standorte, Energieträger, vorhandene Verbrauchsdaten und Ihr konkretes Anliegen.</div></div><div class="steps"><article class="step"><div><h3>Den richtigen Rahmen setzen</h3><p>Wir besprechen Ihren Anlass, die relevanten Standorte und Ihre Datenlage. Daraus entsteht ein passender Leistungsumfang.</p></div></article><article class="step"><div><h3>Daten mit der Praxis verbinden</h3><p>Verbrauchsübersichten und die Begehung vor Ort helfen, Anlagen und Abläufe im Zusammenhang zu verstehen.</p></div></article><article class="step"><div><h3>Potenziale wirtschaftlich einordnen</h3><p>Wir analysieren mögliche Maßnahmen und betrachten Investition, Nutzen und zugrunde liegende Annahmen.</p></div></article><article class="step"><div><h3>Mit klaren Ergebnissen abschließen</h3><p>Sie erhalten den Auditbericht. Wir besprechen die Erkenntnisse und die daraus ableitbaren nächsten Schritte.</p></div></article></div></div></section>
-<section id="waldemar" class="shell section expert"><figure class="expert-visual portrait-panel"><img class="expert-photo" data-portrait-slot="waldemar" src="/assets/waldemar-brauer.jpeg" alt="Waldemar Brauer mit Telefon und Tablet" width="1393" height="1792" loading="lazy"/><figcaption><div class="role">Ihr Ansprechpartner</div><div class="name">Waldemar Brauer</div><div class="location">BESS CONSULTING · BRUCHSAL</div></figcaption></figure><div class="expert-copy"><p class="eyebrow">03 / Ihr Ansprechpartner</p><h2>Sie sprechen direkt<br/>mit <em>Waldemar Brauer.</em></h2><p>Welche Lösung passt zu Ihren Anlagen, Ihren Abläufen und Ihren wirtschaftlichen Zielen? Darauf richtet Waldemar Brauer die Beratung aus.</p><ul class="expert-points"><li>Direkter Austausch über Ihre betrieblichen Fragen</li><li>Technische Analyse mit wirtschaftlicher Einordnung</li><li>Ergebnisse verständlich gemeinsam besprechen</li></ul><a class="subtle-link" href="mailto:kontakt@bess-consulting.de">Waldemar eine E-Mail schreiben</a></div></section>
-<section class="shell section faq-section"><div class="faq-grid"><div><p class="eyebrow">04 / Vor dem ersten Gespräch</p><h2>Was Sie vorab<br/><em>wissen möchten.</em></h2></div><div><details><summary>Was kostet ein Energieaudit?</summary><p>Der Aufwand hängt unter anderem von Standorten, Anlagen, Datenlage und Leistungsumfang ab. Nach einer ersten Abstimmung lässt sich ein individuelles Angebot erstellen.</p></details><details><summary>Wie viel Zeit müssen wir intern einplanen?</summary><p>Ein Ansprechpartner im Unternehmen, verfügbare Verbrauchsdaten und Zugang zu den relevanten Anlagen erleichtern die Zusammenarbeit. Den konkreten Zeitbedarf stimmen wir anhand Ihres Betriebs und des vereinbarten Umfangs ab.</p></details><details><summary>Welche Unterlagen werden benötigt?</summary><p>Hilfreich sind Energieabrechnungen, Verbrauchsübersichten sowie Informationen zu Standorten und wesentlichen Anlagen. Welche Daten für das Audit benötigt werden, klären wir zu Beginn.</p></details><details><summary>Gibt es Fördermöglichkeiten?</summary><p>Das hängt vom aktuellen Programm, Ihrem Unternehmen und dem Vorhaben ab. Förderfähigkeit und zulässigen Vorhabenbeginn sollten Sie vor einer Beauftragung klären. Eine pauschale Förderzusage lässt sich daraus nicht ableiten.</p></details><details><summary>Betreut BESS Consulting unseren Standort?</summary><p>Das Ingenieurbüro sitzt in Bruchsal. Nennen Sie uns Ihren Standort und Ihr Anliegen, damit wir die mögliche Zusammenarbeit konkret besprechen können.</p></details><details><summary>Was erhalten wir am Ende des Audits?</summary><p>Die Ergebnisse werden in einem Auditbericht zusammengeführt. Dazu gehören die Untersuchung des Energieeinsatzes und die Bewertung möglicher Maßnahmen. In der Abschlussbesprechung gehen wir die Erkenntnisse gemeinsam durch. Den genauen Leistungsumfang legen wir im Angebot fest.</p></details><details><summary>Findet das Audit bei uns vor Ort statt?</summary><p>Die Begehung ist Teil des beschriebenen Ablaufs. Sie hilft, Verbrauchsdaten mit den tatsächlichen Anlagen und Arbeitsabläufen abzugleichen. Welche Gespräche ergänzend online stattfinden können, stimmen wir gemeinsam ab.</p></details><details><summary>Können wir mehrere Standorte einbeziehen?</summary><p>Nennen Sie uns die Standorte und die dort eingesetzten Energieträger. Dann lässt sich klären, welcher Umfang für Ihr Unternehmen erforderlich ist und wie Datenerfassung und Termine organisiert werden können.</p></details><details><summary>Sind wir zu einem Energieaudit verpflichtet?</summary><p>Das muss anhand Ihres Unternehmensstatus, Energieverbrauchs und vorhandener Managementsysteme geprüft werden. EDL-G und EnEfG haben unterschiedliche Anforderungen. <a href="/blog/energieauditpflicht-enefg/">Zur Einordnung der Pflichten</a>.</p></details><details><summary>Zählt nur unser Stromverbrauch?</summary><p>Für die Einordnung reicht der Blick auf Strom allein nicht aus. Erfassen Sie auch die weiteren eingesetzten Energieträger und klären Sie, welche Standorte und Einheiten zu betrachten sind.</p></details><details><summary>Was tun, wenn Verbrauchsdaten fehlen?</summary><p>Bringen Sie zunächst eine Übersicht der vorhandenen Daten und der Lücken mit. Wir klären, welche Informationen sich ergänzen lassen und wo weitere Erhebungen erforderlich sein könnten.</p></details><details><summary>Muss die Produktion für das Audit stillstehen?</summary><p>Begehung und Datenerfassung werden mit Ihren betrieblichen Abläufen abgestimmt. Ob einzelne Untersuchungen besondere Betriebszustände benötigen, lässt sich erst nach Kenntnis Ihrer Anlagen klären.</p></details><details><summary>Ist eine bestimmte Einsparung garantiert?</summary><p>Eine pauschale Einspargarantie wäre vor der Analyse nicht belastbar. Erwartete Wirkungen hängen unter anderem von Betriebszeiten, Energiepreisen, technischer Umsetzung und tatsächlicher Nutzung ab.</p></details><details><summary>Profitieren wir automatisch vom Industriestrompreis?</summary><p>Nein. Die Regelung richtet sich an bestimmte energieintensive Branchen. Ein Energieaudit allein begründet keinen Anspruch. <a href="/blog/industriestrompreis-2026/">Was die 5-Cent-Marke bedeutet</a>.</p></details><details><summary>Wie bereiten wir die Beauftragung vor?</summary><p>Klären Sie Anlass, Standorte, verfügbare Daten und gewünschten Umfang. Wenn eine Förderung infrage kommt, prüfen Sie deren Bedingungen vor einer Beauftragung. <a href="/blog/energieaudit-kosten-foerderung-vorbereitung/">Checkliste zu Kosten, Förderung und Vorbereitung</a>.</p></details></div></div></section>
-<section class="shell knowledge-teaser"><p class="eyebrow">Wissen für Ihre Entscheidung</p><h2>Manche Fragen brauchen mehr Raum.</h2><p>Industriestrompreis, betriebliche Pflichten oder die Vorbereitung des Audits: Im Wissensbereich ordnen wir die Hintergründe ein.</p><a class="btn" href="/blog/">Zum Wissen &amp; Blog</a></section>
-<section id="kontakt" class="contact"><div class="shell contact-grid"><div><p class="eyebrow">Ihr nächster Schritt</p><h2>Wo möchten Sie<br/>genauer hinschauen?</h2><p>Nennen Sie uns Ihren Betrieb, Ihren Standort und Ihr Anliegen. Wir besprechen, welche Unterstützung Sie brauchen und welche Unterlagen dafür hilfreich sind.</p></div><div class="contact-right"><a class="btn" href="mailto:kontakt@bess-consulting.de?subject=Energieaudit%20besprechen">Energieaudit besprechen</a><a class="mail" href="mailto:kontakt@bess-consulting.de">kontakt@bess-consulting.de</a><a class="phone" href="tel:+4917623724145">Oder direkt anrufen: +49 176 237 241 45</a></div></div></section></main>
-<footer class="shell footer"><div class="footer-top"><a class="wordmark" href="#"><img class="original-logo" src="/assets/bess-logo.webp" width="150" height="59" alt="BESS Consulting"/></a><address>Waldemar Brauer · Bruchsaler Str. 65<br/>76646 Bruchsal</address></div><div class="footer-bottom"><span>© 2026 BESS Consulting</span><div><a href="/impressum/">Impressum</a><a href="/datenschutzerklaerung/">Datenschutz</a></div></div><p class="preview-badge">Konzeptentwurf · 10.09.2026 · Inhalte und Rechtstexte vor Veröffentlichung freigeben.</p></footer>
-<script is:inline>document.documentElement.classList.add('js');const b=document.querySelector('.menu-button');const n=document.querySelector('.navlinks');b?.addEventListener('click',()=>{const open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',String(open));n.classList.toggle('open',open)});n?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{b.setAttribute('aria-expanded','false');n.classList.remove('open')}));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&b?.getAttribute('aria-expanded')==='true'){b.setAttribute('aria-expanded','false');n.classList.remove('open');b.focus()}});</script>
-<script>
-import { animate, inView } from 'motion';
-const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-const desktop = window.matchMedia('(hover: hover) and (min-width: 900px)');
-const stage = document.querySelector<HTMLElement>('.audit-stage');
-const stack = document.querySelector<HTMLElement>('.audit-stack');
-let frame = 0;
-const animations: Array<{stop:()=>void}> = [];
-if(stage && stack){
- stage.addEventListener('pointermove',event=>{
-  if(preference.matches || !desktop.matches)return;
-  const bounds=stage.getBoundingClientRect();
-  const x=(event.clientX-bounds.left)/bounds.width-.5;
-  const y=(event.clientY-bounds.top)/bounds.height-.5;
-  cancelAnimationFrame(frame);
-  frame=requestAnimationFrame(()=>{stack.style.transform=`rotateX(${-y*6}deg) rotateY(${x*9}deg)`;});
- });
- stage.addEventListener('pointerleave',()=>{cancelAnimationFrame(frame);stack.style.transform='';});
- const reset = ()=>{cancelAnimationFrame(frame);stack.style.transform='';};
- preference.addEventListener('change',()=>{reset();if(preference.matches)animations.forEach(a=>a.stop());});
- desktop.addEventListener('change',reset);
-}
-inView('.result, .step',element=>{if(!preference.matches)animations.push(animate(element,{y:[16,0]},{duration:.45,ease:'easeOut'}));});
-if(!preference.matches)animations.push(animate('.audit-stack',{y:[24,0],opacity:[.7,1]},{duration:.9,ease:'easeOut'}));
-</script></body></html>
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content={indexable ? 'index,follow' : 'noindex,follow'} />
+    {indexable && <link rel="canonical" href={siteUrl} />}
+    <title>Energieaudit für Unternehmen | BESS Consulting Bruchsal</title>
+    <meta
+      name="description"
+      content="Energieaudits nach DIN EN 16247-1 für produzierende Unternehmen. Waldemar Brauer: Energieeinsatz analysieren und Maßnahmen wirtschaftlich bewerten."
+    />
+    <meta property="og:title" content="Energieaudit für Unternehmen | BESS Consulting" />
+    <meta
+      property="og:description"
+      content="Waldemar Brauer untersucht Ihren Energieeinsatz und bewertet mögliche Effizienzmaßnahmen."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta name="theme-color" content="#0e2a33" />
+    <script type="application/ld+json" set:html={JSON.stringify(entity)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+
+  <body>
+    <a class="skip" href="#main">Zum Inhalt</a>
+
+    <header class="site-nav">
+      <div class="shell nav">
+        <a href="/" aria-label="BESS Consulting, zur Startseite">
+          <img class="original-logo" src="/assets/bess-logo.webp" alt="BESS Consulting" width="138" height="54" />
+        </a>
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="navlinks">Menü</button>
+        <nav class="navlinks" id="navlinks" aria-label="Hauptnavigation">
+          <a href="#ergebnis">Ihr Ergebnis</a>
+          <a href="#ablauf">Zusammenarbeit</a>
+          <a href="#rechner">Größenordnung</a>
+          <a href="#waldemar">Waldemar Brauer</a>
+          <a href="/blog/">Wissen &amp; Blog</a>
+          <a class="btn btn-primary" href="#kontakt">Audit besprechen</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Hero: Botschaft links, realer Anlass rechts statt Deko-Mockup -->
+      <section class="hero">
+        <div class="shell hero-layout">
+          <div>
+            <p class="eyebrow">Energieaudits für produzierende Unternehmen</p>
+            <h1>Ihre Energie kostet.<br />Wir schauen <em>genauer hin.</em></h1>
+            <p class="lead hero-copy">
+              Druckluft, Wärme, Kälte, Antriebe: Wo lohnt sich eine Veränderung? Waldemar Brauer
+              untersucht Ihren Energieeinsatz und bewertet, welche Maßnahmen für Ihren Betrieb
+              infrage kommen.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#kontakt">Über Ihr Energieaudit sprechen</a>
+              <a class="textlink" href="#ablauf">Wie wir vorgehen</a>
+            </div>
+            <p class="hero-note">BESS Consulting · Bruchsal · Audits nach DIN EN 16247-1</p>
+          </div>
+
+          <aside class="duty-card" aria-labelledby="duty-title">
+            <div class="duty-head">
+              <span>Anlass klären</span>
+              <span>EDL-G / EnEfG</span>
+            </div>
+            <h2 class="duty-title" id="duty-title">Betrifft die Pflicht Ihren Betrieb?</h2>
+            <p class="duty-lead">
+              Zwei Gesetze, zwei Schwellen. Welche für Sie greift, entscheidet sich an
+              Unternehmensgröße, Energieverbrauch und vorhandenen Managementsystemen.
+            </p>
+            <ul class="duty-list">
+              <li>
+                <span class="duty-marker" aria-hidden="true">1</span>
+                <span><strong>Unternehmensstatus</strong>Kein KMU nach EU-Definition? Dann greift das EDL-G.</span>
+              </li>
+              <li>
+                <span class="duty-marker" aria-hidden="true">2</span>
+                <span><strong>Gesamtenergieverbrauch</strong>Alle Energieträger zählen, nicht nur Strom.</span>
+              </li>
+              <li>
+                <span class="duty-marker" aria-hidden="true">3</span>
+                <span><strong>Vorhandene Systeme</strong>Ein Energie- oder Umweltmanagement kann die Pflicht ersetzen.</span>
+              </li>
+            </ul>
+            <p class="duty-foot">
+              Unklar, was für Sie gilt?
+              <a href="/blog/energieauditpflicht-enefg/">Einordnung der Pflichten lesen</a>
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Trust-Leiste: Einordnung statt Werbeversprechen -->
+      <section class="trustbar" aria-label="Einordnung">
+        <div class="shell trustbar-grid">
+          <div class="trust-item">
+            <span class="trust-value">DIN EN 16247-1</span>
+            <span class="trust-label">Grundlage der Auditdurchführung</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-value">Ein Ansprechpartner</span>
+            <span class="trust-label">Waldemar Brauer, vom Erstgespräch bis zum Bericht</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-value">Produzierendes Gewerbe</span>
+            <span class="trust-label">Mit Blick auf Anlagen und betriebliche Abläufe</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-value">Bruchsal, Baden-Württemberg</span>
+            <span class="trust-label">Standort des Ingenieurbüros</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ergebnisse -->
+      <section class="section shell" id="ergebnis">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">01 / Was Sie weiterbringt</p>
+            <h2>Was Sie nach dem Audit <em>in der Hand haben.</em></h2>
+          </div>
+          <p class="lead">
+            Ein gutes Audit beantwortet die Fragen, die für Ihren Betrieb zählen: Wo genauer
+            hinsehen? Welche Maßnahmen prüfen? Und welche Investition zuerst angehen?
+          </p>
+        </div>
+
+        <div class="results">
+          {
+            results.map((r) => (
+              <article class="result reveal">
+                <div class="result-top">
+                  <span class="result-num">{r.num}</span>
+                  <span class="result-symbol" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" set:html={r.icon} />
+                  </span>
+                </div>
+                <h3>{r.title}</h3>
+                <p>{r.copy}</p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Dunkler Anker: bricht die helle Fläche, nutzt das Industriebild -->
+      <section class="anchor-band" aria-labelledby="anchor-title">
+        <img class="anchor-photo" src="/assets/industrial.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <div class="shell anchor-inner">
+          <p class="eyebrow">Der Blick auf Ihren Betrieb</p>
+          <h2 id="anchor-title">Energie verschwindet dort, <em>wo niemand hinsieht.</em></h2>
+          <p class="anchor-lead">
+            Die Verluste liegen selten an einer einzigen Stelle. Sie verteilen sich über
+            Betriebszeiten, Regelung und Anlagen, die seit Jahren unverändert laufen. Genau
+            dort setzt die Untersuchung an.
+          </p>
+          <ul class="anchor-fields">
+            {
+              fields.map((f) => (
+                <li>
+                  <strong>{f.name}</strong>
+                  <span>{f.copy}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </section>
+
+      <!-- Ablauf -->
+      <section class="method section" id="ablauf">
+        <div class="shell method-grid">
+          <div class="reveal">
+            <p class="eyebrow">02 / Die Zusammenarbeit</p>
+            <h2>Wir beginnen dort, wo Sie <em>Energie einsetzen.</em></h2>
+            <p class="lead method-intro">
+              Sie kennen Ihren Betrieb. BESS Consulting bringt den systematischen Blick auf Ihren
+              Energieeinsatz ein. Ziele, Datenbedarf und Umfang stimmen wir zu Beginn ab.
+            </p>
+            <p class="prep">
+              <strong>Gut für das erste Gespräch</strong>
+              Standorte, Energieträger, vorhandene Verbrauchsdaten und Ihr konkretes Anliegen.
+            </p>
+          </div>
+
+          <ol class="steps reveal" style="list-style:none;margin:0;padding:0">
+            {
+              steps.map((s) => (
+                <li class="step">
+                  <div>
+                    <h3>{s.title}</h3>
+                    <p>{s.copy}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </section>
+
+      <!-- Rechner: ersetzt das Deko-Mockup durch etwas Rechenbares -->
+      <section class="section shell" id="rechner">
+        <div class="calc-wrap">
+          <div class="reveal">
+            <p class="eyebrow">03 / Größenordnung</p>
+            <h2>Womit reden wir <em>überhaupt?</em></h2>
+            <p class="lead" style="margin-top:var(--s3);max-width:46ch">
+              Bevor über Maßnahmen gesprochen wird, hilft eine grobe Einordnung: Wie viel Geld
+              läuft im Jahr durch Ihren Energieeinsatz? Tragen Sie Ihre Zahlen ein.
+            </p>
+            <p class="lead" style="margin-top:var(--s3);max-width:46ch;font-size:16px">
+              Die Rechnung ersetzt keine Analyse. Sie zeigt nur, in welcher Größenordnung sich
+              eine Veränderung bewegen würde.
+            </p>
+          </div>
+
+          <div class="calc reveal">
+            <div class="calc-field">
+              <label for="calc-kwh">Stromverbrauch im Jahr</label>
+              <div class="calc-input">
+                <input
+                  id="calc-kwh"
+                  type="number"
+                  inputmode="numeric"
+                  min="0"
+                  max="500000000"
+                  step="1000"
+                  value="750000"
+                  aria-describedby="calc-kwh-hint"
+                />
+                <span class="unit">kWh</span>
+              </div>
+              <span class="hint" id="calc-kwh-hint">Steht auf Ihrer Jahresabrechnung.</span>
+            </div>
+
+            <div class="calc-field">
+              <label for="calc-price">Arbeitspreis</label>
+              <div class="calc-input">
+                <input
+                  id="calc-price"
+                  type="number"
+                  inputmode="decimal"
+                  min="0"
+                  max="200"
+                  step="0.5"
+                  value="18"
+                  aria-describedby="calc-price-hint"
+                />
+                <span class="unit">ct/kWh</span>
+              </div>
+              <span class="hint" id="calc-price-hint">Ihr durchschnittlicher Bezugspreis.</span>
+            </div>
+
+            <div class="calc-field">
+              <label for="calc-share">Angenommene Veränderung</label>
+              <div class="calc-input">
+                <input
+                  id="calc-share"
+                  type="number"
+                  inputmode="numeric"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value="8"
+                  aria-describedby="calc-share-hint"
+                />
+                <span class="unit">%</span>
+              </div>
+              <span class="hint" id="calc-share-hint">Frei gewählter Wert, keine Prognose.</span>
+            </div>
+
+            <dl class="calc-out" aria-live="polite">
+              <div class="calc-row">
+                <dt>Stromkosten im Jahr</dt>
+                <dd id="out-total">—</dd>
+              </div>
+              <div class="calc-row is-major">
+                <dt>Rechnerische Differenz</dt>
+                <dd id="out-saving">—</dd>
+              </div>
+            </dl>
+
+            <p class="calc-disclaimer">
+              Reine Multiplikation der eingegebenen Werte. Ob und in welchem Umfang sich in Ihrem
+              Betrieb etwas verändern lässt, zeigt erst die Untersuchung vor Ort.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ansprechpartner -->
+      <section class="section shell expert" id="waldemar">
+        <figure class="portrait-panel reveal">
+          <img
+            class="expert-photo"
+            src="/assets/waldemar-brauer.jpeg"
+            alt="Waldemar Brauer im Gespräch am Telefon vor einem Industriegebäude"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            <div class="role">Ihr Ansprechpartner</div>
+            <div class="name">Waldemar Brauer</div>
+            <div class="location">BESS Consulting · Bruchsal</div>
+          </figcaption>
+        </figure>
+
+        <div class="expert-copy reveal">
+          <p class="eyebrow">04 / Ihr Ansprechpartner</p>
+          <h2>Sie sprechen direkt <em>mit Waldemar Brauer.</em></h2>
+          <p class="lead">
+            Welche Lösung passt zu Ihren Anlagen, Ihren Abläufen und Ihren wirtschaftlichen
+            Zielen? Darauf richtet Waldemar Brauer die Beratung aus.
+          </p>
+          <ul class="expert-points">
+            <li>Direkter Austausch über Ihre betrieblichen Fragen</li>
+            <li>Technische Analyse mit wirtschaftlicher Einordnung</li>
+            <li>Ergebnisse verständlich gemeinsam besprechen</li>
+          </ul>
+          <a class="btn btn-ghost" href="mailto:kontakt@bess-consulting.de">Waldemar eine E-Mail schreiben</a>
+        </div>
+      </section>
+
+      <!-- FAQ: sechs sichtbar, Rest auf Wunsch -->
+      <section class="faq-section section" aria-labelledby="faq-title">
+        <div class="shell">
+          <div class="section-head reveal">
+            <div>
+              <p class="eyebrow">05 / Vor dem ersten Gespräch</p>
+              <h2 id="faq-title">Was Sie vorab <em>wissen möchten.</em></h2>
+            </div>
+            <p class="lead">
+              Die Fragen, die im Erstgespräch am häufigsten kommen. Falls Ihre nicht dabei ist:
+              einfach anrufen.
+            </p>
+          </div>
+
+          <div class="faq-columns">
+            {
+              faqsPrimary.map((f) => (
+                <details>
+                  <summary>{f.q}</summary>
+                  <p set:html={f.a} />
+                </details>
+              ))
+            }
+          </div>
+
+          <div class="faq-columns faq-rest" id="faq-rest" hidden>
+            {
+              faqsRest.map((f) => (
+                <details>
+                  <summary>{f.q}</summary>
+                  <p set:html={f.a} />
+                </details>
+              ))
+            }
+          </div>
+
+          <div class="faq-more">
+            <button class="btn btn-ghost" type="button" id="faq-toggle" aria-expanded="false" aria-controls="faq-rest">
+              Weitere neun Fragen anzeigen
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Wissen -->
+      <section class="knowledge-teaser shell">
+        <div class="teaser-card reveal">
+          <div>
+            <p class="eyebrow">Wissen für Ihre Entscheidung</p>
+            <h2>Manche Fragen brauchen mehr Raum.</h2>
+            <p>
+              Industriestrompreis, betriebliche Pflichten oder die Vorbereitung des Audits: Im
+              Wissensbereich ordnen wir die Hintergründe ein.
+            </p>
+          </div>
+          <div>
+            <a class="btn btn-primary" href="/blog/">Zum Wissen &amp; Blog</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kontakt -->
+      <section class="contact" id="kontakt">
+        <div class="shell">
+          <div class="contact-grid">
+            <div>
+              <p class="eyebrow">Ihr nächster Schritt</p>
+              <h2>Wo möchten Sie <em>genauer hinschauen?</em></h2>
+              <p>
+                Nennen Sie uns Ihren Betrieb, Ihren Standort und Ihr Anliegen. Wir besprechen,
+                welche Unterstützung Sie brauchen und welche Unterlagen dafür hilfreich sind.
+              </p>
+              <ul class="contact-expect">
+                <li>
+                  <span aria-hidden="true">1</span>
+                  <span>Ein Gespräch über Ihren Anlass, Ihre Standorte und Ihre Datenlage.</span>
+                </li>
+                <li>
+                  <span aria-hidden="true">2</span>
+                  <span>Eine Einschätzung, welcher Leistungsumfang für Sie sinnvoll ist.</span>
+                </li>
+                <li>
+                  <span aria-hidden="true">3</span>
+                  <span>Ein Angebot, in dem der Umfang schriftlich festgehalten ist.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="contact-card">
+              <span class="label">Direkt schreiben</span>
+              <a class="mail" href="mailto:kontakt@bess-consulting.de">kontakt@bess-consulting.de</a>
+              <span class="phone">
+                Oder anrufen: <a href="tel:+4917623724145">+49 176 237 241 45</a>
+              </span>
+              <address>
+                Waldemar Brauer<br />
+                Bruchsaler Str. 65<br />
+                76646 Bruchsal
+              </address>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="shell">
+        <div class="footer-top">
+          <img class="original-logo" src="/assets/bess-logo.webp" alt="BESS Consulting" width="138" height="54" loading="lazy" />
+          <address>
+            Waldemar Brauer · Bruchsaler Str. 65<br />
+            76646 Bruchsal
+          </address>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 BESS Consulting</span>
+          <div>
+            <a href="/impressum/">Impressum</a>
+            <a href="/datenschutzerklaerung/">Datenschutz</a>
+          </div>
+        </div>
+        <p class="preview-badge">
+          Konzeptentwurf · 10.09.2026 · Inhalte und Rechtstexte vor Veröffentlichung freigeben.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Navigation
+      const menuButton = document.querySelector<HTMLButtonElement>('.menu-button');
+      const navlinks = document.getElementById('navlinks');
+      menuButton?.addEventListener('click', () => {
+        const open = navlinks?.classList.toggle('open') ?? false;
+        menuButton.setAttribute('aria-expanded', String(open));
+      });
+      navlinks?.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          navlinks.classList.remove('open');
+          menuButton?.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // FAQ: restliche Fragen einblenden
+      const faqToggle = document.getElementById('faq-toggle');
+      const faqRest = document.getElementById('faq-rest');
+      faqToggle?.addEventListener('click', () => {
+        const willShow = faqRest?.hasAttribute('hidden') ?? false;
+        if (willShow) faqRest?.removeAttribute('hidden');
+        else faqRest?.setAttribute('hidden', '');
+        faqToggle.setAttribute('aria-expanded', String(willShow));
+        faqToggle.textContent = willShow ? 'Weitere Fragen ausblenden' : 'Weitere neun Fragen anzeigen';
+      });
+
+      // Größenordnungs-Rechner.
+      // Eingaben werden geklemmt und ausschliesslich über textContent ausgegeben.
+      const MAX_KWH = 500_000_000;
+      const MAX_CT = 200;
+      const MAX_PCT = 100;
+
+      const euro = new Intl.NumberFormat('de-DE', {
+        style: 'currency',
+        currency: 'EUR',
+        maximumFractionDigits: 0,
+      });
+
+      const clamp = (raw: string, max: number) => {
+        const value = Number.parseFloat(raw.replace(',', '.'));
+        if (!Number.isFinite(value) || value < 0) return 0;
+        return Math.min(value, max);
+      };
+
+      const kwhInput = document.getElementById('calc-kwh') as HTMLInputElement | null;
+      const priceInput = document.getElementById('calc-price') as HTMLInputElement | null;
+      const shareInput = document.getElementById('calc-share') as HTMLInputElement | null;
+      const outTotal = document.getElementById('out-total');
+      const outSaving = document.getElementById('out-saving');
+
+      const recalc = () => {
+        if (!kwhInput || !priceInput || !shareInput || !outTotal || !outSaving) return;
+        const kwh = clamp(kwhInput.value, MAX_KWH);
+        const centPerKwh = clamp(priceInput.value, MAX_CT);
+        const sharePercent = clamp(shareInput.value, MAX_PCT);
+
+        const total = (kwh * centPerKwh) / 100;
+        outTotal.textContent = euro.format(total);
+        outSaving.textContent = euro.format((total * sharePercent) / 100);
+      };
+
+      [kwhInput, priceInput, shareInput].forEach((el) => el?.addEventListener('input', recalc));
+      recalc();
+
+      // Scroll-Reveal, nur wenn der Nutzer Bewegung zulässt
+      const wantsMotion = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const revealables = document.querySelectorAll('.reveal');
+      if (wantsMotion && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add('is-in');
+              observer.unobserve(entry.target);
+            });
+          },
+          { rootMargin: '0px 0px -12% 0px', threshold: 0.08 },
+        );
+        revealables.forEach((el) => observer.observe(el));
+      } else {
+        revealables.forEach((el) => el.classList.add('is-in'));
+      }
+    </script>
+  </body>
+</html>
