@@ -448,3 +448,56 @@ Erste Fassung waren vier Karten mit Zahlenkästchen — wirkte klobig. Jetzt ein
 durchlaufende Verlaufsstrecke: Ziffern als Kreise auf einer Linie mit
 Türkis-Grün-Verlauf, Trennlinien statt Kartenrahmen, Hover färbt die Ziffer.
 Zahlen vertikal zentriert (align-items: center statt baseline).
+
+## Abgleich mit Waldemars Arbeitsunterlagen — 10.09.2026
+
+Grundlage: ZIP mit den BAFA-Arbeitsunterlagen (Leitfaden 74 S., Merkblatt 37 S.,
+Merkblatt EnEfG 21 S., FAQ 30 S., Multi-Site-Grafik, Bestätigungsformular) plus
+die Volltexte von EnEfG und EDL-G.
+
+### Fachliche Korrektur: Amortisationszeit
+
+Der BAFA-Leitfaden (Stand 01.09.2026) sagt wörtlich: „Daher ist die
+Amortisationszeit als Kriterium für Wirtschaftlichkeit von Energieeffizienz-
+vorhaben ungeeignet." Verlangt werden **Kapitalwert und interne Verzinsung**.
+
+Der Quickcheck warb mit „Die drei Maßnahmen mit der kürzesten Amortisation" —
+geändert auf „mit dem höchsten Kapitalwert". Die Wirtschaftlichkeits-FAQ nennt
+die Kritik jetzt ausdrücklich. Auch `docs/GARANTIE-ENTSCHEIDUNG.md` wurde
+angepasst: Eine Garantie auf „Amortisation unter einem Jahr" widerspricht der
+Methodik, nach der gerechnet werden muss.
+
+### Neu ergänzte Leistungen und FAQs
+
+Aus den Gesetzestexten:
+- BAFA-Meldepflicht nach § 8c EDL-G (zwei Monate, sechs Angaben)
+- Datenübergabe nach § 8a Abs. 2 EDL-G
+- Wirtschaftlichkeitsdefinition aus § 9 EnEfG
+- Bestätigung von Umsetzungsplänen als eigene Leistung
+
+Aus dem Leitfaden:
+- Nicht umgesetzte Maßnahmen aus Vor-Audits erneut aufgreifen (Pflicht)
+- Fuhrpark, Verkaufs-, Verwaltungs- und Lagerräume gehören in die Bilanz
+
+### Wichtige Klarstellung zum Multi-Site-Verfahren
+
+Der Leitfaden nennt zwei Punkte, die auf der Seite noch fehlen könnten:
+- **Ungeeignet für Produktionsstätten und Krankenhäuser** — dort ist meist keine
+  eindeutige Vergleichbarkeit gegeben, Ausnahmen sind zu begründen. Da die Seite
+  produzierende Betriebe anspricht, muss das erwähnt werden, sonst weckt der
+  Abschnitt falsche Erwartungen.
+- MSV reduziert **nur die Außeneinsätze**, nicht die Pflicht zur Erfassung des
+  Gesamtenergieverbrauchs.
+
+### 100 Prozent vs. 90 Prozent
+
+Häufiger Irrtum laut Leitfaden: Der Gesamtenergieverbrauch ist **immer zu 100 %**
+zu erfassen; die 90-Prozent-Regel betrifft nur die Tiefe der Detailanalyse. Die
+FAQ auf der Seite formuliert derzeit nur die 90 Prozent — prüfen und schärfen.
+
+### Für Waldemar zu klären
+
+- **BAFA-Energieauditor-Nummer**: Das Bestätigungsformular für Umsetzungspläne
+  verlangt sie. § 7 Abs. 3 EDL-G kennt eine öffentlich geführte Auditorenliste
+  beim BAFA. Eintrag vorhanden? Dann als Vertrauensmerkmal auf die Seite.
+- Nach welcher Methode rechnet er im Quickcheck?

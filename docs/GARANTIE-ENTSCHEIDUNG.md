@@ -2,6 +2,31 @@
 
 Entscheidungsvorlage für das Gespräch mit Waldemar Brauer · Stand 10.09.2026
 
+## WICHTIG: Amortisationszeit als Kriterium überdenken
+
+Nachtrag nach Auswertung des BAFA-Leitfadens (Stand 01.09.2026):
+
+> „Daher ist die Amortisationszeit als Kriterium für Wirtschaftlichkeit von
+> Energieeffizienzvorhaben ungeeignet."
+
+Der Leitfaden verlangt stattdessen **Kapitalwert und interne Verzinsung**, weil
+die Amortisationsrechnung die Lebensdauer der Investition ausblendet. Eine
+Garantie, die auf „Amortisation unter einem Jahr" abstellt, widerspricht damit
+der Methodik, nach der Waldemar Brauer arbeiten muss — und wäre für Fachleute
+angreifbar.
+
+Zwei Auswege:
+
+1. **Auf den Kapitalwert abstellen:** „Maßnahmen mit positivem Kapitalwert
+   innerhalb von zwölf Monaten" — fachlich sauber, aber erklärungsbedürftig.
+2. **Die Amortisation als Kundensprache behalten, aber im Bericht korrekt
+   rechnen:** In der Werbung „zahlt sich im ersten Jahr", im Audit
+   Kapitalwertmethode. Zulässig, solange die Zusage sich auf ein Ergebnis
+   bezieht, das mit der richtigen Methode ermittelt wurde.
+
+Variante 2 ist praxisnäher, Variante 1 ehrlicher. Das gehört mit auf die
+Tagesordnung des Gesprächs.
+
 ## Worum es geht
 
 Der Quickcheck soll mit einer Garantie beworben werden: Einsparpotenzial und
@@ -109,3 +134,12 @@ lässt sich auf Variante A hochstufen.
 4. Rückerstattung des Honorars oder Verzicht auf die Rechnungsstellung?
 5. Ist der Versicherungsschutz (Berufshaftpflicht) mit einer Garantiezusage
    vereinbar? Rückfrage beim Versicherer empfohlen.
+
+
+## Nachtrag: Frage 6 an Waldemar
+
+Nach welcher Methode rechnet er heute im Quickcheck — Amortisation oder
+Kapitalwert? Der BAFA-Leitfaden verlangt für das Vollaudit ausdrücklich
+Kapitalwert und interne Verzinsung und bezeichnet die Amortisationszeit als
+ungeeignetes Kriterium. Die Garantie sollte auf derselben Methode beruhen wie
+der Bericht.
