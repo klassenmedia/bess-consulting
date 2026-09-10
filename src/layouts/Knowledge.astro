@@ -1,0 +1,7 @@
+---
+import '@fontsource-variable/manrope';
+import '../styles/global.css';
+const {title,description}=Astro.props;
+const indexable=import.meta.env.PUBLIC_INDEXABLE==='true';
+---
+<!doctype html><html lang="de"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>{title} | BESS Consulting</title><meta name="description" content={description}/><meta name="robots" content={indexable?'index,follow':'noindex,follow'}/>{indexable && <link rel="canonical" href={new URL(Astro.url.pathname,'https://bess-consulting.de')}/>}</head><body><a class="skip" href="#main">Zum Inhalt</a><header class="shell"><nav class="nav knowledge-nav" aria-label="Hauptnavigation"><a href="/" aria-label="Startseite"><img class="original-logo" src="/assets/bess-logo.webp" width="150" height="59" alt="BESS Consulting"/></a><div><a href="/blog/">Wissen &amp; Blog</a><a class="btn" href="/#kontakt">Audit besprechen</a></div></nav></header><main id="main"><slot/></main><footer class="shell legal-footer"><a href="/">Startseite</a><a href="/blog/">Wissen &amp; Blog</a><a href="/impressum/">Impressum</a><a href="/datenschutzerklaerung/">Datenschutz</a><p>Redaktioneller Entwurf · 10.09.2026 · Fachliche Freigabe ausstehend.</p></footer></body></html>

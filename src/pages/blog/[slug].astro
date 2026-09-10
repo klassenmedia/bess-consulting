@@ -1,0 +1,7 @@
+---
+import Knowledge from '../../layouts/Knowledge.astro';
+import articles from '../../content/articles.json';
+export function getStaticPaths(){return articles.map(article=>({params:{slug:article.slug},props:{article}}));}
+const {article}=Astro.props;
+---
+<Knowledge title={article.title} description={article.description}><article class="shell knowledge-article"><a class="subtle-link" href="/blog/">Alle Artikel</a><header><p class="eyebrow">{article.category} · Stand 10.09.2026</p><h1>{article.title}</h1><p class="knowledge-lead">{article.intro}</p><p class="draft-note">Redaktioneller Entwurf zur fachlichen Freigabe. Allgemeine Orientierung; die Anforderungen an Ihr Unternehmen müssen im Einzelfall geprüft werden.</p></header><div class="reading-layout"><aside><nav aria-label="In diesem Artikel"><strong>In diesem Artikel</strong>{article.sections.map(([heading],i)=><a href={'#abschnitt-'+i}>{heading}</a>)}</nav></aside><div class="article-copy">{article.sections.map(([heading,body],i)=><section id={'abschnitt-'+i}><h2>{heading}</h2><Fragment set:html={body}/></section>)}<div class="article-next"><p class="eyebrow">Von der Frage zum eigenen Betrieb</p><h2>Welche Daten liegen bei Ihnen schon vor?</h2><p>Beschreiben Sie Ihren Standort, Ihre Anlagen und den Anlass für das Audit. Damit lässt sich das erste Gespräch konkret vorbereiten.</p><a class="btn" href="/#kontakt">Energieaudit besprechen</a></div><h2>Weiterlesen</h2>{articles.filter(a=>a.slug!==article.slug).map(a=><p><a href={'/blog/'+a.slug+'/'}>{a.title}</a></p>)}</div></div></article></Knowledge>

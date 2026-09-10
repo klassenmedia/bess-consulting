@@ -1,0 +1,6 @@
+---
+import '@fontsource-variable/manrope';
+import '../styles/global.css';
+const {title} = Astro.props;
+---
+<!doctype html><html lang="de"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="robots" content="noindex,follow"/><title>{title} | BESS Consulting</title></head><body><header class="shell legal-nav"><nav class="nav" aria-label="Navigation"><a href="/" aria-label="BESS Consulting Startseite"><img class="original-logo" src="/assets/bess-logo.webp" width="150" height="59" alt="BESS Consulting"/></a><a class="subtle-link" href="/">Zur Startseite</a></nav></header><main class="shell legal-main"><p class="eyebrow">BESS Consulting</p><h1>{title}</h1><slot/></main><footer class="shell legal-footer"><a href="/">Startseite</a><a href="/impressum/">Impressum</a><a href="/datenschutzerklaerung/">Datenschutz</a></footer></body></html>
