@@ -236,3 +236,38 @@ sondern durchgesetzt.
 - Vorschau läuft lokal über `npm run dev` (siehe PRAESENTATION.md).
 - Astro-Base über `PUBLIC_BASE` steuerbar: `/` für die eigene Domain,
   `/bess-consulting/` für eine Pages-Vorschau. Pfade laufen über src/lib/url.ts.
+
+---
+
+## Rechtsprüfung 10.09.2026
+
+Abgleich gegen die amtlichen Fassungen bei gesetze-im-internet.de.
+Vollständiger Befund: `docs/RECHTSSTAND.md`.
+
+### Bestätigt korrekt
+
+- § 8 EnEfG: 7,5 GWh, Fristen 18.07.2025 bzw. 20 Monate — stimmte bereits
+- § 9 EnEfG: 2,5 GWh, Bestätigungspflicht — stimmte bereits
+- § 8 EDL-G: Vier-Jahres-Turnus, 500.000-kWh-Grenze nach § 8c — stimmte bereits
+
+### Korrigiert
+
+| Fundstelle | Problem | Korrektur |
+|---|---|---|
+| Pflicht-Karte Hero | „Kein KMU? Dann greift das EDL-G" — wird durch die Novelle hinfällig | Zeitbezug ergänzt, künftiger Verbrauchsmaßstab benannt |
+| FAQ „Sind wir verpflichtet?" | Novelle nicht erwähnt | Hinweis auf beschlossene, noch nicht geltende Änderung |
+| Startseite gesamt | § 8a EDL-G kam nirgends vor | Neue FAQ „Nach welchen Regeln wird das Audit durchgeführt?" mit DIN EN 16247-1 (Ausgabe November 2022), 90-Prozent-Regel, Kapitalwertmethode |
+| Blog Auditpflicht | kein Novellen-Bezug, keine Normanforderungen | Zwei neue Abschnitte, amtliche Quellen verlinkt |
+| Blog Kosten | Angebotsvergleich ohne gesetzlichen Maßstab | 90-Prozent-Regel als Vergleichskriterium ergänzt |
+| FAQ-Button | feste Zahl „neun Fragen" | zählt jetzt aus faqsRest.length |
+
+### Wichtig für die Zukunft
+
+Die Novelle (Kabinett 24.06.2026) ändert die Systematik grundlegend:
+EnMS-Schwelle 7,5 → 23,6 GWh, Umsetzungspläne 2,5 → 2,77 GWh mit auf drei
+Monate verkürzter Frist, und die EDL-G-Auditpflicht wechselt von der
+KMU-Definition auf 2,77 GWh Verbrauch. **Sobald die Verkündung im
+Bundesgesetzblatt erfolgt, müssen alle Schwellenwerte auf der Seite und in
+docs/RECHTSSTAND.md nachgezogen werden.** Erwartet für Ende 2026.
+
+Schreibweise beachten: **DIN EN 16247-1** (mit „EN"), Ausgabe November 2022.

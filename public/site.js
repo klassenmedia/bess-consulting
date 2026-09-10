@@ -24,12 +24,14 @@
   var faqToggle = document.getElementById('faq-toggle');
   var faqRest = document.getElementById('faq-rest');
   if (faqToggle && faqRest) {
+    // Ausgangstext merken, damit die Anzahl im Markup gepflegt bleibt
+    var faqLabelZu = faqToggle.textContent.trim();
     faqToggle.addEventListener('click', function () {
       var willShow = faqRest.hasAttribute('hidden');
       if (willShow) faqRest.removeAttribute('hidden');
       else faqRest.setAttribute('hidden', '');
       faqToggle.setAttribute('aria-expanded', String(willShow));
-      faqToggle.textContent = willShow ? 'Weitere Fragen ausblenden' : 'Weitere neun Fragen anzeigen';
+      faqToggle.textContent = willShow ? 'Weitere Fragen ausblenden' : faqLabelZu;
     });
   }
 

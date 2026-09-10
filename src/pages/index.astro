@@ -118,7 +118,7 @@ const faqsPrimary = [
   },
   {
     q: 'Sind wir zu einem Energieaudit verpflichtet?',
-    a: `Das muss anhand Ihres Unternehmensstatus, Energieverbrauchs und vorhandener Managementsysteme geprüft werden. EDL-G und EnEfG haben unterschiedliche Anforderungen. <a href="${url('/blog/energieauditpflicht-enefg/')}">Zur Einordnung der Pflichten</a>.`,
+    a: `Das muss anhand Ihres Unternehmensstatus, Energieverbrauchs und vorhandener Managementsysteme geprüft werden. EDL-G und EnEfG haben unterschiedliche Anforderungen. Hinzu kommt: Eine Novelle beider Gesetze ist beschlossen, aber noch nicht in Kraft — sie verschiebt die Schwellen und stellt die Auditpflicht vom Unternehmensstatus auf den Energieverbrauch um. <a href="${url('/blog/energieauditpflicht-enefg/')}">Zur Einordnung der Pflichten</a>.`,
   },
   {
     q: 'Wie viel Zeit müssen wir intern einplanen?',
@@ -127,6 +127,10 @@ const faqsPrimary = [
   {
     q: 'Welche Unterlagen werden benötigt?',
     a: 'Hilfreich sind Energieabrechnungen, Verbrauchsübersichten sowie Informationen zu Standorten und wesentlichen Anlagen. Welche Daten für das Audit benötigt werden, klären wir zu Beginn.',
+  },
+  {
+    q: 'Nach welchen Regeln wird das Audit durchgeführt?',
+    a: 'Maßgeblich ist § 8a EDL-G. Er verlangt ein Audit nach DIN EN 16247-1 in der Ausgabe November 2022, gestützt auf belegbare Betriebsdaten. Mindestens 90 Prozent des Gesamtenergieverbrauchs sind zu untersuchen, und die Wirtschaftlichkeit wird mindestens nach der Kapitalwertmethode bewertet.',
   },
   {
     q: 'Was erhalten wir am Ende des Audits?',
@@ -260,17 +264,18 @@ const faqSchema = {
             </div>
             <h2 class="duty-title" id="duty-title">Betrifft die Pflicht Ihren Betrieb?</h2>
             <p class="duty-lead">
-              Zwei Gesetze, zwei Schwellen. Welche für Sie greift, entscheidet sich an
-              Unternehmensgröße, Energieverbrauch und vorhandenen Managementsystemen.
+              Zwei Gesetze, unterschiedliche Schwellen — und eine beschlossene Novelle, die
+              beide verschiebt. Was für Sie gilt, entscheidet sich an Unternehmensgröße,
+              Energieverbrauch und vorhandenen Managementsystemen.
             </p>
             <ul class="duty-list">
               <li>
                 <span class="duty-marker" aria-hidden="true">1</span>
-                <span><strong>Unternehmensstatus</strong>Kein KMU nach EU-Definition? Dann greift das EDL-G.</span>
+                <span><strong>Unternehmensstatus</strong>Heute entscheidet die KMU-Definition über die Auditpflicht nach EDL-G.</span>
               </li>
               <li>
                 <span class="duty-marker" aria-hidden="true">2</span>
-                <span><strong>Gesamtenergieverbrauch</strong>Alle Energieträger zählen, nicht nur Strom.</span>
+                <span><strong>Gesamtenergieverbrauch</strong>Alle Energieträger zählen, nicht nur Strom. Künftig wird der Verbrauch zum entscheidenden Maßstab.</span>
               </li>
               <li>
                 <span class="duty-marker" aria-hidden="true">3</span>
@@ -603,7 +608,7 @@ const faqSchema = {
 
           <div class="faq-more">
             <button class="btn btn-ghost" type="button" id="faq-toggle" aria-expanded="false" aria-controls="faq-rest">
-              Weitere neun Fragen anzeigen
+              Weitere {faqsRest.length} Fragen anzeigen
             </button>
           </div>
         </div>
