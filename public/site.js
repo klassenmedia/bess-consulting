@@ -45,8 +45,21 @@
     maximumFractionDigits: 0,
   });
 
+  // Deutsche Schreibweise: Punkt trennt Tausender, Komma trennt Dezimalen.
+  // Alles, was danach kein reiner Zahlwert ist, gilt als 0 statt teilweise geparst.
   function clamp(raw, max) {
-    var value = Number.parseFloat(String(raw).replace(',', '.'));
+    var text = String(raw).trim().replace(/\s/g, '');
+    if (text === '') return 0;
+
+    var hatKomma = text.indexOf(',') !== -1;
+    // Punkte sind Tausendertrenner, sobald ein Komma die Dezimalen markiert,
+    // oder wenn hinter dem letzten Punkt genau drei Ziffern stehen.
+    if (hatKomma) text = text.replace(/\./g, '').replace(',', '.');
+    else if (/^\d{1,3}(\.\d{3})+$/.test(text)) text = text.replace(/\./g, '');
+
+    if (!/^\d*\.?\d*$/.test(text) || text === '.') return 0;
+
+    var value = Number.parseFloat(text);
     if (!Number.isFinite(value) || value < 0) return 0;
     return Math.min(value, max);
   }

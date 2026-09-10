@@ -51,7 +51,7 @@ const angebote = [
     tag: 'Der schnelle Einstieg',
     name: 'Energie-Blitzaudit',
     price: 'ab 2.500 €',
-    priceNote: 'Förderfähig, wir stellen den Antrag',
+    priceNote: 'zzgl. USt. · Förderfähig, den Antrag stellen wir',
     lead: 'Sechzehn Stunden im Betrieb, zehn Seiten Aktionsplan, in drei Wochen bei Ihnen. Kein Bericht, den niemand liest.',
     points: [
       'Die drei Maßnahmen mit der kürzesten Amortisation',
@@ -65,7 +65,7 @@ const angebote = [
     tag: 'Das Kernprodukt',
     name: 'Audit + 36 Monate Begleitung',
     price: 'ca. 7.000 €',
-    priceNote: 'Nach BAFA-Förderung ab ca. 1.400–3.500 € Eigenanteil',
+    priceNote: 'zzgl. USt. · Rechenbeispiel nach BAFA-Förderung: ca. 1.400–3.500 € Eigenanteil, abhängig von Programmbedingungen und Vorhabenbeginn',
     lead: 'Das vollständige Energieaudit — und danach drei Jahre an Ihrer Seite, bis die Maßnahmen laufen und die Einsparung messbar ist.',
     points: [
       'Quartalsberichte statt einmaliger Übergabe',
@@ -421,7 +421,7 @@ const faqSchema = {
       <section class="method section" id="ablauf">
         <div class="shell method-grid">
           <div class="reveal">
-            <p class="eyebrow">02 / Die Zusammenarbeit</p>
+            <p class="eyebrow">03 / Die Zusammenarbeit</p>
             <h2>Wir beginnen dort, wo Sie <em>Energie einsetzen.</em></h2>
             <p class="lead method-intro">
               Sie kennen Ihren Betrieb. BESS Consulting bringt den systematischen Blick auf Ihren
@@ -452,7 +452,7 @@ const faqSchema = {
       <section class="section shell" id="rechner">
         <div class="calc-wrap">
           <div class="reveal">
-            <p class="eyebrow">03 / Größenordnung</p>
+            <p class="eyebrow">04 / Größenordnung</p>
             <h2>Womit reden wir <em>überhaupt?</em></h2>
             <p class="lead" style="margin-top:var(--s3);max-width:46ch">
               Bevor über Maßnahmen gesprochen wird, hilft eine grobe Einordnung: Wie viel Geld
@@ -470,17 +470,15 @@ const faqSchema = {
               <div class="calc-input">
                 <input
                   id="calc-kwh"
-                  type="number"
+                  type="text"
                   inputmode="numeric"
-                  min="0"
-                  max="500000000"
-                  step="1000"
-                  value="750000"
+                  autocomplete="off"
+                  value="750.000"
                   aria-describedby="calc-kwh-hint"
                 />
                 <span class="unit">kWh</span>
               </div>
-              <span class="hint" id="calc-kwh-hint">Steht auf Ihrer Jahresabrechnung.</span>
+              <span class="hint" id="calc-kwh-hint">Steht auf Ihrer Jahresabrechnung. Punkte und Kommas dürfen Sie schreiben wie gewohnt.</span>
             </div>
 
             <div class="calc-field">
@@ -488,11 +486,9 @@ const faqSchema = {
               <div class="calc-input">
                 <input
                   id="calc-price"
-                  type="number"
+                  type="text"
                   inputmode="decimal"
-                  min="0"
-                  max="200"
-                  step="0.5"
+                  autocomplete="off"
                   value="18"
                   aria-describedby="calc-price-hint"
                 />
@@ -506,11 +502,9 @@ const faqSchema = {
               <div class="calc-input">
                 <input
                   id="calc-share"
-                  type="number"
+                  type="text"
                   inputmode="numeric"
-                  min="0"
-                  max="100"
-                  step="1"
+                  autocomplete="off"
                   value="8"
                   aria-describedby="calc-share-hint"
                 />
@@ -556,7 +550,7 @@ const faqSchema = {
         </figure>
 
         <div class="expert-copy reveal">
-          <p class="eyebrow">04 / Ihr Ansprechpartner</p>
+          <p class="eyebrow">05 / Ihr Ansprechpartner</p>
           <h2>Sie sprechen direkt <em>mit Waldemar Brauer.</em></h2>
           <p class="lead">
             Welche Lösung passt zu Ihren Anlagen, Ihren Abläufen und Ihren wirtschaftlichen
@@ -576,7 +570,7 @@ const faqSchema = {
         <div class="shell">
           <div class="section-head reveal">
             <div>
-              <p class="eyebrow">05 / Vor dem ersten Gespräch</p>
+              <p class="eyebrow">06 / Vor dem ersten Gespräch</p>
               <h2 id="faq-title">Was Sie vorab <em>wissen möchten.</em></h2>
             </div>
             <p class="lead">
