@@ -35,6 +35,26 @@
     });
   }
 
+  // Terminkalender: laedt erst nach ausdruecklicher Zustimmung (Zwei-Klick).
+  // Vorher geht keine Anfrage an den Anbieter.
+  var buchungsLaden = document.getElementById('booking-laden');
+  var buchungsRahmen = document.getElementById('booking-frame');
+  var buchungsHinweis = document.getElementById('booking-consent');
+
+  if (buchungsLaden && buchungsRahmen && buchungsHinweis) {
+    buchungsLaden.addEventListener('click', function () {
+      var rahmen = document.createElement('iframe');
+      rahmen.src =
+        'https://calendly.com/w-brauer-bess-consulting/30min' +
+        '?primary_color=1d7f95&text_color=12262c&hide_landing_page_details=1';
+      rahmen.title = 'Terminkalender von Waldemar Brauer, BESS Consulting';
+      rahmen.loading = 'lazy';
+      rahmen.referrerPolicy = 'no-referrer-when-downgrade';
+      buchungsHinweis.remove();
+      buchungsRahmen.appendChild(rahmen);
+    });
+  }
+
   // Scroll-Reveal und Parallax, nur wenn der Nutzer Bewegung zulässt
   var wantsMotion = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

@@ -798,6 +798,29 @@ details p a { color: var(--teal); border-bottom: 1px solid rgba(29, 127, 149, .3
 .booking-frame iframe {
   display: block; width: 100%; height: 760px; border: 0;
 }
+.booking-consent {
+  display: grid; gap: var(--s2); justify-items: start;
+  padding: clamp(28px, 4vw, 48px);
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: var(--r-md);
+}
+.booking-consent-titel {
+  margin: 0; font-size: 17px; font-weight: 680; color: #fff;
+  letter-spacing: -0.02em;
+}
+.booking-consent p {
+  margin: 0; max-width: 60ch;
+  font-size: 14.5px; line-height: 1.65; color: rgba(255, 255, 255, .74);
+}
+.booking-consent .btn { margin-top: var(--s2); }
+.booking-consent-fuss {
+  font-size: 13px !important; color: rgba(255, 255, 255, .55) !important;
+}
+.booking-consent-fuss a {
+  color: var(--leaf-light); border-bottom: 1px solid rgba(163, 217, 119, .4);
+}
+
 .booking-fallback {
   margin: var(--s3) 0 0;
   font-size: 14px; color: rgba(255, 255, 255, .6);

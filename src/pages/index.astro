@@ -22,7 +22,7 @@ const entity = {
     addressCountry: 'DE',
   },
   founder: { '@type': 'Person', name: 'Waldemar Brauer' },
-  description: 'Energieaudit nach DIN EN 16247-1 mit Umsetzungsbegleitung, Abwärmeberatung und Energie-Quickchecks. Ingenieurbüro für nachhaltige Unternehmenslösungen.',
+  description: 'Energieaudit nach DIN EN 16247-1, Energie-Quickchecks und Umsetzungsbegleitung. Ingenieurbüro für nachhaltige Unternehmenslösungen.',
 };
 
 const results = [
@@ -41,7 +41,7 @@ const results = [
   {
     num: '03 / Umsetzen',
     title: 'Jemanden, der dranbleibt',
-    copy: 'Der Bericht ist der Anfang, nicht das Ende. Bei Rückfragen zur Umsetzung, zu Förderungen oder zur nächsten Prüfung sind wir weiter erreichbar.',
+    copy: 'Rückfragen zum Bericht beantworten wir bis drei Monate nach der Abschlussbesprechung. Wer länger Begleitung möchte, bucht sie als Paket über 48 Monate dazu.',
     icon: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/><path d="M9 14h6"/><path d="M9 17h4"/>',
   },
 ];
@@ -52,7 +52,7 @@ const angebote = [
     name: 'Energie-Quickcheck',
     price: 'auf Anfrage',
     priceNote: 'zzgl. USt. und Reisekosten · In Baden-Württemberg über EnergizeBW förderfähig, bei der Antragstellung unterstützen wir kostenlos',
-    lead: 'Online-Abstimmung, ein Tag Begehung, danach ein Maßnahmen- und Investitionsplan mit Rangfolge. Für Betriebe, die Kosten senken wollen — nicht für die Pflicht.',
+    lead: 'Online-Abstimmung, ein Tag Begehung, danach ein Maßnahmen- und Investitionsplan mit Rangfolge. Für Betriebe, die Kosten senken wollen – nicht für die Pflicht.',
     points: [
       'Mindestens 20.000 € Einsparpotenzial pro Jahr als Zielgröße',
       'Quick-Wins zuerst: nicht- und geringinvestive Maßnahmen',
@@ -65,12 +65,13 @@ const angebote = [
     tag: 'Die Pflicht erfüllen',
     name: 'Energieaudit nach DIN EN 16247-1',
     price: 'ab 4.800 €',
-    priceNote: 'zzgl. USt. und Reisekosten · Bis 5 GWh Jahresverbrauch 4.800 €, darüber 5.800 € · Mehrere Standorte auf Anfrage',
-    lead: 'Das vollständige Audit nach Norm: Begehung, Analyse, Bericht und Abschlussbesprechung. Erfüllt die Pflicht nach EDL-G.',
+    priceNote: 'zzgl. USt. und Reisekosten · Ein Standort bis 5 GWh: 4.800 €, von 5 bis 20 GWh: 5.800 €. Darüber und bei mehreren Standorten erstellen wir ein individuelles Angebot.',
+    lead: 'Das vollständige Audit nach DIN EN 16247-1, Ausgabe November 2022: Begehung, Analyse, Bericht und Abschlussbesprechung. Erfüllt die Pflicht nach EDL-G.',
     points: [
       'Mindestens 90 Prozent des Gesamtverbrauchs untersucht',
-      'Bewertung nach Kapitalwert, nicht nach einfacher Amortisation',
-      'Angaben für die BAFA-Meldung aufbereitet',
+      'Bewertung nach Kapitalwertmethode gemäß BAFA-Vorgabe',
+      'Maßnahmenliste als Grundlage für Ihren Umsetzungsplan nach § 9 EnEfG',
+      'Rückfragen zum Bericht bis drei Monate nach der Abschlussbesprechung inklusive',
     ],
     cta: 'Audit besprechen',
     featured: false,
@@ -78,15 +79,15 @@ const angebote = [
   {
     tag: 'Das Rundum-Paket',
     name: 'Audit + 48 Monate Begleitung',
-    price: 'ca. 8.500 €',
+    price: '8.500 €',
     priceNote: 'zzgl. USt. und Reisekosten · Eine Förderung kann den Eigenanteil senken. Was für Sie infrage kommt, prüfen wir vor der Beauftragung.',
-    lead: 'Das vollständige Energieaudit — und danach vier Jahre erreichbar bleiben: für Rückfragen zur Umsetzung, zu Förderungen und zur nächsten Prüfung.',
+    lead: 'Das vollständige Energieaudit – und danach vier Jahre erreichbar bleiben: für Rückfragen zur Umsetzung, zu Förderungen und zur nächsten Prüfung.',
     points: [
-      'Ansprechpartner für Rückfragen über den gesamten Prüfzyklus',
-      'Unterstützung bei Förderanträgen und Nachweisen',
-      'Waldemar Brauer persönlich, kein wechselndes Personal',
+      'Bis zu vier Stunden Beratung je Quartal, ein Vor-Ort-Termin im Jahr',
+      'Erstellung von bis zu zwei Förderanträgen',
+      'Jährliche Fortschreibung Ihres Umsetzungsplans nach § 9 EnEfG',
     ],
-    cta: 'Kernprodukt besprechen',
+    cta: 'Audit mit Begleitung besprechen',
     featured: true,
   },
 ];
@@ -94,12 +95,12 @@ const multiSite = [
   {
     schritt: '01',
     titel: 'Alle Standorte erfassen',
-    copy: 'Der gesamte Energieverbrauch über sämtliche Standorte wird aufgenommen — das ist die Bezugsgröße für alles Weitere.',
+    copy: 'Der gesamte Energieverbrauch über sämtliche Standorte wird aufgenommen – das ist die Bezugsgröße für alles Weitere.',
   },
   {
     schritt: '02',
     titel: 'Kleine Standorte ausgrenzen',
-    copy: 'Standorte, die zusammen unter zehn Prozent des Gesamtverbrauchs liegen, bleiben unberücksichtigt.',
+    copy: 'Standorte, die zusammen unter zehn Prozent des Gesamtverbrauchs liegen, werden nicht begangen. Ihr Verbrauch bleibt im Bericht ausgewiesen.',
   },
   {
     schritt: '03',
@@ -109,13 +110,13 @@ const multiSite = [
   {
     schritt: '04',
     titel: 'Besondere einzeln prüfen',
-    copy: 'Standorte, die sich nicht einordnen lassen, werden separat betrachtet — dort steckt oft das größte Potenzial.',
+    copy: 'Standorte, die sich nicht einordnen lassen, werden separat betrachtet – dort steckt oft das größte Potenzial.',
   },
 ];
 
 const branchen = [
   { name: 'Lackierereien', copy: 'Trockenkabinen, Abluft, Druckluft.' },
-  { name: 'KFZ-Werkstätten', copy: 'Hebebühnen, Druckluft, Hallenwärme.' },
+  { name: 'Kfz-Werkstätten', copy: 'Hebebühnen, Druckluft, Hallenwärme.' },
   { name: 'Metallbau & CNC', copy: 'Kühlwasser, Werkzeugmaschinen, Absaugung.' },
   { name: 'Lebensmittelverarbeitung', copy: 'Kälte, Hygienewärme, Betriebszeiten.' },
 ];
@@ -142,7 +143,7 @@ const steps = [
   },
   {
     title: 'Dranbleiben, bis es wirkt',
-    copy: 'Sie erhalten den Auditbericht und die Datengrundlage. Danach bleiben wir für Rückfragen erreichbar — zur Umsetzung, zu Förderungen und zur nächsten Prüfung.',
+    copy: 'Sie erhalten den Auditbericht und die Datengrundlage, dazu die Angaben für Ihre Meldung an das BAFA. Rückfragen zum Bericht klären wir in den drei Monaten danach.',
   },
 ];
 
@@ -154,15 +155,15 @@ const faqsPrimary = [
   },
   {
     q: 'Sind wir zu einem Energieaudit verpflichtet?',
-    a: `Das muss anhand Ihres Unternehmensstatus, Energieverbrauchs und vorhandener Managementsysteme geprüft werden. EDL-G und EnEfG haben unterschiedliche Anforderungen. Hinzu kommt: Eine Novelle beider Gesetze ist beschlossen, aber noch nicht in Kraft — sie verschiebt die Schwellen und stellt die Auditpflicht vom Unternehmensstatus auf den Energieverbrauch um. <a href="${url('/blog/energieauditpflicht-enefg/')}">Zur Einordnung der Pflichten</a>.`,
+    a: `Das muss anhand Ihres Unternehmensstatus, Energieverbrauchs und vorhandener Managementsysteme geprüft werden. EDL-G und EnEfG haben unterschiedliche Anforderungen. Hinzu kommt: Für beide Gesetze liegt ein Regierungsentwurf vor, den das Kabinett am 24. Juni 2026 beschlossen hat. Bundestag und Bundesrat müssen noch zustimmen. Nach dem Entwurf soll die Auditpflicht künftig unabhängig von der Unternehmensgröße ab rund 2,77 Gigawattstunden gelten, die Pflicht zum Energiemanagementsystem erst ab rund 23,6 Gigawattstunden. <a href="${url('/blog/energieauditpflicht-enefg/')}">Zur Einordnung der Pflichten</a>.`,
   },
   {
     q: 'Ab welcher Unternehmensgröße gilt die Auditpflicht?',
-    a: 'Das EDL-G erfasst nach § 1 Nummer 4 Unternehmen, die keine KMU im Sinne der EU-Empfehlung 2003/361/EG sind. KMU ist, wer weniger als 250 Personen beschäftigt und dabei entweder höchstens 50 Millionen Euro Umsatz oder höchstens 43 Millionen Euro Bilanzsumme erreicht. Wichtig: Bei verbundenen und Partnerunternehmen werden die Werte zusammengerechnet — eine kleine GmbH im Konzern kann den KMU-Status verlieren.',
+    a: 'Das EDL-G erfasst nach § 1 Nummer 4 Unternehmen, die keine KMU im Sinne der EU-Empfehlung 2003/361/EG sind. KMU ist, wer weniger als 250 Personen beschäftigt und dabei entweder höchstens 50 Millionen Euro Umsatz oder höchstens 43 Millionen Euro Bilanzsumme erreicht. Wichtig: Verbundene Unternehmen zählen vollständig mit, Partnerunternehmen anteilig entsprechend der Beteiligungsquote – eine kleine GmbH im Konzern kann den KMU-Status verlieren.',
   },
   {
     q: 'Was passiert, wenn wir die Frist verstreichen lassen?',
-    a: 'Das EDL-G sieht Bußgelder bis 50.000 Euro vor, das EnEfG bis 100.000 Euro für ein fehlendes Energiemanagementsystem und bis 50.000 Euro für fehlende Umsetzungspläne. Eine unterlassene Durchführung ist eine Dauerordnungswidrigkeit — die Pflicht bleibt bestehen, und es sind mehrere Bescheide möglich. Fristverlängerungen sieht das Gesetz nicht vor. Wer bereits überfällig ist, sollte den Ablauf dokumentieren: Das BAFA prüft Verschulden und Zumutbarkeit, der Spielraum wird mit der Zeit aber kleiner.',
+    a: 'Das EDL-G sieht Bußgelder bis 50.000 Euro vor, das EnEfG bis 100.000 Euro für ein fehlendes Energiemanagementsystem und bis 50.000 Euro für fehlende Umsetzungspläne. Eine gesetzliche Fristverlängerung gibt es nicht; die Pflicht bleibt bis zur Durchführung bestehen. Einzelheiten regelt das BAFA-Merkblatt für Energieaudits. Diese Angaben ersetzen keine Rechtsberatung.',
   },
   {
     q: 'Wie viel Zeit müssen wir intern einplanen?',
@@ -181,11 +182,11 @@ const faqsRest = [
   },
   {
     q: 'Nach welchen Regeln wird das Audit durchgeführt?',
-    a: 'Maßgeblich ist § 8a EDL-G. Er verlangt ein Audit nach DIN EN 16247-1 in der Ausgabe November 2022, gestützt auf belegbare Betriebsdaten, und eine Bewertung mindestens nach der Kapitalwertmethode. Häufig missverstanden wird die 90-Prozent-Regel: Der Gesamtenergieverbrauch ist immer vollständig zu erfassen — die 90 Prozent betreffen nur die Tiefe der Detailanalyse. Welche zehn Prozent Sie herausnehmen, entscheiden Sie.',
+    a: 'Maßgeblich ist § 8a EDL-G. Er verlangt ein Audit nach DIN EN 16247-1 in der Ausgabe November 2022, gestützt auf belegbare Betriebsdaten, und eine Bewertung mindestens nach der Kapitalwertmethode. Häufig missverstanden wird die 90-Prozent-Regel: Der Gesamtenergieverbrauch ist immer vollständig zu erfassen – die 90 Prozent betreffen nur die Tiefe der Detailanalyse. Welche zehn Prozent Sie herausnehmen, entscheiden Sie.',
   },
   {
     q: 'Zählen unsere Auslandsstandorte mit?',
-    a: 'Für die Frage, ob Sie verpflichtet sind, ja: Beteiligungen und verbundene Unternehmen zählen mit, unabhängig davon, ob sie in Deutschland, der EU oder einem Drittland sitzen. Für die Durchführung des Audits selbst nein — dort werden nur die Standorte in Deutschland untersucht. Diese Unterscheidung wird oft übersehen.',
+    a: 'Für die Frage, ob Sie verpflichtet sind, ja: Beteiligungen und verbundene Unternehmen zählen mit, unabhängig davon, ob sie in Deutschland, der EU oder einem Drittland sitzen. Für die Durchführung des Audits selbst nein – dort werden nur die Standorte in Deutschland untersucht. Diese Unterscheidung wird oft übersehen.',
   },
   {
     q: 'Werden alte, nie umgesetzte Maßnahmen wieder aufgegriffen?',
@@ -193,15 +194,15 @@ const faqsRest = [
   },
   {
     q: 'Gehört der Fuhrpark auch dazu?',
-    a: 'Ja. Der Gesamtenergieverbrauch umfasst alle Energieträger und alle Standorte einschließlich der Beförderung — auch Verkaufs-, Verwaltungs- und Lagerräume. Fuhrpark und Nebenflächen werden häufig vergessen, gehören aber in die Bilanz. Bei vielen vergleichbaren Fahrzeugen genügt die Untersuchung einer repräsentativen Auswahl.',
+    a: 'Ja. Der Gesamtenergieverbrauch umfasst alle Energieträger und alle Standorte einschließlich der Beförderung – auch Verkaufs-, Verwaltungs- und Lagerräume. Fuhrpark und Nebenflächen werden häufig vergessen, gehören aber in die Bilanz. Bei vielen vergleichbaren Fahrzeugen genügt die Untersuchung einer repräsentativen Auswahl.',
   },
   {
     q: 'Wann gilt eine Maßnahme als wirtschaftlich?',
-    a: 'Das ist in § 9 EnEfG definiert: Eine Maßnahme gilt als wirtschaftlich, wenn sich bei der Betrachtung nach DIN EN 17463 nach höchstens der Hälfte der Nutzungsdauer ein positiver Kapitalwert ergibt — begrenzt auf Maßnahmen mit einer Nutzungsdauer von maximal fünfzehn Jahren. Für die Nutzungsdauer sind die Abschreibungstabellen des Bundesfinanzministeriums maßgeblich. Bewusst nicht maßgeblich ist die einfache Amortisationszeit: Sie blendet die Lebensdauer der Investition aus und gilt nach dem BAFA-Leitfaden als ungeeignetes Kriterium.',
+    a: 'Das ist in § 9 EnEfG definiert: Eine Maßnahme gilt als wirtschaftlich, wenn sich bei der Betrachtung nach DIN EN 17463 nach höchstens der Hälfte der Nutzungsdauer ein positiver Kapitalwert ergibt – begrenzt auf Maßnahmen mit einer Nutzungsdauer von maximal fünfzehn Jahren. Für die Nutzungsdauer sind die Abschreibungstabellen des Bundesfinanzministeriums maßgeblich. Bewusst nicht maßgeblich ist die einfache Amortisationszeit: Sie blendet die Lebensdauer der Investition aus und gilt nach dem BAFA-Leitfaden als ungeeignetes Kriterium.',
   },
   {
     q: 'Wer bestätigt unseren Umsetzungsplan?',
-    a: 'Unternehmen oberhalb von 2,5 Gigawattstunden müssen Umsetzungspläne erstellen, veröffentlichen und sich Vollständigkeit und Richtigkeit vor der Veröffentlichung bestätigen lassen — durch Zertifizierer, Umweltgutachter oder zugelassene Energieauditoren. Die Bestätigung muss von einem unabhängigen Dritten kommen: Wer die Maßnahmen bewertet hat, darf sie nicht selbst bestätigen. Für Ihr eigenes Audit brauchen Sie also jemand anderen — umgekehrt übernimmt Waldemar Brauer diese Prüfung für Audits, die nicht von ihm stammen.',
+    a: 'Unternehmen oberhalb von 2,5 Gigawattstunden müssen Umsetzungspläne erstellen, veröffentlichen und sich Vollständigkeit und Richtigkeit vor der Veröffentlichung bestätigen lassen – durch Zertifizierer, Umweltgutachter oder zugelassene Energieauditoren. Die Bestätigung muss von einem unabhängigen Dritten kommen: Wer die Maßnahmen bewertet hat, darf sie nicht selbst bestätigen. Für Ihr eigenes Audit brauchen Sie also jemand anderen – umgekehrt übernimmt Waldemar Brauer diese Prüfung für Audits, die nicht von ihm stammen.',
   },
   {
     q: 'Müssen wir das Audit beim BAFA melden?',
@@ -213,7 +214,7 @@ const faqsRest = [
   },
   {
     q: 'Gibt es Fördermöglichkeiten?',
-    a: 'Für Pflichtaudits nach EDL-G gibt es laut BAFA keine Förderung — die Durchführung ist gesetzlich vorgeschrieben. Eine Ausnahme nennt das BAFA für Unternehmen mit höchstens 500.000 Kilowattstunden Jahresverbrauch: Dort kommt eine Förderung über die Richtlinie Energieberatung für Nichtwohngebäude, Anlagen und Systeme in Betracht. Für freiwillige Beratungsleistungen gelten eigene Programme. Was für Sie infrage kommt, klären wir vor der Beauftragung — eine pauschale Zusage lässt sich daraus nicht ableiten.',
+    a: 'Für Pflichtaudits nach EDL-G gibt es laut BAFA keine Förderung – die Durchführung ist gesetzlich vorgeschrieben. Eine Ausnahme nennt das BAFA für Unternehmen mit höchstens 500.000 Kilowattstunden Jahresverbrauch: Dort kommt eine Förderung über die Richtlinie Energieberatung für Nichtwohngebäude, Anlagen und Systeme in Betracht. Für freiwillige Beratungsleistungen gelten eigene Programme. Was für Sie infrage kommt, klären wir vor der Beauftragung – eine pauschale Zusage lässt sich daraus nicht ableiten.',
   },
   {
     q: 'Betreut BESS Consulting unseren Standort?',
@@ -225,7 +226,7 @@ const faqsRest = [
   },
   {
     q: 'Müssen wir wirklich jeden Standort auditieren?',
-    a: 'In der Regel nicht. Das vom BAFA beschriebene Multi-Site-Verfahren erlaubt es, vergleichbare Standorte zu Clustern zusammenzufassen und daraus eine Stichprobe zu untersuchen — die Wurzel aus der Anzahl der Standorte je Cluster, aufgerundet auf die nächste ganze Zahl. Standorte, die zusammen unter zehn Prozent des Gesamtverbrauchs liegen, bleiben unberücksichtigt; nicht vergleichbare Standorte werden einzeln betrachtet. Im BAFA-Beispiel reduziert das zwölf Standorte auf sechs zu untersuchende. Wichtig: Das Verfahren setzt vergleichbare Standorte voraus und ist bei Produktionsstätten und Krankenhäusern meist nicht anwendbar. Der Gesamtenergieverbrauch bleibt in jedem Fall vollständig zu erfassen.',
+    a: 'In der Regel nicht. Das vom BAFA beschriebene Multi-Site-Verfahren erlaubt es, vergleichbare Standorte zu Clustern zusammenzufassen und daraus eine Stichprobe zu untersuchen – die Wurzel aus der Anzahl der Standorte je Cluster, aufgerundet auf die nächste ganze Zahl. Standorte, die zusammen unter zehn Prozent des Gesamtverbrauchs liegen, bleiben unberücksichtigt; nicht vergleichbare Standorte werden einzeln betrachtet. Im BAFA-Beispiel reduziert das zwölf Standorte auf sechs zu untersuchende. Wichtig: Das Verfahren setzt vergleichbare Standorte voraus und ist bei Produktionsstätten und Krankenhäusern meist nicht anwendbar. Der Gesamtenergieverbrauch bleibt in jedem Fall vollständig zu erfassen.',
   },
   {
     q: 'Können wir mehrere Standorte einbeziehen?',
@@ -245,7 +246,7 @@ const faqsRest = [
   },
   {
     q: 'Ist eine bestimmte Einsparung garantiert?',
-    a: 'Für den Energie-Quickcheck gibt es eine Einsparpotenzialgarantie: Finden wir nicht genügend nicht- oder geringinvestive Maßnahmen mit einer Amortisation unter einem Jahr, verzichten wir auf die Rechnungsstellung. Sie gilt ab 200.000 Euro Energiekosten pro Jahr und bezieht sich auf die ermittelten Maßnahmen. Eine Garantie auf die tatsächlich erzielte Einsparung wäre dagegen nicht belastbar — die hängt von Umsetzung, Betriebszeiten, Energiepreisen und Nutzung ab.',
+    a: 'Für den Energie-Quickcheck ja: Bei Energiekosten ab 200.000 Euro pro Jahr garantieren wir mindestens 20.000 Euro rechnerisches Einsparpotenzial aus nicht- oder geringinvestiven Maßnahmen mit einer Amortisation unter einem Jahr. Andernfalls verzichten wir auf das Honorar. Eine Garantie auf die tatsächlich erzielte Einsparung wäre dagegen nicht belastbar – die hängt von Umsetzung, Betriebszeiten, Energiepreisen und Nutzung ab.',
   },
   {
     q: 'Profitieren wir automatisch vom Industriestrompreis?',
@@ -275,10 +276,10 @@ const faqSchema = {
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="robots" content={indexable ? 'index,follow' : 'noindex,follow'} />
     {indexable && <link rel="canonical" href={siteUrl} />}
-    <title>Energieaudit und Abwärmeberatung | BESS Consulting</title>
+    <title>Energieaudit nach DIN EN 16247-1 | BESS Consulting</title>
     <meta
       name="description"
-      content="Energieaudit, Abwärmeberatung und Energie-Quickchecks mit Umsetzungsbegleitung. Über 50 Audits nach DIN EN 16247-1, über 90 Projekte in DACH. Waldemar Brauer, BESS Consulting."
+      content="Energieaudit nach DIN EN 16247-1, Energie-Quickcheck mit Einsparpotenzialgarantie und Umsetzungsbegleitung. Über 50 Audits, über 90 Projekte in DACH und Nordmazedonien."
     />
     <meta property="og:title" content="Nicht noch ein Bericht. Sondern das Ergebnis. | BESS Consulting" />
     <meta
@@ -326,14 +327,16 @@ const faqSchema = {
               Maßnahmen laufen.
             </p>
             <p class="hero-source">
-              Erhebung des EEP der Universität Stuttgart mit Fraunhofer IPA unter 3.270
-              Energieauditoren, 2016: Umsetzungsquote deutlich unter einem Drittel.
+              Markterhebung des Instituts für Energieeffizienz in der Produktion (EEP) der
+              Universität Stuttgart mit Fraunhofer IPA, Befragung von 3.270 Energieauditoren,
+              2016: Die Umsetzungsquote der vorgeschlagenen Maßnahmen liegt deutlich unter
+              einem Drittel.
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#kontakt">Erstgespräch vereinbaren</a>
-              <a class="textlink" href="#angebote">Die zwei Wege ansehen</a>
+              <a class="textlink" href="#angebote">Die drei Angebote ansehen</a>
             </div>
-            <p class="hero-note">BESS Consulting · Waldemar Brauer, M.Sc. · European EnergyManager · Energieeffizienz-Experte (BAFA)</p>
+            <p class="hero-note">BESS Consulting · Waldemar Brauer, M.Sc. · European EnergyManager · Energieeffizienz-Experte für Förderprogramme des Bundes</p>
           </div>
 
           <aside class="duty-card" aria-labelledby="duty-title">
@@ -390,8 +393,10 @@ const faqSchema = {
             </ol>
 
             <p class="duty-foot">
-              <span class="duty-flag">Novelle beschlossen</span>
-              Die Schwellen verschieben sich, sobald die Gesetzesänderung in Kraft tritt.
+              <span class="duty-flag">Novelle im Verfahren</span>
+              Das Bundeskabinett hat am 24. Juni 2026 einen Gesetzentwurf beschlossen. Bundestag und
+              Bundesrat müssen noch zustimmen, das Inkrafttreten wird für Ende 2026 erwartet. Bis dahin
+              gelten die genannten Werte. Stand: 11.09.2026.
               <a href={url('/blog/energieauditpflicht-enefg/')}>Einordnung der Pflichten lesen</a>
             </p>
           </aside>
@@ -407,7 +412,7 @@ const faqSchema = {
           </div>
           <div class="trust-item">
             <span class="trust-value">50+ Energieaudits</span>
-            <span class="trust-label">Nach DIN EN 16247-1, dazu über 90 Projekte in DACH und Mazedonien</span>
+            <span class="trust-label">Nach DIN EN 16247-1, dazu über 90 Projekte in DACH und Nordmazedonien</span>
           </div>
           <div class="trust-item">
             <span class="trust-value">Förderung mitgedacht</span>
@@ -479,7 +484,7 @@ const faqSchema = {
       <section class="section shell" id="angebote">
         <div class="section-head reveal">
           <div>
-            <p class="eyebrow">02 / Zwei Wege</p>
+            <p class="eyebrow">02 / Drei Wege</p>
             <h2>Schnell anfangen oder <em>bis zum Ergebnis gehen.</em></h2>
           </div>
           <p class="lead">
@@ -515,19 +520,21 @@ const faqSchema = {
         <div class="garantie reveal">
           <div class="garantie-siegel" aria-hidden="true">
             <strong>&lt;1</strong>
-            <span>Jahr</span>
+            <span>Jahr Amortisation</span>
           </div>
           <div>
             <p class="eyebrow">Kundenversprechen</p>
             <h3>Einsparpotenzialgarantie für den Quickcheck</h3>
             <p>
-              Finden wir nicht genügend nicht- oder geringinvestive Maßnahmen mit einer
-              Amortisation unter einem Jahr, verzichten wir auf die Rechnungsstellung.
+              Bei Energiekosten ab 200.000 € pro Jahr garantieren wir, dass der Quickcheck nicht-
+              oder geringinvestive Maßnahmen mit einem rechnerischen Einsparpotenzial von
+              mindestens 20.000 € pro Jahr und einer Amortisation unter einem Jahr ausweist.
+              Andernfalls verzichten wir auf das Honorar.
             </p>
             <p class="garantie-bedingung">
-              Gültig ab 200.000 € Energiekosten pro Jahr. Die Zusage bezieht sich auf die im
-              Quickcheck ermittelten Maßnahmen. Was davon tatsächlich eingespart wird, hängt
-              von Umsetzung, Betriebszeiten und Energiepreisen ab.
+              Das Einsparpotenzial wird auf Basis der bei der Begehung erfassten Betriebszeiten
+              und der aktuellen Energiepreise berechnet. Was davon tatsächlich eingespart wird,
+              hängt von der Umsetzung ab.
             </p>
           </div>
         </div>
@@ -535,7 +542,7 @@ const faqSchema = {
         <div class="branchen reveal">
           <p class="branchen-intro">
             <strong>Branchenmodule.</strong> Gleiche Norm, andere Sprache: Ein Lackierer hat andere
-            Fragen als ein Bürogebäude. Für diese Bereiche liegen fertige Module vor — andere
+            Fragen als ein Bürogebäude. Für diese Bereiche liegen fertige Module vor – andere
             Branchen richten wir im Erstgespräch ein.
           </p>
           <ul>
@@ -556,7 +563,7 @@ const faqSchema = {
         <div class="multisite">
           <div class="multisite-copy reveal">
             <p class="eyebrow">Mehrere Standorte</p>
-            <h2>Zwölf Werke. <em>Sechs Audits.</em></h2>
+            <h2>Zwölf Standorte. <em>Sechs Begehungen.</em></h2>
             <p class="lead" style="margin-top:var(--s3);max-width:44ch">
               Wer mehrere Standorte betreibt, muss nicht jeden einzeln auditieren lassen. Das
               Multi-Site-Verfahren fasst Vergleichbares zusammen und untersucht eine
@@ -566,7 +573,7 @@ const faqSchema = {
               Systematik nach dem Anwendungsbeispiel des Bundesamts für Wirtschaft und
               Ausfuhrkontrolle. Das Verfahren passt zu Filial- und Niederlassungsstrukturen.
               Bei Produktionsstätten und Krankenhäusern ist es meist nicht anwendbar, weil die
-              Vergleichbarkeit fehlt — das prüfen wir vorab. Und: Der Gesamtenergieverbrauch
+              Vergleichbarkeit fehlt – das prüfen wir vorab. Und: Der Gesamtenergieverbrauch
               ist immer vollständig zu erfassen, das Verfahren reduziert nur die Begehungen.
             </p>
           </div>
@@ -788,13 +795,22 @@ const faqSchema = {
               </p>
             </div>
 
-            <div class="booking-frame">
-              <iframe
-                src="https://calendly.com/w-brauer-bess-consulting/30min?primary_color=1d7f95&text_color=12262c&hide_landing_page_details=1"
-                title="Terminkalender von Waldemar Brauer, BESS Consulting"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
+            <div class="booking-frame" id="booking-frame">
+              <div class="booking-consent" id="booking-consent">
+                <p class="booking-consent-titel">Kalender erst nach Ihrer Zustimmung laden</p>
+                <p>
+                  Der Terminkalender wird von Calendly LLC in den USA bereitgestellt. Beim Laden
+                  werden Ihre IP-Adresse und Browserdaten an den Anbieter übertragen, der dabei
+                  eigene Cookies setzen kann.
+                </p>
+                <button class="btn btn-leaf" type="button" id="booking-laden">
+                  Kalender laden und Termin wählen
+                </button>
+                <p class="booking-consent-fuss">
+                  Ihre Zustimmung gilt für diesen Besuch.
+                  <a href={url('/datenschutzerklaerung/')}>Hinweise zum Datenschutz</a>
+                </p>
+              </div>
             </div>
 
             <p class="booking-fallback">
