@@ -99,6 +99,23 @@
       });
     }
 
+    // Weitere Karten mit data-tilt folgen der Maus, schwächer als die Pflicht-Karte
+    if (window.matchMedia('(hover: hover)').matches) {
+      Array.prototype.forEach.call(document.querySelectorAll('[data-tilt]'), function (karte) {
+        karte.addEventListener('pointermove', function (e) {
+          var box = karte.getBoundingClientRect();
+          var relX = (e.clientX - box.left) / box.width - 0.5;
+          var relY = (e.clientY - box.top) / box.height - 0.5;
+          karte.style.setProperty('--tilt-y', (relX * 5).toFixed(2) + 'deg');
+          karte.style.setProperty('--tilt-x', (-relY * 4).toFixed(2) + 'deg');
+        });
+        karte.addEventListener('pointerleave', function () {
+          karte.style.setProperty('--tilt-y', '0deg');
+          karte.style.setProperty('--tilt-x', '0deg');
+        });
+      });
+    }
+
     var parallax = function () {
       laeuft = false;
       var y = window.scrollY;

@@ -563,3 +563,12 @@ Versionen verlieren mit Erscheinen einer neuen ihre Gültigkeit. Vor jeder
 inhaltlichen Änderung die dortige Fassung ziehen. In den Merkblättern (Stand
 01.09.2026) findet sich **kein Hinweis auf die Novelle 2026** — die Aussage dazu
 stützt sich weiterhin auf Kabinettsbeschluss und Fachquellen, nicht auf das BAFA.
+
+## Nachtrag 16.10.2026 — Optik-Runde
+
+Umgesetzt: Garantie als dunkle Glas-Karte mit drei Zahlenkacheln (an Quickcheck, 200.000-€-Schwelle und Berechnung gebunden), Angebots-Tags kompakt, Ergebnis-Karten mit Tiefe, Kontaktkarte mit Telefon/Mobil/Büro und Terminsprung, Wissens-Teaser mit Artikelliste, Kalender-Zustimmung zweispaltig mit dekorativer Skizze, generische Mausneigung `[data-tilt]`. Security-Review FREIGABE (zweiter Lauf).
+
+Offen vor Livegang (mit Waldemar klären):
+- 20.000 € schriftlich als Garantieschwelle bestätigen; Angebotskarte nennt sie „Zielgröße“, Garantie verspricht sie.
+- Garantie stützt sich auf Amortisation, FAQ nennt sie laut BAFA-Leitfaden ungeeignet; Methode im Quickcheck, Frist zur Berufung auf die Garantie, Rückfrage Berufshaftpflicht.
+- Niedrig: Tilt reagiert nicht auf spätere Änderung der Bewegungseinstellung.
