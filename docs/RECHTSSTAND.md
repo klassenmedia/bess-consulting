@@ -83,3 +83,11 @@ sein, dass sie nach dem Inkrafttreten automatisch falsch wird.
 - Genauer Wortlaut des Novellen-Entwurfs (nur über Fachquellen, nicht amtlich)
 - Ob § 9 EnEfG die 3-Monats-Frist in der Endfassung behält
 - BAFA-Merkblätter und Förderquoten (separat vor Livegang prüfen)
+
+## Nachtrag 16.10.2026
+
+Erste Lesung im Bundestag am 24.09.2026 (BT-Drs. 21/8027). Anhörung im
+Wirtschaftsausschuss laut Meldung für den 05.10.2026 angesetzt — ob sie
+stattgefunden hat, ist nicht geprüft; nicht auf die Seite übernehmen. Termin für die
+Schlussabstimmung offen. Quelle: GUTcert, 30.09.2026. Seite und Blogartikel
+auf diesen Stand gebracht. Nach Verkündung alle Schwellenwerte nachziehen.
