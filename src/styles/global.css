@@ -113,6 +113,19 @@ h2 {
   line-height: 1.02;
 }
 
+/* Logofarben als Akzent: ein Schlüsselwort je Überschrift, nicht jede Überschrift.
+   Türkis mit grünem Strich, auf dunklem Grund umgekehrt. */
+.hl {
+  color: var(--teal);
+  background: linear-gradient(var(--leaf), var(--leaf)) 0 94% / 100% .11em no-repeat;
+  animation: hl-strich .9s .3s cubic-bezier(.16, 1, .3, 1) both;
+}
+.anchor-band .hl, .contact .hl, .garantie .hl {
+  color: var(--leaf-light);
+  background-image: linear-gradient(var(--teal-light), var(--teal-light));
+}
+@keyframes hl-strich { from { background-size: 0 .11em; } }
+
 h3 { font-size: 23px; font-weight: 600; letter-spacing: 0; line-height: 1.2; }
 
 .mono, .trust-value, .offer-price strong, .garantie-zahl strong, .duty-value b, .multisite-num {
