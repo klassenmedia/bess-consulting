@@ -1,0 +1,98 @@
+---
+// Schematisches Energieflussbild (Sankey). Bewusst ohne Zahlen: zeigt das Prinzip,
+// keine Messwerte eines echten Betriebs.
+const QUELLE_X = 190;
+const ZIEL_X = 830;
+const VERLUST_Y = 575;
+
+const quellen = [
+  { name: 'Strom', von: 60, bis: 300 },
+  { name: 'Erdgas', von: 300, bis: 460 },
+];
+
+// Nutzbare Ströme: Lage an der Quelle (oben) und am Ziel (unten)
+const nutzung = [
+  { name: 'Produktion & Anlagen', quelle: [60, 180], ziel: [10, 130] },
+  { name: 'Wärme', quelle: [180, 270], ziel: [180, 270] },
+  { name: 'Druckluft & Kälte', quelle: [270, 340], ziel: [320, 390] },
+  { name: 'Antriebe & Licht', quelle: [340, 400], ziel: [440, 500] },
+];
+
+const verluste = [
+  { name: 'Abwärme', quelle: [400, 430], x: 300 },
+  { name: 'Leckagen', quelle: [430, 445], x: 450 },
+  { name: 'Leerlauf', quelle: [445, 460], x: 600 },
+];
+
+const mitte = ([a, b]: number[]) => (a + b) / 2;
+const breite = ([a, b]: number[]) => b - a;
+
+const nutzPfade = nutzung.map((n) => {
+  const y1 = mitte(n.quelle);
+  const y2 = mitte(n.ziel);
+  return {
+    ...n,
+    breite: breite(n.quelle),
+    d: `M${QUELLE_X},${y1} C${QUELLE_X + 300},${y1} ${ZIEL_X - 300},${y2} ${ZIEL_X},${y2}`,
+  };
+});
+
+const verlustPfade = verluste.map((v) => {
+  const y = mitte(v.quelle);
+  return {
+    ...v,
+    breite: breite(v.quelle),
+    d: `M${QUELLE_X},${y} C${v.x - 40},${y} ${v.x},${y + 20} ${v.x},${VERLUST_Y}`,
+  };
+});
+---
+
+<div class="fluss-szene" data-tilt>
+  <div
+    class="fluss-ebene"
+    role="img"
+    aria-label="Schema: Strom und Erdgas fließen in Produktion, Wärme, Druckluft und Antriebe. Ein Teil geht als Abwärme, durch Leckagen und im Leerlauf verloren."
+  >
+    <div class="fluss-raster" aria-hidden="true"></div>
+    <svg class="fluss-baender" viewBox="0 0 1100 660" aria-hidden="true">
+      <defs>
+        <linearGradient id="fluss-nutz" gradientUnits="userSpaceOnUse" x1="190" x2="840" y1="0" y2="0">
+          <stop offset="0" stop-color="#4bb3c9" />
+          <stop offset="1" stop-color="#7cc242" />
+        </linearGradient>
+        <linearGradient id="fluss-verlust" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="400" y2="575">
+          <stop offset="0" stop-color="#4bb3c9" />
+          <stop offset=".55" stop-color="#e3a33b" />
+          <stop offset="1" stop-color="#e06a3b" />
+        </linearGradient>
+      </defs>
+      {nutzPfade.map((n) => (
+        <path class="band" d={n.d} stroke="url(#fluss-nutz)" stroke-width={n.breite - 3} />
+      ))}
+      {verlustPfade.map((v) => (
+        <path class="band is-verlust" d={v.d} stroke="url(#fluss-verlust)" stroke-width={v.breite - 2} />
+      ))}
+      {[...nutzPfade, ...verlustPfade].map((p) => (
+        <path class="strom" d={p.d} />
+      ))}
+      {quellen.map((q) => (
+        <rect class="block" x={QUELLE_X - 22} y={q.von + 1} width="22" height={q.bis - q.von - 2} />
+      ))}
+      {nutzung.map((n) => (
+        <rect class="block is-ziel" x={ZIEL_X} y={n.ziel[0] + 1.5} width="10" height={breite(n.ziel) - 3} />
+      ))}
+    </svg>
+    <svg class="fluss-texte" viewBox="0 0 1100 660" aria-hidden="true">
+      {quellen.map((q) => (
+        <text x={QUELLE_X - 36} y={mitte([q.von, q.bis]) + 7} text-anchor="end">{q.name}</text>
+      ))}
+      {nutzung.map((n) => (
+        <text x={ZIEL_X + 26} y={mitte(n.ziel) + 7}>{n.name}</text>
+      ))}
+      {verluste.map((v) => (
+        <text class="is-verlust" x={v.x} y={VERLUST_Y + 40} text-anchor="middle">{v.name}</text>
+      ))}
+    </svg>
+  </div>
+  <p class="fluss-hinweis">Schematisches Energieflussbild, nicht maßstäblich</p>
+</div>

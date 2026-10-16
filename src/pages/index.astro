@@ -1,7 +1,12 @@
 ---
 import { url } from '../lib/url';
 import artikel from '../content/articles.json';
-import '@fontsource-variable/manrope';
+import Energiefluss from '../components/Energiefluss.astro';
+import '@fontsource/barlow/400.css';
+import '@fontsource/barlow/500.css';
+import '@fontsource/barlow/600.css';
+import '@fontsource/barlow-semi-condensed/600.css';
+import '@fontsource/barlow-semi-condensed/700.css';
 import '../styles/global.css';
 
 const indexable = import.meta.env.PUBLIC_INDEXABLE === 'true';
@@ -28,28 +33,21 @@ const entity = {
 
 const results = [
   {
-    num: '01 / Verstehen',
     title: 'Eine Übersicht Ihres Energieeinsatzes',
     copy: 'Verbräuche, Energieträger und wesentliche Anlagen im Zusammenhang betrachten. Damit sichtbar wird, wo eine vertiefte Analyse ansetzt.',
-    icon: '<path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/>',
   },
   {
-    num: '02 / Bewerten',
     title: 'Eine Bewertung möglicher Maßnahmen',
     copy: 'Effizienzmaßnahmen nach technischem Potenzial, Investitionsbedarf und erwartetem Nutzen einordnen. Mit offengelegten Annahmen.',
-    icon: '<path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-2 6a3.2 3.2 0 0 0 4 0Z"/><path d="m19 7 2 6a3.2 3.2 0 0 1-4 0Z"/>',
   },
   {
-    num: '03 / Umsetzen',
     title: 'Jemanden, der dranbleibt',
     copy: 'Rückfragen zum Bericht beantworten wir bis drei Monate nach der Abschlussbesprechung. Wer länger Begleitung möchte, bucht sie als Paket über 48 Monate dazu.',
-    icon: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/><path d="M9 14h6"/><path d="M9 17h4"/>',
   },
 ];
 
 const angebote = [
   {
-    tag: 'Der schnelle Einstieg',
     name: 'Energie-Quickcheck',
     price: 'auf Anfrage',
     priceNote: 'zzgl. USt. und Reisekosten · In Baden-Württemberg über EnergizeBW förderfähig, bei der Antragstellung unterstützen wir kostenlos',
@@ -63,7 +61,6 @@ const angebote = [
     featured: false,
   },
   {
-    tag: 'Die Pflicht erfüllen',
     name: 'Energieaudit nach DIN EN 16247-1',
     price: 'ab 4.800 €',
     priceNote: 'zzgl. USt. und Reisekosten · Ein Standort bis 5 GWh: 4.800 €, von 5 bis 20 GWh: 5.800 €. Darüber und bei mehreren Standorten erstellen wir ein individuelles Angebot.',
@@ -78,7 +75,6 @@ const angebote = [
     featured: false,
   },
   {
-    tag: 'Das Rundum-Paket',
     name: 'Audit + 48 Monate Begleitung',
     price: '8.500 €',
     priceNote: 'zzgl. USt. und Reisekosten · Eine Förderung kann den Eigenanteil senken. Was für Sie infrage kommt, prüfen wir vor der Beauftragung.',
@@ -320,12 +316,11 @@ const faqSchema = {
       <section class="hero">
         <div class="shell hero-layout">
           <div>
-            <p class="eyebrow">Energieaudit und Umsetzungsbegleitung für Unternehmen</p>
-            <h1>Nicht noch ein Bericht.<br /><em>Sondern das Ergebnis.</em></h1>
+            <h1>Energieaudit, bis die Maßnahmen laufen</h1>
             <p class="lead hero-copy">
               Die Mehrheit aller Audit-Empfehlungen wird nie umgesetzt. Der Bericht landet
-              in der Schublade, die Kosten bleiben. Wir bleiben ansprechbar, bis die
-              Maßnahmen laufen.
+              in der Schublade, die Kosten bleiben. Wir bleiben ansprechbar, während
+              Sie umsetzen.
             </p>
             <p class="hero-source">
               Markterhebung des Instituts für Energieeffizienz in der Produktion (EEP) der
@@ -337,7 +332,7 @@ const faqSchema = {
               <a class="btn btn-primary" href="#kontakt">Erstgespräch vereinbaren</a>
               <a class="textlink" href="#angebote">Die drei Angebote ansehen</a>
             </div>
-            <p class="hero-note">BESS Consulting · Waldemar Brauer, M.Sc. · European EnergyManager · Energieeffizienz-Experte für Förderprogramme des Bundes</p>
+            <p class="hero-note">Energieaudit nach DIN EN 16247-1 und Umsetzungsbegleitung · Waldemar Brauer, M.Sc. · European EnergyManager · Energieeffizienz-Experte für Förderprogramme des Bundes</p>
           </div>
 
           <aside class="duty-card" aria-labelledby="duty-title">
@@ -430,8 +425,7 @@ const faqSchema = {
       <section class="section shell" id="ergebnis">
         <div class="section-head reveal">
           <div>
-            <p class="eyebrow">01 / Was Sie weiterbringt</p>
-            <h2>Was am Ende <em>dabei herauskommt.</em></h2>
+            <h2>Was Sie nach dem Audit in der Hand haben</h2>
           </div>
           <p class="lead">
             Ein gutes Audit beantwortet die Fragen, die für Ihren Betrieb zählen: Wo genauer
@@ -439,16 +433,10 @@ const faqSchema = {
           </p>
         </div>
 
-        <div class="results">
+        <div class="results reveal">
           {
             results.map((r) => (
-              <article class="result reveal">
-                <div class="result-top">
-                  <span class="result-num">{r.num}</span>
-                  <span class="result-symbol" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" set:html={r.icon} />
-                  </span>
-                </div>
+              <article class="result">
                 <h3>{r.title}</h3>
                 <p>{r.copy}</p>
               </article>
@@ -461,13 +449,17 @@ const faqSchema = {
       <section class="anchor-band" aria-labelledby="anchor-title">
         <img class="anchor-photo" src={url('/assets/industrial.webp')} alt="" aria-hidden="true" loading="lazy" decoding="async" />
         <div class="shell anchor-inner">
-          <p class="eyebrow">Der Blick auf Ihren Betrieb</p>
-          <h2 id="anchor-title">Energie verschwindet dort, <em>wo niemand hinsieht.</em></h2>
-          <p class="anchor-lead">
-            Die Verluste liegen selten an einer einzigen Stelle. Sie verteilen sich über
-            Betriebszeiten, Regelung und Anlagen, die seit Jahren unverändert laufen. Genau
-            dort setzt die Untersuchung an.
-          </p>
+          <div class="anchor-kopf">
+            <div>
+              <h2 id="anchor-title">Wo im Betrieb Energie verloren geht</h2>
+              <p class="anchor-lead">
+                Die Verluste liegen selten an einer einzigen Stelle. Sie verteilen sich über
+                Betriebszeiten, Regelung und Anlagen, die seit Jahren unverändert laufen. Genau
+                dort setzt die Untersuchung an.
+              </p>
+            </div>
+            <Energiefluss />
+          </div>
           <ul class="anchor-fields">
             {
               fields.map((f) => (
@@ -485,8 +477,7 @@ const faqSchema = {
       <section class="section shell" id="angebote">
         <div class="section-head reveal">
           <div>
-            <p class="eyebrow">02 / Drei Wege</p>
-            <h2>Schnell anfangen oder <em>bis zum Ergebnis gehen.</em></h2>
+            <h2>Quickcheck, Energieaudit oder vier Jahre Begleitung</h2>
           </div>
           <p class="lead">
             Alle drei Wege beginnen im Betrieb, nicht am Schreibtisch. Der Unterschied liegt darin,
@@ -498,7 +489,6 @@ const faqSchema = {
           {
             angebote.map((a) => (
               <article class={a.featured ? 'offer is-featured reveal' : 'offer reveal'}>
-                <span class="offer-tag">{a.tag}</span>
                 <h3>{a.name}</h3>
                 <p class="offer-lead">{a.lead}</p>
                 <ul class="offer-points">
@@ -535,7 +525,6 @@ const faqSchema = {
             </div>
           </div>
           <div class="garantie-text">
-            <p class="eyebrow">Kundenversprechen</p>
             <h3>Einsparpotenzialgarantie für den Quickcheck</h3>
             <p>
               Bei Energiekosten ab 200.000 € pro Jahr garantieren wir, dass der Quickcheck nicht-
@@ -574,8 +563,7 @@ const faqSchema = {
       <section class="section shell" id="standorte">
         <div class="multisite">
           <div class="multisite-copy reveal">
-            <p class="eyebrow">Mehrere Standorte</p>
-            <h2>Zwölf Standorte. <em>Sechs Begehungen.</em></h2>
+            <h2>Zwölf Standorte, sechs Begehungen</h2>
             <p class="lead" style="margin-top:var(--s3);max-width:44ch">
               Wer mehrere Standorte betreibt, muss nicht jeden einzeln auditieren lassen. Das
               Multi-Site-Verfahren fasst Vergleichbares zusammen und untersucht eine
@@ -610,8 +598,7 @@ const faqSchema = {
       <section class="method section" id="ablauf">
         <div class="shell method-grid">
           <div class="reveal">
-            <p class="eyebrow">03 / Die Zusammenarbeit</p>
-            <h2>Wir beginnen dort, wo Sie <em>Energie einsetzen.</em></h2>
+            <h2>So läuft die Zusammenarbeit</h2>
             <p class="lead method-intro">
               Sie kennen Ihren Betrieb. BESS Consulting bringt den systematischen Blick auf Ihren
               Energieeinsatz ein. Ziele, Datenbedarf und Umfang stimmen wir zu Beginn ab.
@@ -656,8 +643,7 @@ const faqSchema = {
         </figure>
 
         <div class="expert-copy reveal">
-          <p class="eyebrow">04 / Ihr Ansprechpartner</p>
-          <h2>Sie sprechen direkt <em>mit Waldemar Brauer.</em></h2>
+          <h2>Sie sprechen direkt mit Waldemar Brauer</h2>
           <p class="lead">
             Welche Lösung passt zu Ihren Anlagen, Ihren Abläufen und Ihren wirtschaftlichen
             Zielen? Darauf richtet Waldemar Brauer die Beratung aus.
@@ -693,8 +679,7 @@ const faqSchema = {
         <div class="shell">
           <div class="section-head reveal">
             <div>
-              <p class="eyebrow">05 / Vor dem ersten Gespräch</p>
-              <h2 id="faq-title">Was Sie vorab <em>wissen möchten.</em></h2>
+              <h2 id="faq-title">Häufige Fragen zum Energieaudit</h2>
             </div>
             <p class="lead">
               Die Fragen, die im Erstgespräch am häufigsten kommen. Falls Ihre nicht dabei ist:
@@ -736,8 +721,7 @@ const faqSchema = {
       <section class="knowledge-teaser shell">
         <div class="teaser-card reveal">
           <div>
-            <p class="eyebrow">Wissen für Ihre Entscheidung</p>
-            <h2>Manche Fragen brauchen mehr Raum.</h2>
+            <h2>Fachartikel zu Pflicht, Kosten und Förderung</h2>
             <p>
               Industriestrompreis, betriebliche Pflichten oder die Vorbereitung des Audits: Im
               Wissensbereich ordnen wir die Hintergründe ein.
@@ -764,8 +748,7 @@ const faqSchema = {
         <div class="shell">
           <div class="contact-grid">
             <div>
-              <p class="eyebrow">Ihr nächster Schritt</p>
-              <h2>Wo möchten Sie <em>genauer hinschauen?</em></h2>
+              <h2>Schreiben Sie uns, worum es geht</h2>
               <p>
                 Nennen Sie uns Ihren Betrieb, Ihren Standort und Ihr Anliegen. Wir besprechen,
                 welche Unterstützung Sie brauchen und welche Unterlagen dafür hilfreich sind.
@@ -813,8 +796,7 @@ const faqSchema = {
           <div class="booking" id="termin">
             <div class="booking-head">
               <div>
-                <p class="eyebrow">Termin direkt wählen</p>
-                <h3>Dreißig Minuten, unverbindlich.</h3>
+                <h3>Oder gleich einen Termin wählen: 30 Minuten, unverbindlich</h3>
                 <p class="booking-lead">
                   Suchen Sie sich einen freien Termin aus. Wir klären Ihren Anlass, den
                   passenden Umfang und welche Unterlagen wir brauchen.
