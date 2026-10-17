@@ -578,3 +578,10 @@ Offen vor Livegang (mit Waldemar klären):
 Umgesetzt (Branch design-ohne-ki-look): Eyebrows, zweifarbige Überschriften, Pillen-Buttons, Icon-Kacheln, Kreisnummern raus; Schrift Barlow/Barlow Semi Condensed; kleine Radien; Linie über Abschnitten; 3D-Energieflussbild (src/components/Energiefluss.astro, schematisch); Wortakzente als Verlauf Türkis → Grün in vier Überschriften; Artikel-Novelle korrigiert; Test tests/inhalte.test.mjs sichert Preise, Garantie, Novelle-Wortlaut. Security-Review FREIGABE.
 
 Offen: feste SVG-IDs in Energiefluss.astro (nur relevant bei Mehrfacheinbindung); CSP aus .htaccess wirkt auf GitHub Pages nicht, erst auf eigener Domain prüfen.
+
+## Nachtrag 17.10.2026 — Bildrechte
+
+- EUREM-Logo: Waldemar hat Andreas im Call mündlich bestätigt, dass er das Logo als Absolvent nutzen darf (Angabe Andreas, 17.10.2026). Keine schriftliche Zustimmung im Repo; bei Bedarf Logopaket bei der IHK anfordern.
+- Porträt: Foto Andreas Klassen, KlassenMedia (im Impressum genannt).
+- Hintergrund `industrial.webp`: Herkunft weiter offen.
+- Offene Fragen an Waldemar per Mail vom 17.10.2026 (Entwurf von Andreas versendet): Garantieschwelle, Amortisation/Frist/Haftpflicht, Quickcheck-Preis, Bearbeitungszeit/Anrechnung, Begleitpaket-Umfang, Referenzen, USt-IdNr./Kammer, Calendly-DPA.
