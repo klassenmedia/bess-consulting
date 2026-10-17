@@ -6,7 +6,7 @@ Stand der Prüfung: 10.09.2026
 - `EDL-G.pdf` — Energiedienstleistungsgesetz, zuletzt geändert durch Art. 3 G
   vom 27.02.2025 (BGBl. 2025 I Nr. 70)
 
-Beide Fassungen enthalten die Novelle 2026 **nicht** — sie ist beschlossen,
+Beide Fassungen enthalten die Novelle 2026 **nicht** — sie ist im Gesetzgebungsverfahren,
 aber noch nicht verkündet. Damit sind die Schwellenwerte auf der Website aktuell.
 
 Die BAFA-Arbeitsunterlagen (Merkblätter, Leitfaden, FAQ, Multi-Site-Grafik,

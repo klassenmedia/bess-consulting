@@ -51,7 +51,7 @@ Re-Zertifizierung. Bestätigung von Vollständigkeit und Richtigkeit durch
 Zertifizierer, Umweltgutachter oder Energieauditoren; Nachweis gegenüber
 dem BAFA über elektronisches Formular. Geschäftsgeheimnisse ausgenommen.
 
-## Novelle 2026 — beschlossen, NOCH NICHT IN KRAFT
+## Novelle 2026 — Regierungsentwurf im Gesetzgebungsverfahren, NICHT IN KRAFT
 
 Kabinettsbeschluss **24.06.2026**, Stellungnahme Bundesrat 10.07.2026.
 Bundestag und Bundesrat müssen noch zustimmen. Erwartetes Inkrafttreten:

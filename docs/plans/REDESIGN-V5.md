@@ -255,7 +255,7 @@ Vollständiger Befund: `docs/RECHTSSTAND.md`.
 | Fundstelle | Problem | Korrektur |
 |---|---|---|
 | Pflicht-Karte Hero | „Kein KMU? Dann greift das EDL-G" — wird durch die Novelle hinfällig | Zeitbezug ergänzt, künftiger Verbrauchsmaßstab benannt |
-| FAQ „Sind wir verpflichtet?" | Novelle nicht erwähnt | Hinweis auf beschlossene, noch nicht geltende Änderung |
+| FAQ „Sind wir verpflichtet?" | Novelle nicht erwähnt | Hinweis auf geplante, noch nicht geltende Änderung |
 | Startseite gesamt | § 8a EDL-G kam nirgends vor | Neue FAQ „Nach welchen Regeln wird das Audit durchgeführt?" mit DIN EN 16247-1 (Ausgabe November 2022), 90-Prozent-Regel, Kapitalwertmethode |
 | Blog Auditpflicht | kein Novellen-Bezug, keine Normanforderungen | Zwei neue Abschnitte, amtliche Quellen verlinkt |
 | Blog Kosten | Angebotsvergleich ohne gesetzlichen Maßstab | 90-Prozent-Regel als Vergleichskriterium ergänzt |
@@ -572,3 +572,9 @@ Offen vor Livegang (mit Waldemar klären):
 - 20.000 € schriftlich als Garantieschwelle bestätigen; Angebotskarte nennt sie „Zielgröße“, Garantie verspricht sie.
 - Garantie stützt sich auf Amortisation, FAQ nennt sie laut BAFA-Leitfaden ungeeignet; Methode im Quickcheck, Frist zur Berufung auf die Garantie, Rückfrage Berufshaftpflicht.
 - Niedrig: Tilt reagiert nicht auf spätere Änderung der Bewegungseinstellung.
+
+## Nachtrag 17.10.2026 — Design ohne KI-Handschrift (V7)
+
+Umgesetzt (Branch design-ohne-ki-look): Eyebrows, zweifarbige Überschriften, Pillen-Buttons, Icon-Kacheln, Kreisnummern raus; Schrift Barlow/Barlow Semi Condensed; kleine Radien; Linie über Abschnitten; 3D-Energieflussbild (src/components/Energiefluss.astro, schematisch); Wortakzente als Verlauf Türkis → Grün in vier Überschriften; Artikel-Novelle korrigiert; Test tests/inhalte.test.mjs sichert Preise, Garantie, Novelle-Wortlaut. Security-Review FREIGABE.
+
+Offen: feste SVG-IDs in Energiefluss.astro (nur relevant bei Mehrfacheinbindung); CSP aus .htaccess wirkt auf GitHub Pages nicht, erst auf eigener Domain prüfen.
