@@ -9,7 +9,7 @@ Technisch sauber, redaktionell erwachsen. Schwach im Auftritt:
 1. CSS aus fünf angehängten Override-Blöcken gewachsen — ein dunkles Acid-Theme
    liegt unter drei Türkis-Layern begraben. Ergebnis: blass, ohne Rhythmus.
 2. Hero-Mockup ist erfundenes Fake-UI (SaaS-Optik), kein Aussagewert für Energieaudit.
-3. `industrial.webp` liegt ungenutzt im Ordner — Startseite hat nur ein Porträt.
+3. `industrial.webp` (Herkunft ungeklärt, stammt aus dem Ausgangsstand) dient seit V5 als Hintergrund des dunklen Bands; vor Livegang Herkunft klären oder ersetzen.
 4. FAQ-Sektion 1485 px hoch, 15 zugeklappte Zeilen am Stück = höchste und
    langweiligste Sektion der Seite.
 5. `motion` als Dependency installiert, `window.Motion` = false → wirkungslos.
