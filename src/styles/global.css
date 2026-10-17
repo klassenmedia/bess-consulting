@@ -128,6 +128,8 @@ h2 {
   .hl { color: var(--teal); background: none; }
 }
 
+.meta { margin: 0 0 var(--s2); font-size: 15px; font-weight: 500; color: var(--teal-text); }
+
 h3 { font-size: 23px; font-weight: 600; letter-spacing: 0; line-height: 1.2; }
 
 .mono, .trust-value, .offer-price strong, .garantie-zahl strong, .duty-value b, .multisite-num {
